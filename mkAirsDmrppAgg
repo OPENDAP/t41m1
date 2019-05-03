@@ -1,0 +1,320 @@
+#!/bin/bash
+
+
+airs_dir="dmrpp_s3/airs";
+
+agg_files=`ls ${airs_dir}/*.dmrpp`;
+#echo "agg_files ${agg_files}";
+
+agg_file_count=`echo "${agg_files}" | wc -l | tr -d '[:space:]'`;
+#echo "agg_file_count ${agg_file_count}";
+ 
+verbose=
+
+
+dmrpp_header=`cat<<EOF
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Dataset 
+    xmlns="http://xml.opendap.org/ns/DAP/4.0#" 
+    xmlns:dmrpp="http://xml.opendap.org/dap/dmrpp/1.0.0#" 
+    dapVersion="4.0" 
+    dmrVersion="1.0" 
+    name="AIRS.2015.dmrpp" >
+    
+    <Dimension name="Latitude" size="180"/>
+    <Dimension name="Longitude" size="360"/>
+    <Dimension name="Time" size="${agg_file_count}"/>
+    <Dimension name="StdPressureLev" size="24"/>
+    <Dimension name="H2OPressureLev" size="12"/>
+    <Dimension name="CoarseCloudLayer" size="3"/>
+    <Dimension name="EmisFreqMW" size="3"/>
+    <Dimension name="FineCloudLayer" size="12"/>
+    <Dimension name="H2OPressureLay" size="12"/>
+    <Dimension name="EmisFreqIR" size="4"/>
+EOF
+`
+dmrpp_close=`cat<<EOF
+</Dataset>
+EOF
+`
+
+
+clrolr_a_open=`cat<<EOF
+    <Float32 name="ClrOLR_A">
+        <Dim name="/Time"/>
+        <Dim name="/Latitude"/>
+        <Dim name="/Longitude"/>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>-9999.000000</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>ClrOLR_A</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/ClrOLR_A</Value>
+        </Attribute>
+        <dmrpp:chunks compressionType="deflate shuffle">
+            <dmrpp:chunkDimensionSizes>1 180 360</dmrpp:chunkDimensionSizes>
+EOF
+`
+clrolr_a_close=`cat<<EOF
+        </dmrpp:chunks>
+    </Float32>
+EOF
+`
+
+single_latitude_open=`cat<<EOF
+    <Float64 name="Latitude">
+        <Dim name="/Latitude"/>
+        <Attribute name="long_name" type="String">
+            <Value>Latitude</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>degrees_north</Value>
+        </Attribute>
+        <Attribute name="format" type="String">
+            <Value>F5.1</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Latitude</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Latitude</Value>
+        </Attribute>
+        <dmrpp:chunks compressionType="deflate shuffle">
+            <dmrpp:chunkDimensionSizes>180</dmrpp:chunkDimensionSizes>
+EOF
+`
+
+agg_latitude_open=`cat<<EOF
+    <Float64 name="Latitude_Agg">
+        <Dim name="/Time"/>
+        <Dim name="/Latitude"/>
+        <Attribute name="long_name" type="String">
+            <Value>Latitude</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>degrees_north</Value>
+        </Attribute>
+        <Attribute name="format" type="String">
+            <Value>F5.1</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Latitude</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Latitude</Value>
+        </Attribute>
+        <dmrpp:chunks compressionType="deflate shuffle">
+            <dmrpp:chunkDimensionSizes>1 180</dmrpp:chunkDimensionSizes>
+EOF
+`
+
+latitude_close=`cat<<EOF
+        </dmrpp:chunks>
+    </Float64>
+EOF
+`
+
+single_longitude_open=`cat<<EOF
+    <Float64 name="Longitude">
+        <Dim name="/Longitude"/>
+        <Attribute name="long_name" type="String">
+            <Value>Longitude</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>degrees_east</Value>
+        </Attribute>
+        <Attribute name="format" type="String">
+            <Value>F6.1</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Longitude</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Longitude</Value>
+        </Attribute>
+        <dmrpp:chunks compressionType="deflate shuffle">
+            <dmrpp:chunkDimensionSizes>360</dmrpp:chunkDimensionSizes>
+EOF
+`
+agg_longitude_open=`cat<<EOF
+    <Float64 name="Longitude_Agg">
+        <Dim name="/Time"/>
+        <Dim name="/Longitude"/>
+        <Attribute name="long_name" type="String">
+            <Value>Longitude</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>degrees_east</Value>
+        </Attribute>
+        <Attribute name="format" type="String">
+            <Value>F6.1</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Longitude</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Longitude</Value>
+        </Attribute>
+        <dmrpp:chunks compressionType="deflate shuffle">
+            <dmrpp:chunkDimensionSizes>1 360</dmrpp:chunkDimensionSizes>
+EOF
+`
+longitude_close=`cat<<EOF
+        </dmrpp:chunks>
+    </Float64>
+EOF
+`
+
+function set_s3_url() {
+    file_name=$1;
+    s3_url=`head ${file_name} | grep dmrpp:href | awk '{i=index($0,"dmrpp:href"); h=substr($0,i); gsub("(dmrpp:href=\")|(\">)","",h);print h;}'`     
+}
+
+####################################################################
+function mkClrORL_A_Agg() {
+    echo "${clrolr_a_open}";
+    let t=0; 
+    for agg_file in ${agg_files} 
+    do  
+        set_s3_url "${agg_file}";
+        set_variable_element "<Float32 name=\"ClrOLR_A\">" "${agg_file}" "17";
+
+        chunk_element=`echo "${variable_element}" | grep "chunk offset" | sed -e "s/\[0,/\[${t},0,/g" -e "s+/>+ href=\"${s3_url}\"/>+g"`; 
+        echo "${chunk_element}";
+        let t=t+1; 
+    done
+    echo "${clrolr_a_close}";
+}
+####################################################################
+
+
+
+
+####################################################################
+function mkLatitudeAgg(){
+    echo "${agg_latitude_open}";
+    let t=0; 
+    for agg_file in ${agg_files} 
+    do  
+        set_s3_url "${agg_file}";
+        set_variable_element "<Float64 name=\"Latitude\">" "${agg_file}" "22";
+
+        chunk_element=`echo "${variable_element}" | grep "chunk offset" | sed -e "s/\[0\]/\[${t},0\]/g" -e "s+/>+ href=\"${s3_url}\"/>+g"`; 
+        echo "${chunk_element}";
+        let t=t+1; 
+    done
+    echo "${latitude_close}";
+}
+####################################################################
+
+
+####################################################################
+function mkLongitudeAgg() {
+    echo "${agg_longitude_open}";
+    let t=0; 
+    for agg_file in ${agg_files} 
+    do  
+        set_s3_url "${agg_file}";
+        set_variable_element "<Float64 name=\"Longitude\">" "${agg_file}" "22";
+                
+        chunk_element=`echo "${variable_element}" | grep "chunk offset" | sed -e "s/\[0\]/\[${t},0\]/g" -e "s+/>+ href=\"${s3_url}\"/>+g"`; 
+        echo "${chunk_element}";
+        let t=t+1; 
+    done
+    echo "${longitude_close}";
+}
+####################################################################
+
+
+
+
+####################################################################
+function mkSingleLongitude() {
+    first_file=`echo "${agg_files}" | head -1`
+    if test -n "${verbose}"; then echo "first_file: ${first_file}"; fi
+    set_s3_url "${first_file}";
+    set_variable_element "<Float64 name=\"Longitude\">" "${first_file}" "22";
+    chunk_element=`echo "${variable_element}" | grep "chunk offset" | sed  -e "s+/>+ href=\"${s3_url}\"/>+g"`; 
+
+    echo "${single_longitude_open}";
+    echo "${chunk_element}";
+    echo "${longitude_close}";              
+}
+####################################################################
+
+
+####################################################################
+function mkSingleLatitude() {
+    first_file=`echo "${agg_files}" | head -1`
+    if test -n "${verbose}"; then echo "first_file: ${first_file}"; fi
+    set_s3_url "${first_file}";
+    set_variable_element "<Float64 name=\"Latitude\">" "${first_file}" "22";
+    chunk_element=`echo "${variable_element}" | grep "chunk offset" | sed  -e "s+/>+ href=\"${s3_url}\"/>+g"`; 
+
+    echo "${single_latitude_open}";
+    echo "${chunk_element}";
+    echo "${latitude_close}";         
+}
+####################################################################
+
+
+
+####################################################################
+function set_variable_element() {
+    var_decl=$1;
+    file_name=$2;
+    length=$3;
+    
+    if test -n "${verbose}"
+    then
+        echo "var_decl: ${var_decl}";
+        echo "file_name: ${file_name}";
+        echo "length: ${length}";
+    fi
+        
+    if test -n "${verbose}"; then echo "var_decl: ${var_decl}"; fi
+        
+    
+    
+    start_line=`grep -n "${var_decl}" ${file_name} | awk '{split($0,a,":");print a[1];}' -`;  
+    if test -n "${verbose}"; then echo "start_line: ${start_line}";fi
+        
+    line_count=`cat ${file_name} | wc -l`;
+    if test -n "${verbose}"; then echo "line_count: ${line_count}";fi
+        
+    tail_count=`echo "${line_count}-${start_line}+1" | bc`;
+    if test -n "${verbose}"; then echo "tail_count: ${tail_count}";fi
+        
+    variable_element=`tail -${tail_count} ${file_name} | head -n ${length}`;
+    if test -n "${verbose}"; then 
+        echo "variable_element: ";
+        echo "${variable_element}";
+    fi
+    
+}
+####################################################################
+
+
+
+
+
+echo "${dmrpp_header}";
+
+mkSingleLatitude;
+mkSingleLongitude;
+mkLatitudeAgg;
+mkLongitudeAgg;
+mkClrORL_A_Agg;
+
+echo "${dmrpp_close}";
+
+
+
+
+
+
+
+
+

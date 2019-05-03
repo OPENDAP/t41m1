@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Dataset 
+    xmlns="http://xml.opendap.org/ns/DAP/4.0#" 
+    xmlns:dmrpp="http://xml.opendap.org/dap/dmrpp/1.0.0#" 
+    dapVersion="4.0" 
+    dmrVersion="1.0" 
+    name="AIRS.2015.01.03.L3.RetStd_IR001.v6.0.11.0.G15006005549.nc.h5" >
+    
+    <Dimension name="Latitude" size="180"/>
+    <Dimension name="Longitude" size="360"/>
+    <Dimension name="Time" size="3"/>
+    <Dimension name="StdPressureLev" size="24"/>
+    <Dimension name="H2OPressureLev" size="12"/>
+    <Dimension name="CoarseCloudLayer" size="3"/>
+    <Dimension name="EmisFreqMW" size="3"/>
+    <Dimension name="FineCloudLayer" size="12"/>
+    <Dimension name="H2OPressureLay" size="12"/>
+    <Dimension name="EmisFreqIR" size="4"/>
+    <Float32 name="ClrOLR_A">
+        <Dim name="/Time"/>
+        <Dim name="/Latitude"/>
+        <Dim name="/Longitude"/>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>-9999.000000</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>ClrOLR_A</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/ClrOLR_A</Value>
+        </Attribute>
+        <dmrpp:chunks compressionType="deflate shuffle">
+            <dmrpp:chunkDimensionSizes>1 180 360</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="130440821" nBytes="72049" chunkPositionInArray="[0,0,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.01.L3.RetStd_IR001.v6.0.11.0.G15013155825.nc.h5"/>
+            <dmrpp:chunk offset="130107070" nBytes="72020" chunkPositionInArray="[1,0,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.02.L3.RetStd_IR001.v6.0.11.0.G15005190621.nc.h5"/>
+            <dmrpp:chunk offset="129201408" nBytes="71664" chunkPositionInArray="[2,0,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.03.L3.RetStd_IR001.v6.0.11.0.G15006005549.nc.h5"/>
+        </dmrpp:chunks>
+    </Float32>
+</Dataset>
+

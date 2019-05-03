@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Dataset 
+    xmlns="http://xml.opendap.org/ns/DAP/4.0#" 
+    xmlns:dmrpp="http://xml.opendap.org/dap/dmrpp/1.0.0#" 
+    dapVersion="4.0" 
+    dmrVersion="1.0" 
+    name="AIRS.2015.dmrpp" >
+    
+    <Dimension name="Longitude" size="360"/>
+    <Dimension name="Time" size="365"/>
+    <Float64 name="Longitude">
+        <Dim name="/Time"/>
+        <Dim name="/Longitude"/>
+        <Attribute name="long_name" type="String">
+            <Value>Longitude</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>degrees_east</Value>
+        </Attribute>
+        <Attribute name="format" type="String">
+            <Value>F6.1</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Longitude</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Longitude</Value>
+        </Attribute>
+        <dmrpp:chunks compressionType="deflate shuffle">
+            <dmrpp:chunkDimensionSizes>1 360</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="130792644" nBytes="315" chunkPositionInArray="[0,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.01.L3.RetStd_IR001.v6.0.11.0.G15013155825.nc.h5"/>
+            <dmrpp:chunk offset="130458091" nBytes="315" chunkPositionInArray="[1,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.02.L3.RetStd_IR001.v6.0.11.0.G15005190621.nc.h5"/>
+            <dmrpp:chunk offset="129550068" nBytes="315" chunkPositionInArray="[2,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.03.L3.RetStd_IR001.v6.0.11.0.G15006005549.nc.h5"/>
+            <dmrpp:chunk offset="129493621" nBytes="217" chunkPositionInArray="[3,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.04.L3.RetStd_IR001.v6.0.11.0.G15006043115.nc.h5"/>
+            <dmrpp:chunk offset="129619352" nBytes="217" chunkPositionInArray="[4,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.05.L3.RetStd_IR001.v6.0.11.0.G15007130423.nc.h5"/>
+            <dmrpp:chunk offset="130488845" nBytes="217" chunkPositionInArray="[5,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.06.L3.RetStd_IR001.v6.0.11.0.G15007171215.nc.h5"/>
+            <dmrpp:chunk offset="120593882" nBytes="315" chunkPositionInArray="[6,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.07.L3.RetStd_IR001.v6.0.11.0.G15008175227.nc.h5"/>
+            <dmrpp:chunk offset="128731250" nBytes="217" chunkPositionInArray="[7,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.08.L3.RetStd_IR001.v6.0.11.0.G15009164045.nc.h5"/>
+            <dmrpp:chunk offset="130276365" nBytes="217" chunkPositionInArray="[8,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.09.L3.RetStd_IR001.v6.0.11.0.G15010163004.nc.h5"/>
+            <dmrpp:chunk offset="130876758" nBytes="217" chunkPositionInArray="[9,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.10.L3.RetStd_IR001.v6.0.11.0.G15011162002.nc.h5"/>
+            <dmrpp:chunk offset="130556088" nBytes="217" chunkPositionInArray="[10,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.11.L3.RetStd_IR001.v6.0.11.0.G15012165225.nc.h5"/>
+            <dmrpp:chunk offset="130976218" nBytes="315" chunkPositionInArray="[11,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.12.L3.RetStd_IR001.v6.0.11.0.G15021125448.nc.h5"/>
+            <dmrpp:chunk offset="130828914" nBytes="315" chunkPositionInArray="[12,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.13.L3.RetStd_IR001.v6.0.11.0.G15021125153.nc.h5"/>
+            <dmrpp:chunk offset="130504857" nBytes="315" chunkPositionInArray="[13,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.14.L3.RetStd_IR001.v6.0.11.0.G15021120249.nc.h5"/>
+            <dmrpp:chunk offset="130718207" nBytes="217" chunkPositionInArray="[14,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.15.L3.RetStd_IR001.v6.0.11.0.G15016175121.nc.h5"/>
+            <dmrpp:chunk offset="131334312" nBytes="217" chunkPositionInArray="[15,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.16.L3.RetStd_IR001.v6.0.11.0.G15017165029.nc.h5"/>
+            <dmrpp:chunk offset="130813044" nBytes="217" chunkPositionInArray="[16,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.17.L3.RetStd_IR001.v6.0.11.0.G15018164040.nc.h5"/>
+            <dmrpp:chunk offset="130628026" nBytes="217" chunkPositionInArray="[17,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.18.L3.RetStd_IR001.v6.0.11.0.G15019172037.nc.h5"/>
+            <dmrpp:chunk offset="130764034" nBytes="217" chunkPositionInArray="[18,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.19.L3.RetStd_IR001.v6.0.11.0.G15020173159.nc.h5"/>
+            <dmrpp:chunk offset="128866131" nBytes="217" chunkPositionInArray="[19,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.20.L3.RetStd_IR001.v6.0.11.0.G15021184554.nc.h5"/>
+            <dmrpp:chunk offset="129554627" nBytes="217" chunkPositionInArray="[20,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.21.L3.RetStd_IR001.v6.0.11.0.G15022165534.nc.h5"/>
+            <dmrpp:chunk offset="130853765" nBytes="217" chunkPositionInArray="[21,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.22.L3.RetStd_IR001.v6.0.11.0.G15023185212.nc.h5"/>
+            <dmrpp:chunk offset="129839432" nBytes="217" chunkPositionInArray="[22,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.23.L3.RetStd_IR001.v6.0.11.0.G15024223141.nc.h5"/>
+            <dmrpp:chunk offset="130034998" nBytes="217" chunkPositionInArray="[23,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.24.L3.RetStd_IR001.v6.0.11.0.G15025162144.nc.h5"/>
+            <dmrpp:chunk offset="128440500" nBytes="217" chunkPositionInArray="[24,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.25.L3.RetStd_IR001.v6.0.11.0.G15026174547.nc.h5"/>
+            <dmrpp:chunk offset="127448909" nBytes="217" chunkPositionInArray="[25,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.26.L3.RetStd_IR001.v6.0.11.0.G15027194507.nc.h5"/>
+            <dmrpp:chunk offset="127214449" nBytes="217" chunkPositionInArray="[26,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.27.L3.RetStd_IR001.v6.0.11.0.G15028191220.nc.h5"/>
+            <dmrpp:chunk offset="129129893" nBytes="217" chunkPositionInArray="[27,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.28.L3.RetStd_IR001.v6.0.11.0.G15029200444.nc.h5"/>
+            <dmrpp:chunk offset="130584575" nBytes="217" chunkPositionInArray="[28,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.29.L3.RetStd_IR001.v6.0.11.0.G15033123447.nc.h5"/>
+            <dmrpp:chunk offset="129480706" nBytes="217" chunkPositionInArray="[29,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.30.L3.RetStd_IR001.v6.0.11.0.G15033135335.nc.h5"/>
+            <dmrpp:chunk offset="130193939" nBytes="217" chunkPositionInArray="[30,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.31.L3.RetStd_IR001.v6.0.11.0.G15033002627.nc.h5"/>
+            <dmrpp:chunk offset="129665286" nBytes="217" chunkPositionInArray="[31,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.01.L3.RetStd_IR001.v6.0.11.0.G15033192757.nc.h5"/>
+            <dmrpp:chunk offset="129725696" nBytes="217" chunkPositionInArray="[32,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.02.L3.RetStd_IR001.v6.0.11.0.G15034184154.nc.h5"/>
+            <dmrpp:chunk offset="129756444" nBytes="217" chunkPositionInArray="[33,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.03.L3.RetStd_IR001.v6.0.11.0.G15036141942.nc.h5"/>
+            <dmrpp:chunk offset="123220865" nBytes="217" chunkPositionInArray="[34,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.04.L3.RetStd_IR001.v6.0.11.0.G15040144931.nc.h5"/>
+            <dmrpp:chunk offset="128199107" nBytes="217" chunkPositionInArray="[35,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.05.L3.RetStd_IR001.v6.0.11.0.G15040150906.nc.h5"/>
+            <dmrpp:chunk offset="130120544" nBytes="217" chunkPositionInArray="[36,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.06.L3.RetStd_IR001.v6.0.11.0.G15040125632.nc.h5"/>
+            <dmrpp:chunk offset="130397664" nBytes="217" chunkPositionInArray="[37,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.07.L3.RetStd_IR001.v6.0.11.0.G15040121547.nc.h5"/>
+            <dmrpp:chunk offset="130443617" nBytes="217" chunkPositionInArray="[38,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.08.L3.RetStd_IR001.v6.0.11.0.G15040190512.nc.h5"/>
+            <dmrpp:chunk offset="130659951" nBytes="217" chunkPositionInArray="[39,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.09.L3.RetStd_IR001.v6.0.11.0.G15041173532.nc.h5"/>
+            <dmrpp:chunk offset="130281447" nBytes="217" chunkPositionInArray="[40,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.10.L3.RetStd_IR001.v6.0.11.0.G15042190902.nc.h5"/>
+            <dmrpp:chunk offset="129969342" nBytes="217" chunkPositionInArray="[41,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.11.L3.RetStd_IR001.v6.0.11.0.G15043174648.nc.h5"/>
+            <dmrpp:chunk offset="129391910" nBytes="217" chunkPositionInArray="[42,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.12.L3.RetStd_IR001.v6.0.11.0.G15044232815.nc.h5"/>
+            <dmrpp:chunk offset="130089172" nBytes="217" chunkPositionInArray="[43,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.13.L3.RetStd_IR001.v6.0.11.0.G15049142314.nc.h5"/>
+            <dmrpp:chunk offset="129949538" nBytes="217" chunkPositionInArray="[44,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.14.L3.RetStd_IR001.v6.0.11.0.G15049170508.nc.h5"/>
+            <dmrpp:chunk offset="128306549" nBytes="315" chunkPositionInArray="[45,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.15.L3.RetStd_IR001.v6.0.11.0.G15075141809.nc.h5"/>
+            <dmrpp:chunk offset="127955587" nBytes="315" chunkPositionInArray="[46,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.16.L3.RetStd_IR001.v6.0.11.0.G15075141321.nc.h5"/>
+            <dmrpp:chunk offset="130729767" nBytes="315" chunkPositionInArray="[47,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.17.L3.RetStd_IR001.v6.0.11.0.G15075134502.nc.h5"/>
+            <dmrpp:chunk offset="130579217" nBytes="217" chunkPositionInArray="[48,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.18.L3.RetStd_IR001.v6.0.11.0.G15050195102.nc.h5"/>
+            <dmrpp:chunk offset="130396593" nBytes="217" chunkPositionInArray="[49,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.19.L3.RetStd_IR001.v6.0.11.0.G15051182920.nc.h5"/>
+            <dmrpp:chunk offset="131047173" nBytes="217" chunkPositionInArray="[50,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.20.L3.RetStd_IR001.v6.0.11.0.G15052190632.nc.h5"/>
+            <dmrpp:chunk offset="129830561" nBytes="217" chunkPositionInArray="[51,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.21.L3.RetStd_IR001.v6.0.11.0.G15054173653.nc.h5"/>
+            <dmrpp:chunk offset="129972339" nBytes="217" chunkPositionInArray="[52,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.22.L3.RetStd_IR001.v6.0.11.0.G15054194443.nc.h5"/>
+            <dmrpp:chunk offset="129834048" nBytes="217" chunkPositionInArray="[53,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.23.L3.RetStd_IR001.v6.0.11.0.G15055193409.nc.h5"/>
+            <dmrpp:chunk offset="130254656" nBytes="217" chunkPositionInArray="[54,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.24.L3.RetStd_IR001.v6.0.11.0.G15056184735.nc.h5"/>
+            <dmrpp:chunk offset="130070367" nBytes="217" chunkPositionInArray="[55,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.25.L3.RetStd_IR001.v6.0.11.0.G15057220709.nc.h5"/>
+            <dmrpp:chunk offset="125651800" nBytes="217" chunkPositionInArray="[56,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.26.L3.RetStd_IR001.v6.0.11.0.G15058190744.nc.h5"/>
+            <dmrpp:chunk offset="128762622" nBytes="315" chunkPositionInArray="[57,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.27.L3.RetStd_IR001.v6.0.11.0.G15075150450.nc.h5"/>
+            <dmrpp:chunk offset="128657507" nBytes="315" chunkPositionInArray="[58,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.02.28.L3.RetStd_IR001.v6.0.11.0.G15075145526.nc.h5"/>
+            <dmrpp:chunk offset="129791939" nBytes="315" chunkPositionInArray="[59,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.01.L3.RetStd_IR001.v6.0.11.0.G15075145757.nc.h5"/>
+            <dmrpp:chunk offset="130633677" nBytes="217" chunkPositionInArray="[60,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.02.L3.RetStd_IR001.v6.0.11.0.G15063141640.nc.h5"/>
+            <dmrpp:chunk offset="130258969" nBytes="217" chunkPositionInArray="[61,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.03.L3.RetStd_IR001.v6.0.11.0.G15063182510.nc.h5"/>
+            <dmrpp:chunk offset="130476897" nBytes="217" chunkPositionInArray="[62,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.04.L3.RetStd_IR001.v6.0.11.0.G15064212219.nc.h5"/>
+            <dmrpp:chunk offset="129962080" nBytes="217" chunkPositionInArray="[63,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.05.L3.RetStd_IR001.v6.0.11.0.G15068101551.nc.h5"/>
+            <dmrpp:chunk offset="129722138" nBytes="217" chunkPositionInArray="[64,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.06.L3.RetStd_IR001.v6.0.11.0.G15066191432.nc.h5"/>
+            <dmrpp:chunk offset="129259950" nBytes="217" chunkPositionInArray="[65,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.07.L3.RetStd_IR001.v6.0.11.0.G15067195418.nc.h5"/>
+            <dmrpp:chunk offset="129502016" nBytes="217" chunkPositionInArray="[66,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.08.L3.RetStd_IR001.v6.0.11.0.G15068194038.nc.h5"/>
+            <dmrpp:chunk offset="129108418" nBytes="217" chunkPositionInArray="[67,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.09.L3.RetStd_IR001.v6.0.11.0.G15070081349.nc.h5"/>
+            <dmrpp:chunk offset="129045646" nBytes="217" chunkPositionInArray="[68,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.10.L3.RetStd_IR001.v6.0.11.0.G15070222745.nc.h5"/>
+            <dmrpp:chunk offset="129068631" nBytes="217" chunkPositionInArray="[69,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.11.L3.RetStd_IR001.v6.0.11.0.G15071181425.nc.h5"/>
+            <dmrpp:chunk offset="129226866" nBytes="217" chunkPositionInArray="[70,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.12.L3.RetStd_IR001.v6.0.11.0.G15075113344.nc.h5"/>
+            <dmrpp:chunk offset="128921876" nBytes="217" chunkPositionInArray="[71,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.13.L3.RetStd_IR001.v6.0.11.0.G15075121613.nc.h5"/>
+            <dmrpp:chunk offset="128624590" nBytes="217" chunkPositionInArray="[72,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.14.L3.RetStd_IR001.v6.0.11.0.G15075122550.nc.h5"/>
+            <dmrpp:chunk offset="129133064" nBytes="217" chunkPositionInArray="[73,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.15.L3.RetStd_IR001.v6.0.11.0.G15075190312.nc.h5"/>
+            <dmrpp:chunk offset="129718904" nBytes="217" chunkPositionInArray="[74,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.16.L3.RetStd_IR001.v6.0.11.0.G15076184035.nc.h5"/>
+            <dmrpp:chunk offset="130575545" nBytes="315" chunkPositionInArray="[75,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.17.L3.RetStd_IR001.v6.0.11.0.G15077183049.nc.h5"/>
+            <dmrpp:chunk offset="122735084" nBytes="315" chunkPositionInArray="[76,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.18.L3.RetStd_IR001.v6.0.11.0.G15086133503.nc.h5"/>
+            <dmrpp:chunk offset="128058900" nBytes="315" chunkPositionInArray="[77,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.19.L3.RetStd_IR001.v6.0.11.0.G15086135823.nc.h5"/>
+            <dmrpp:chunk offset="129898580" nBytes="217" chunkPositionInArray="[78,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.20.L3.RetStd_IR001.v6.0.11.0.G15082202212.nc.h5"/>
+            <dmrpp:chunk offset="129735246" nBytes="217" chunkPositionInArray="[79,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.21.L3.RetStd_IR001.v6.0.11.0.G15082204057.nc.h5"/>
+            <dmrpp:chunk offset="130129628" nBytes="217" chunkPositionInArray="[80,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.22.L3.RetStd_IR001.v6.0.11.0.G15082210050.nc.h5"/>
+            <dmrpp:chunk offset="129374443" nBytes="315" chunkPositionInArray="[81,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.23.L3.RetStd_IR001.v6.0.31.0.G15183114312.nc.h5"/>
+            <dmrpp:chunk offset="130052636" nBytes="315" chunkPositionInArray="[82,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.24.L3.RetStd_IR001.v6.0.31.0.G15184075842.nc.h5"/>
+            <dmrpp:chunk offset="122290795" nBytes="315" chunkPositionInArray="[83,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.25.L3.RetStd_IR001.v6.0.31.0.G15187110451.nc.h5"/>
+            <dmrpp:chunk offset="127449380" nBytes="217" chunkPositionInArray="[84,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.26.L3.RetStd_IR001.v6.0.31.0.G15187102922.nc.h5"/>
+            <dmrpp:chunk offset="130226296" nBytes="217" chunkPositionInArray="[85,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.27.L3.RetStd_IR001.v6.0.31.0.G15185011318.nc.h5"/>
+            <dmrpp:chunk offset="129051517" nBytes="217" chunkPositionInArray="[86,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.28.L3.RetStd_IR001.v6.0.31.0.G15187105355.nc.h5"/>
+            <dmrpp:chunk offset="129989055" nBytes="217" chunkPositionInArray="[87,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.29.L3.RetStd_IR001.v6.0.31.0.G15187101830.nc.h5"/>
+            <dmrpp:chunk offset="128651085" nBytes="217" chunkPositionInArray="[88,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.30.L3.RetStd_IR001.v6.0.31.0.G15187110506.nc.h5"/>
+            <dmrpp:chunk offset="129815813" nBytes="217" chunkPositionInArray="[89,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.03.31.L3.RetStd_IR001.v6.0.31.0.G15187115701.nc.h5"/>
+            <dmrpp:chunk offset="122528860" nBytes="217" chunkPositionInArray="[90,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.01.L3.RetStd_IR001.v6.0.31.0.G15187113437.nc.h5"/>
+            <dmrpp:chunk offset="128616071" nBytes="217" chunkPositionInArray="[91,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.02.L3.RetStd_IR001.v6.0.31.0.G15187114846.nc.h5"/>
+            <dmrpp:chunk offset="130293455" nBytes="217" chunkPositionInArray="[92,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.03.L3.RetStd_IR001.v6.0.31.0.G15188110828.nc.h5"/>
+            <dmrpp:chunk offset="130251721" nBytes="217" chunkPositionInArray="[93,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.04.L3.RetStd_IR001.v6.0.31.0.G15188134210.nc.h5"/>
+            <dmrpp:chunk offset="130251976" nBytes="217" chunkPositionInArray="[94,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.05.L3.RetStd_IR001.v6.0.31.0.G15188165256.nc.h5"/>
+            <dmrpp:chunk offset="130646057" nBytes="217" chunkPositionInArray="[95,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.06.L3.RetStd_IR001.v6.0.31.0.G15189011837.nc.h5"/>
+            <dmrpp:chunk offset="130580272" nBytes="217" chunkPositionInArray="[96,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.07.L3.RetStd_IR001.v6.0.31.0.G15189061953.nc.h5"/>
+            <dmrpp:chunk offset="130073363" nBytes="217" chunkPositionInArray="[97,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.08.L3.RetStd_IR001.v6.0.31.0.G15189085146.nc.h5"/>
+            <dmrpp:chunk offset="130077369" nBytes="217" chunkPositionInArray="[98,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.09.L3.RetStd_IR001.v6.0.31.0.G15189155326.nc.h5"/>
+            <dmrpp:chunk offset="129617027" nBytes="217" chunkPositionInArray="[99,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.10.L3.RetStd_IR001.v6.0.31.0.G15190021354.nc.h5"/>
+            <dmrpp:chunk offset="129959696" nBytes="217" chunkPositionInArray="[100,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.11.L3.RetStd_IR001.v6.0.31.0.G15190063508.nc.h5"/>
+            <dmrpp:chunk offset="130489691" nBytes="217" chunkPositionInArray="[101,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.12.L3.RetStd_IR001.v6.0.31.0.G15190133730.nc.h5"/>
+            <dmrpp:chunk offset="130356951" nBytes="217" chunkPositionInArray="[102,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.13.L3.RetStd_IR001.v6.0.31.0.G15190185721.nc.h5"/>
+            <dmrpp:chunk offset="130489332" nBytes="217" chunkPositionInArray="[103,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.14.L3.RetStd_IR001.v6.0.31.0.G15191062646.nc.h5"/>
+            <dmrpp:chunk offset="122147866" nBytes="315" chunkPositionInArray="[104,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.15.L3.RetStd_IR001.v6.0.31.0.G15195104032.nc.h5"/>
+            <dmrpp:chunk offset="128316548" nBytes="217" chunkPositionInArray="[105,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.16.L3.RetStd_IR001.v6.0.31.0.G15195105823.nc.h5"/>
+            <dmrpp:chunk offset="130059343" nBytes="217" chunkPositionInArray="[106,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.17.L3.RetStd_IR001.v6.0.31.0.G15195184345.nc.h5"/>
+            <dmrpp:chunk offset="129895018" nBytes="217" chunkPositionInArray="[107,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.18.L3.RetStd_IR001.v6.0.31.0.G15196045958.nc.h5"/>
+            <dmrpp:chunk offset="129360710" nBytes="217" chunkPositionInArray="[108,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.19.L3.RetStd_IR001.v6.0.31.0.G15196170529.nc.h5"/>
+            <dmrpp:chunk offset="129413801" nBytes="217" chunkPositionInArray="[109,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.20.L3.RetStd_IR001.v6.0.31.0.G15197051810.nc.h5"/>
+            <dmrpp:chunk offset="129794650" nBytes="217" chunkPositionInArray="[110,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.21.L3.RetStd_IR001.v6.0.31.0.G15197132455.nc.h5"/>
+            <dmrpp:chunk offset="122962217" nBytes="217" chunkPositionInArray="[111,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.22.L3.RetStd_IR001.v6.0.31.0.G15198160545.nc.h5"/>
+            <dmrpp:chunk offset="129120289" nBytes="217" chunkPositionInArray="[112,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.23.L3.RetStd_IR001.v6.0.31.0.G15198133400.nc.h5"/>
+            <dmrpp:chunk offset="130512326" nBytes="217" chunkPositionInArray="[113,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.24.L3.RetStd_IR001.v6.0.31.0.G15198145552.nc.h5"/>
+            <dmrpp:chunk offset="130764176" nBytes="217" chunkPositionInArray="[114,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.25.L3.RetStd_IR001.v6.0.31.0.G15199033539.nc.h5"/>
+            <dmrpp:chunk offset="130678235" nBytes="217" chunkPositionInArray="[115,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.26.L3.RetStd_IR001.v6.0.31.0.G15199092136.nc.h5"/>
+            <dmrpp:chunk offset="129320548" nBytes="217" chunkPositionInArray="[116,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.27.L3.RetStd_IR001.v6.0.31.0.G15201122501.nc.h5"/>
+            <dmrpp:chunk offset="130085371" nBytes="217" chunkPositionInArray="[117,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.28.L3.RetStd_IR001.v6.0.31.0.G15201121931.nc.h5"/>
+            <dmrpp:chunk offset="130370463" nBytes="217" chunkPositionInArray="[118,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.29.L3.RetStd_IR001.v6.0.31.0.G15200163343.nc.h5"/>
+            <dmrpp:chunk offset="130446984" nBytes="315" chunkPositionInArray="[119,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.04.30.L3.RetStd_IR001.v6.0.31.0.G15205024531.nc.h5"/>
+            <dmrpp:chunk offset="130452250" nBytes="315" chunkPositionInArray="[120,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.01.L3.RetStd_IR001.v6.0.31.0.G15205024629.nc.h5"/>
+            <dmrpp:chunk offset="130602521" nBytes="217" chunkPositionInArray="[121,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.02.L3.RetStd_IR001.v6.0.31.0.G15204070908.nc.h5"/>
+            <dmrpp:chunk offset="130932312" nBytes="217" chunkPositionInArray="[122,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.03.L3.RetStd_IR001.v6.0.31.0.G15204151052.nc.h5"/>
+            <dmrpp:chunk offset="130988888" nBytes="217" chunkPositionInArray="[123,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.04.L3.RetStd_IR001.v6.0.31.0.G15205031847.nc.h5"/>
+            <dmrpp:chunk offset="130825160" nBytes="217" chunkPositionInArray="[124,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.05.L3.RetStd_IR001.v6.0.31.0.G15205081357.nc.h5"/>
+            <dmrpp:chunk offset="130756405" nBytes="217" chunkPositionInArray="[125,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.06.L3.RetStd_IR001.v6.0.31.0.G15205145040.nc.h5"/>
+            <dmrpp:chunk offset="130879849" nBytes="217" chunkPositionInArray="[126,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.07.L3.RetStd_IR001.v6.0.31.0.G15206003719.nc.h5"/>
+            <dmrpp:chunk offset="130283625" nBytes="217" chunkPositionInArray="[127,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.08.L3.RetStd_IR001.v6.0.31.0.G15206071933.nc.h5"/>
+            <dmrpp:chunk offset="130750081" nBytes="217" chunkPositionInArray="[128,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.09.L3.RetStd_IR001.v6.0.31.0.G15206170855.nc.h5"/>
+            <dmrpp:chunk offset="130617174" nBytes="315" chunkPositionInArray="[129,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.10.L3.RetStd_IR001.v6.0.31.0.G15231111646.nc.h5"/>
+            <dmrpp:chunk offset="130753603" nBytes="315" chunkPositionInArray="[130,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.11.L3.RetStd_IR001.v6.0.31.0.G15231111944.nc.h5"/>
+            <dmrpp:chunk offset="130820068" nBytes="217" chunkPositionInArray="[131,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.12.L3.RetStd_IR001.v6.0.31.0.G15212020635.nc.h5"/>
+            <dmrpp:chunk offset="130487357" nBytes="217" chunkPositionInArray="[132,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.13.L3.RetStd_IR001.v6.0.31.0.G15212053108.nc.h5"/>
+            <dmrpp:chunk offset="130009664" nBytes="217" chunkPositionInArray="[133,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.14.L3.RetStd_IR001.v6.0.31.0.G15212191403.nc.h5"/>
+            <dmrpp:chunk offset="130426075" nBytes="217" chunkPositionInArray="[134,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.15.L3.RetStd_IR001.v6.0.31.0.G15213005119.nc.h5"/>
+            <dmrpp:chunk offset="129420512" nBytes="217" chunkPositionInArray="[135,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.16.L3.RetStd_IR001.v6.0.31.0.G15213143012.nc.h5"/>
+            <dmrpp:chunk offset="129068107" nBytes="217" chunkPositionInArray="[136,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.17.L3.RetStd_IR001.v6.0.31.0.G15213221245.nc.h5"/>
+            <dmrpp:chunk offset="129614779" nBytes="217" chunkPositionInArray="[137,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.18.L3.RetStd_IR001.v6.0.31.0.G15214034207.nc.h5"/>
+            <dmrpp:chunk offset="129309355" nBytes="217" chunkPositionInArray="[138,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.19.L3.RetStd_IR001.v6.0.31.0.G15215112758.nc.h5"/>
+            <dmrpp:chunk offset="130846585" nBytes="315" chunkPositionInArray="[139,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.20.L3.RetStd_IR001.v6.0.31.0.G15219212804.nc.h5"/>
+            <dmrpp:chunk offset="129929477" nBytes="315" chunkPositionInArray="[140,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.21.L3.RetStd_IR001.v6.0.31.0.G15220053350.nc.h5"/>
+            <dmrpp:chunk offset="125000128" nBytes="217" chunkPositionInArray="[141,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.22.L3.RetStd_IR001.v6.0.31.0.G15225112057.nc.h5"/>
+            <dmrpp:chunk offset="129497266" nBytes="217" chunkPositionInArray="[142,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.23.L3.RetStd_IR001.v6.0.31.0.G15225104912.nc.h5"/>
+            <dmrpp:chunk offset="130724864" nBytes="217" chunkPositionInArray="[143,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.24.L3.RetStd_IR001.v6.0.31.0.G15221051937.nc.h5"/>
+            <dmrpp:chunk offset="130691013" nBytes="217" chunkPositionInArray="[144,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.25.L3.RetStd_IR001.v6.0.31.0.G15221133012.nc.h5"/>
+            <dmrpp:chunk offset="130349924" nBytes="217" chunkPositionInArray="[145,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.26.L3.RetStd_IR001.v6.0.31.0.G15225113048.nc.h5"/>
+            <dmrpp:chunk offset="130113354" nBytes="217" chunkPositionInArray="[146,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.27.L3.RetStd_IR001.v6.0.31.0.G15225111327.nc.h5"/>
+            <dmrpp:chunk offset="130072817" nBytes="217" chunkPositionInArray="[147,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.28.L3.RetStd_IR001.v6.0.31.0.G15225114613.nc.h5"/>
+            <dmrpp:chunk offset="129735032" nBytes="217" chunkPositionInArray="[148,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.29.L3.RetStd_IR001.v6.0.31.0.G15225110844.nc.h5"/>
+            <dmrpp:chunk offset="129876970" nBytes="217" chunkPositionInArray="[149,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.30.L3.RetStd_IR001.v6.0.31.0.G15225140916.nc.h5"/>
+            <dmrpp:chunk offset="130888024" nBytes="315" chunkPositionInArray="[150,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.05.31.L3.RetStd_IR001.v6.0.31.0.G15225165303.nc.h5"/>
+            <dmrpp:chunk offset="130738224" nBytes="315" chunkPositionInArray="[151,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.01.L3.RetStd_IR001.v6.0.31.0.G15225162659.nc.h5"/>
+            <dmrpp:chunk offset="130720437" nBytes="217" chunkPositionInArray="[152,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.02.L3.RetStd_IR001.v6.0.31.0.G15199070943.nc.h5"/>
+            <dmrpp:chunk offset="130583499" nBytes="217" chunkPositionInArray="[153,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.03.L3.RetStd_IR001.v6.0.31.0.G15201082424.nc.h5"/>
+            <dmrpp:chunk offset="130674596" nBytes="217" chunkPositionInArray="[154,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.04.L3.RetStd_IR001.v6.0.31.0.G15201143444.nc.h5"/>
+            <dmrpp:chunk offset="130591198" nBytes="217" chunkPositionInArray="[155,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.05.L3.RetStd_IR001.v6.0.31.0.G15201143404.nc.h5"/>
+            <dmrpp:chunk offset="130531208" nBytes="217" chunkPositionInArray="[156,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.06.L3.RetStd_IR001.v6.0.31.0.G15201164403.nc.h5"/>
+            <dmrpp:chunk offset="130057106" nBytes="217" chunkPositionInArray="[157,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.07.L3.RetStd_IR001.v6.0.31.0.G15201200746.nc.h5"/>
+            <dmrpp:chunk offset="129988857" nBytes="217" chunkPositionInArray="[158,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.08.L3.RetStd_IR001.v6.0.31.0.G15202125313.nc.h5"/>
+            <dmrpp:chunk offset="130284321" nBytes="217" chunkPositionInArray="[159,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.09.L3.RetStd_IR001.v6.0.31.0.G15202125530.nc.h5"/>
+            <dmrpp:chunk offset="130635447" nBytes="217" chunkPositionInArray="[160,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.10.L3.RetStd_IR001.v6.0.31.0.G15202165145.nc.h5"/>
+            <dmrpp:chunk offset="129994754" nBytes="217" chunkPositionInArray="[161,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.11.L3.RetStd_IR001.v6.0.31.0.G15203000739.nc.h5"/>
+            <dmrpp:chunk offset="130263608" nBytes="217" chunkPositionInArray="[162,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.12.L3.RetStd_IR001.v6.0.31.0.G15203042847.nc.h5"/>
+            <dmrpp:chunk offset="130571785" nBytes="315" chunkPositionInArray="[163,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.13.L3.RetStd_IR001.v6.0.31.0.G15207022701.nc.h5"/>
+            <dmrpp:chunk offset="130464500" nBytes="315" chunkPositionInArray="[164,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.14.L3.RetStd_IR001.v6.0.31.0.G15207055959.nc.h5"/>
+            <dmrpp:chunk offset="130364628" nBytes="217" chunkPositionInArray="[165,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.15.L3.RetStd_IR001.v6.0.31.0.G15208173612.nc.h5"/>
+            <dmrpp:chunk offset="130194403" nBytes="217" chunkPositionInArray="[166,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.16.L3.RetStd_IR001.v6.0.31.0.G15208195104.nc.h5"/>
+            <dmrpp:chunk offset="129810256" nBytes="217" chunkPositionInArray="[167,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.17.L3.RetStd_IR001.v6.0.31.0.G15209192358.nc.h5"/>
+            <dmrpp:chunk offset="129710000" nBytes="217" chunkPositionInArray="[168,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.18.L3.RetStd_IR001.v6.0.31.0.G15210073815.nc.h5"/>
+            <dmrpp:chunk offset="130059768" nBytes="217" chunkPositionInArray="[169,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.19.L3.RetStd_IR001.v6.0.31.0.G15211041208.nc.h5"/>
+            <dmrpp:chunk offset="129951666" nBytes="315" chunkPositionInArray="[170,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.20.L3.RetStd_IR001.v6.0.31.0.G15215201033.nc.h5"/>
+            <dmrpp:chunk offset="130154826" nBytes="315" chunkPositionInArray="[171,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.21.L3.RetStd_IR001.v6.0.31.0.G15216100600.nc.h5"/>
+            <dmrpp:chunk offset="130047240" nBytes="217" chunkPositionInArray="[172,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.22.L3.RetStd_IR001.v6.0.31.0.G15216144527.nc.h5"/>
+            <dmrpp:chunk offset="130269794" nBytes="217" chunkPositionInArray="[173,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.23.L3.RetStd_IR001.v6.0.31.0.G15217010220.nc.h5"/>
+            <dmrpp:chunk offset="130267440" nBytes="217" chunkPositionInArray="[174,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.24.L3.RetStd_IR001.v6.0.31.0.G15217062101.nc.h5"/>
+            <dmrpp:chunk offset="130096736" nBytes="217" chunkPositionInArray="[175,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.25.L3.RetStd_IR001.v6.0.31.0.G15218202528.nc.h5"/>
+            <dmrpp:chunk offset="129861919" nBytes="217" chunkPositionInArray="[176,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.26.L3.RetStd_IR001.v6.0.31.0.G15226102839.nc.h5"/>
+            <dmrpp:chunk offset="129922638" nBytes="217" chunkPositionInArray="[177,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.27.L3.RetStd_IR001.v6.0.31.0.G15218202454.nc.h5"/>
+            <dmrpp:chunk offset="130176737" nBytes="217" chunkPositionInArray="[178,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.28.L3.RetStd_IR001.v6.0.31.0.G15226102900.nc.h5"/>
+            <dmrpp:chunk offset="130585551" nBytes="217" chunkPositionInArray="[179,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.29.L3.RetStd_IR001.v6.0.31.0.G15220000354.nc.h5"/>
+            <dmrpp:chunk offset="130691722" nBytes="217" chunkPositionInArray="[180,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.06.30.L3.RetStd_IR001.v6.0.31.0.G15219235948.nc.h5"/>
+            <dmrpp:chunk offset="130463512" nBytes="217" chunkPositionInArray="[181,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.01.L3.RetStd_IR001.v6.0.31.0.G15219232452.nc.h5"/>
+            <dmrpp:chunk offset="122829327" nBytes="315" chunkPositionInArray="[182,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.02.L3.RetStd_IR001.v6.0.31.0.G15226104941.nc.h5"/>
+            <dmrpp:chunk offset="130122245" nBytes="315" chunkPositionInArray="[183,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.03.L3.RetStd_IR001.v6.0.31.0.G15226110506.nc.h5"/>
+            <dmrpp:chunk offset="130292988" nBytes="217" chunkPositionInArray="[184,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.04.L3.RetStd_IR001.v6.0.31.0.G15188000111.nc.h5"/>
+            <dmrpp:chunk offset="130640632" nBytes="217" chunkPositionInArray="[185,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.05.L3.RetStd_IR001.v6.0.31.0.G15188014955.nc.h5"/>
+            <dmrpp:chunk offset="130496510" nBytes="217" chunkPositionInArray="[186,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.06.L3.RetStd_IR001.v6.0.31.0.G15190051959.nc.h5"/>
+            <dmrpp:chunk offset="130924391" nBytes="217" chunkPositionInArray="[187,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.07.L3.RetStd_IR001.v6.0.31.0.G15190070030.nc.h5"/>
+            <dmrpp:chunk offset="130864947" nBytes="217" chunkPositionInArray="[188,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.08.L3.RetStd_IR001.v6.0.31.0.G15191040651.nc.h5"/>
+            <dmrpp:chunk offset="130450506" nBytes="217" chunkPositionInArray="[189,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.09.L3.RetStd_IR001.v6.0.31.0.G15191182008.nc.h5"/>
+            <dmrpp:chunk offset="130385099" nBytes="217" chunkPositionInArray="[190,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.10.L3.RetStd_IR001.v6.0.31.0.G15192172639.nc.h5"/>
+            <dmrpp:chunk offset="129780154" nBytes="217" chunkPositionInArray="[191,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.11.L3.RetStd_IR001.v6.0.31.0.G15193172658.nc.h5"/>
+            <dmrpp:chunk offset="129566972" nBytes="315" chunkPositionInArray="[192,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.12.L3.RetStd_IR001.v6.0.31.0.G15205030539.nc.h5"/>
+            <dmrpp:chunk offset="128992890" nBytes="217" chunkPositionInArray="[193,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.13.L3.RetStd_IR001.v6.0.31.0.G15198111139.nc.h5"/>
+            <dmrpp:chunk offset="129216496" nBytes="217" chunkPositionInArray="[194,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.14.L3.RetStd_IR001.v6.0.31.0.G15197075159.nc.h5"/>
+            <dmrpp:chunk offset="128935492" nBytes="217" chunkPositionInArray="[195,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.15.L3.RetStd_IR001.v6.0.31.0.G15198034817.nc.h5"/>
+            <dmrpp:chunk offset="129980567" nBytes="217" chunkPositionInArray="[196,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.16.L3.RetStd_IR001.v6.0.31.0.G15199051509.nc.h5"/>
+            <dmrpp:chunk offset="130457414" nBytes="217" chunkPositionInArray="[197,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.17.L3.RetStd_IR001.v6.0.31.0.G15200003256.nc.h5"/>
+            <dmrpp:chunk offset="130282822" nBytes="217" chunkPositionInArray="[198,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.18.L3.RetStd_IR001.v6.0.31.0.G15200234455.nc.h5"/>
+            <dmrpp:chunk offset="130087322" nBytes="217" chunkPositionInArray="[199,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.19.L3.RetStd_IR001.v6.0.31.0.G15202033842.nc.h5"/>
+            <dmrpp:chunk offset="129554296" nBytes="217" chunkPositionInArray="[200,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.20.L3.RetStd_IR001.v6.0.31.0.G15203034310.nc.h5"/>
+            <dmrpp:chunk offset="129918213" nBytes="217" chunkPositionInArray="[201,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.21.L3.RetStd_IR001.v6.0.31.0.G15204035156.nc.h5"/>
+            <dmrpp:chunk offset="129968958" nBytes="217" chunkPositionInArray="[202,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.22.L3.RetStd_IR001.v6.0.31.0.G15205034133.nc.h5"/>
+            <dmrpp:chunk offset="130449066" nBytes="217" chunkPositionInArray="[203,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.23.L3.RetStd_IR001.v6.0.31.0.G15206050004.nc.h5"/>
+            <dmrpp:chunk offset="130061354" nBytes="217" chunkPositionInArray="[204,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.24.L3.RetStd_IR001.v6.0.31.0.G15207115940.nc.h5"/>
+            <dmrpp:chunk offset="130098814" nBytes="217" chunkPositionInArray="[205,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.25.L3.RetStd_IR001.v6.0.31.0.G15209144145.nc.h5"/>
+            <dmrpp:chunk offset="129193139" nBytes="217" chunkPositionInArray="[206,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.26.L3.RetStd_IR001.v6.0.31.0.G15209182734.nc.h5"/>
+            <dmrpp:chunk offset="128837840" nBytes="217" chunkPositionInArray="[207,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.27.L3.RetStd_IR001.v6.0.31.0.G15210112814.nc.h5"/>
+            <dmrpp:chunk offset="129954602" nBytes="217" chunkPositionInArray="[208,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.28.L3.RetStd_IR001.v6.0.31.0.G15211003011.nc.h5"/>
+            <dmrpp:chunk offset="125455381" nBytes="217" chunkPositionInArray="[209,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.29.L3.RetStd_IR001.v6.0.31.0.G15212175054.nc.h5"/>
+            <dmrpp:chunk offset="128107008" nBytes="315" chunkPositionInArray="[210,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.30.L3.RetStd_IR001.v6.0.31.0.G15231110946.nc.h5"/>
+            <dmrpp:chunk offset="128701771" nBytes="217" chunkPositionInArray="[211,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.07.31.L3.RetStd_IR001.v6.0.31.0.G15213234252.nc.h5"/>
+            <dmrpp:chunk offset="129496136" nBytes="217" chunkPositionInArray="[212,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.01.L3.RetStd_IR001.v6.0.31.0.G15214230515.nc.h5"/>
+            <dmrpp:chunk offset="129952298" nBytes="217" chunkPositionInArray="[213,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.02.L3.RetStd_IR001.v6.0.31.0.G15215204200.nc.h5"/>
+            <dmrpp:chunk offset="130536501" nBytes="217" chunkPositionInArray="[214,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.03.L3.RetStd_IR001.v6.0.31.0.G15216225225.nc.h5"/>
+            <dmrpp:chunk offset="130598451" nBytes="217" chunkPositionInArray="[215,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.04.L3.RetStd_IR001.v6.0.31.0.G15218141841.nc.h5"/>
+            <dmrpp:chunk offset="130025189" nBytes="217" chunkPositionInArray="[216,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.05.L3.RetStd_IR001.v6.0.31.0.G15218212447.nc.h5"/>
+            <dmrpp:chunk offset="130571628" nBytes="217" chunkPositionInArray="[217,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.06.L3.RetStd_IR001.v6.0.31.0.G15223024315.nc.h5"/>
+            <dmrpp:chunk offset="130948371" nBytes="217" chunkPositionInArray="[218,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.07.L3.RetStd_IR001.v6.0.31.0.G15223085212.nc.h5"/>
+            <dmrpp:chunk offset="130743612" nBytes="217" chunkPositionInArray="[219,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.08.L3.RetStd_IR001.v6.0.31.0.G15223194053.nc.h5"/>
+            <dmrpp:chunk offset="130323691" nBytes="217" chunkPositionInArray="[220,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.09.L3.RetStd_IR001.v6.0.31.0.G15224032531.nc.h5"/>
+            <dmrpp:chunk offset="130511206" nBytes="217" chunkPositionInArray="[221,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.10.L3.RetStd_IR001.v6.0.31.0.G15224103409.nc.h5"/>
+            <dmrpp:chunk offset="130373662" nBytes="217" chunkPositionInArray="[222,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.11.L3.RetStd_IR001.v6.0.31.0.G15225012119.nc.h5"/>
+            <dmrpp:chunk offset="130157733" nBytes="217" chunkPositionInArray="[223,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.12.L3.RetStd_IR001.v6.0.31.0.G15225231043.nc.h5"/>
+            <dmrpp:chunk offset="130958619" nBytes="217" chunkPositionInArray="[224,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.13.L3.RetStd_IR001.v6.0.31.0.G15226183747.nc.h5"/>
+            <dmrpp:chunk offset="130458265" nBytes="217" chunkPositionInArray="[225,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.14.L3.RetStd_IR001.v6.0.31.0.G15229090959.nc.h5"/>
+            <dmrpp:chunk offset="130549471" nBytes="217" chunkPositionInArray="[226,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.15.L3.RetStd_IR001.v6.0.31.0.G15229091004.nc.h5"/>
+            <dmrpp:chunk offset="130730231" nBytes="217" chunkPositionInArray="[227,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.16.L3.RetStd_IR001.v6.0.31.0.G15229181146.nc.h5"/>
+            <dmrpp:chunk offset="130801480" nBytes="217" chunkPositionInArray="[228,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.17.L3.RetStd_IR001.v6.0.31.0.G15230173908.nc.h5"/>
+            <dmrpp:chunk offset="131032157" nBytes="217" chunkPositionInArray="[229,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.18.L3.RetStd_IR001.v6.0.31.0.G15231182643.nc.h5"/>
+            <dmrpp:chunk offset="130742528" nBytes="217" chunkPositionInArray="[230,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.19.L3.RetStd_IR001.v6.0.31.0.G15232181051.nc.h5"/>
+            <dmrpp:chunk offset="130924386" nBytes="217" chunkPositionInArray="[231,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.20.L3.RetStd_IR001.v6.0.31.0.G15233191751.nc.h5"/>
+            <dmrpp:chunk offset="130656797" nBytes="217" chunkPositionInArray="[232,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.21.L3.RetStd_IR001.v6.0.31.0.G15234191854.nc.h5"/>
+            <dmrpp:chunk offset="131129999" nBytes="217" chunkPositionInArray="[233,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.22.L3.RetStd_IR001.v6.0.31.0.G15235180412.nc.h5"/>
+            <dmrpp:chunk offset="130669315" nBytes="217" chunkPositionInArray="[234,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.23.L3.RetStd_IR001.v6.0.31.0.G15239122851.nc.h5"/>
+            <dmrpp:chunk offset="130039547" nBytes="217" chunkPositionInArray="[235,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.24.L3.RetStd_IR001.v6.0.31.0.G15239122612.nc.h5"/>
+            <dmrpp:chunk offset="130583209" nBytes="217" chunkPositionInArray="[236,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.25.L3.RetStd_IR001.v6.0.31.0.G15240170412.nc.h5"/>
+            <dmrpp:chunk offset="130348165" nBytes="217" chunkPositionInArray="[237,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.26.L3.RetStd_IR001.v6.0.31.0.G15240170318.nc.h5"/>
+            <dmrpp:chunk offset="128941450" nBytes="217" chunkPositionInArray="[238,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.27.L3.RetStd_IR001.v6.0.31.0.G15240181026.nc.h5"/>
+            <dmrpp:chunk offset="129993517" nBytes="217" chunkPositionInArray="[239,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.28.L3.RetStd_IR001.v6.0.31.0.G15241175425.nc.h5"/>
+            <dmrpp:chunk offset="130958288" nBytes="217" chunkPositionInArray="[240,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.29.L3.RetStd_IR001.v6.0.31.0.G15244124618.nc.h5"/>
+            <dmrpp:chunk offset="130900030" nBytes="217" chunkPositionInArray="[241,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.30.L3.RetStd_IR001.v6.0.31.0.G15244185832.nc.h5"/>
+            <dmrpp:chunk offset="130785003" nBytes="217" chunkPositionInArray="[242,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.08.31.L3.RetStd_IR001.v6.0.31.0.G15245121721.nc.h5"/>
+            <dmrpp:chunk offset="130809426" nBytes="217" chunkPositionInArray="[243,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.01.L3.RetStd_IR001.v6.0.31.0.G15246055428.nc.h5"/>
+            <dmrpp:chunk offset="130657113" nBytes="217" chunkPositionInArray="[244,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.02.L3.RetStd_IR001.v6.0.31.0.G15246185957.nc.h5"/>
+            <dmrpp:chunk offset="126528231" nBytes="217" chunkPositionInArray="[245,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.03.L3.RetStd_IR001.v6.0.31.0.G15251121607.nc.h5"/>
+            <dmrpp:chunk offset="129044191" nBytes="217" chunkPositionInArray="[246,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.04.L3.RetStd_IR001.v6.0.31.0.G15251123039.nc.h5"/>
+            <dmrpp:chunk offset="131290674" nBytes="217" chunkPositionInArray="[247,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.05.L3.RetStd_IR001.v6.0.31.0.G15249182655.nc.h5"/>
+            <dmrpp:chunk offset="130965981" nBytes="217" chunkPositionInArray="[248,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.06.L3.RetStd_IR001.v6.0.31.0.G15250191403.nc.h5"/>
+            <dmrpp:chunk offset="131570580" nBytes="217" chunkPositionInArray="[249,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.07.L3.RetStd_IR001.v6.0.31.0.G15251192912.nc.h5"/>
+            <dmrpp:chunk offset="131188956" nBytes="217" chunkPositionInArray="[250,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.08.L3.RetStd_IR001.v6.0.31.0.G15252181912.nc.h5"/>
+            <dmrpp:chunk offset="130975472" nBytes="217" chunkPositionInArray="[251,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.09.L3.RetStd_IR001.v6.0.31.0.G15253185245.nc.h5"/>
+            <dmrpp:chunk offset="130538186" nBytes="217" chunkPositionInArray="[252,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.10.L3.RetStd_IR001.v6.0.31.0.G15254182904.nc.h5"/>
+            <dmrpp:chunk offset="130652251" nBytes="217" chunkPositionInArray="[253,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.11.L3.RetStd_IR001.v6.0.31.0.G15255181510.nc.h5"/>
+            <dmrpp:chunk offset="130812997" nBytes="217" chunkPositionInArray="[254,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.12.L3.RetStd_IR001.v6.0.31.0.G15256180147.nc.h5"/>
+            <dmrpp:chunk offset="125270049" nBytes="217" chunkPositionInArray="[255,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.13.L3.RetStd_IR001.v6.0.31.0.G15259120130.nc.h5"/>
+            <dmrpp:chunk offset="129276141" nBytes="217" chunkPositionInArray="[256,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.14.L3.RetStd_IR001.v6.0.31.0.G15259120757.nc.h5"/>
+            <dmrpp:chunk offset="130879826" nBytes="217" chunkPositionInArray="[257,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.15.L3.RetStd_IR001.v6.0.31.0.G15259183006.nc.h5"/>
+            <dmrpp:chunk offset="130878074" nBytes="217" chunkPositionInArray="[258,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.16.L3.RetStd_IR001.v6.0.31.0.G15260173550.nc.h5"/>
+            <dmrpp:chunk offset="130787220" nBytes="217" chunkPositionInArray="[259,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.17.L3.RetStd_IR001.v6.0.31.0.G15265195548.nc.h5"/>
+            <dmrpp:chunk offset="130769118" nBytes="217" chunkPositionInArray="[260,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.18.L3.RetStd_IR001.v6.0.31.0.G15266052228.nc.h5"/>
+            <dmrpp:chunk offset="131267350" nBytes="315" chunkPositionInArray="[261,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.19.L3.RetStd_IR001.v6.0.31.0.G15286123632.nc.h5"/>
+            <dmrpp:chunk offset="131263708" nBytes="217" chunkPositionInArray="[262,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.20.L3.RetStd_IR001.v6.0.31.0.G15265172219.nc.h5"/>
+            <dmrpp:chunk offset="131563643" nBytes="315" chunkPositionInArray="[263,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.21.L3.RetStd_IR001.v6.0.31.0.G15281122640.nc.h5"/>
+            <dmrpp:chunk offset="131038832" nBytes="315" chunkPositionInArray="[264,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.22.L3.RetStd_IR001.v6.0.31.0.G15281123620.nc.h5"/>
+            <dmrpp:chunk offset="130169848" nBytes="315" chunkPositionInArray="[265,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.23.L3.RetStd_IR001.v6.0.31.0.G15281123841.nc.h5"/>
+            <dmrpp:chunk offset="129740486" nBytes="315" chunkPositionInArray="[266,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.24.L3.RetStd_IR001.v6.0.31.0.G15280122823.nc.h5"/>
+            <dmrpp:chunk offset="125725340" nBytes="315" chunkPositionInArray="[267,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.25.L3.RetStd_IR001.v6.0.31.0.G15280125816.nc.h5"/>
+            <dmrpp:chunk offset="129083164" nBytes="315" chunkPositionInArray="[268,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.26.L3.RetStd_IR001.v6.0.31.0.G15280134337.nc.h5"/>
+            <dmrpp:chunk offset="130735218" nBytes="315" chunkPositionInArray="[269,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.27.L3.RetStd_IR001.v6.0.31.0.G15280130827.nc.h5"/>
+            <dmrpp:chunk offset="130982067" nBytes="217" chunkPositionInArray="[270,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.28.L3.RetStd_IR001.v6.0.31.0.G15272182749.nc.h5"/>
+            <dmrpp:chunk offset="130935464" nBytes="217" chunkPositionInArray="[271,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.29.L3.RetStd_IR001.v6.0.31.0.G15279133600.nc.h5"/>
+            <dmrpp:chunk offset="131037464" nBytes="217" chunkPositionInArray="[272,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.09.30.L3.RetStd_IR001.v6.0.31.0.G15279132236.nc.h5"/>
+            <dmrpp:chunk offset="130233903" nBytes="217" chunkPositionInArray="[273,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.01.L3.RetStd_IR001.v6.0.31.0.G15275180621.nc.h5"/>
+            <dmrpp:chunk offset="130354078" nBytes="217" chunkPositionInArray="[274,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.02.L3.RetStd_IR001.v6.0.31.0.G15276183800.nc.h5"/>
+            <dmrpp:chunk offset="130083595" nBytes="217" chunkPositionInArray="[275,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.03.L3.RetStd_IR001.v6.0.31.0.G15277183928.nc.h5"/>
+            <dmrpp:chunk offset="131227542" nBytes="217" chunkPositionInArray="[276,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.04.L3.RetStd_IR001.v6.0.31.0.G15279132537.nc.h5"/>
+            <dmrpp:chunk offset="131303871" nBytes="217" chunkPositionInArray="[277,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.05.L3.RetStd_IR001.v6.0.31.0.G15280122741.nc.h5"/>
+            <dmrpp:chunk offset="131075476" nBytes="217" chunkPositionInArray="[278,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.06.L3.RetStd_IR001.v6.0.31.0.G15281171105.nc.h5"/>
+            <dmrpp:chunk offset="129997587" nBytes="217" chunkPositionInArray="[279,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.07.L3.RetStd_IR001.v6.0.31.0.G15281194558.nc.h5"/>
+            <dmrpp:chunk offset="130111343" nBytes="217" chunkPositionInArray="[280,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.08.L3.RetStd_IR001.v6.0.31.0.G15282181604.nc.h5"/>
+            <dmrpp:chunk offset="131207471" nBytes="217" chunkPositionInArray="[281,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.09.L3.RetStd_IR001.v6.0.31.0.G15283180208.nc.h5"/>
+            <dmrpp:chunk offset="130924532" nBytes="217" chunkPositionInArray="[282,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.10.L3.RetStd_IR001.v6.0.31.0.G15284180331.nc.h5"/>
+            <dmrpp:chunk offset="131485464" nBytes="217" chunkPositionInArray="[283,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.11.L3.RetStd_IR001.v6.0.31.0.G15286170440.nc.h5"/>
+            <dmrpp:chunk offset="131180846" nBytes="217" chunkPositionInArray="[284,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.12.L3.RetStd_IR001.v6.0.31.0.G15286201628.nc.h5"/>
+            <dmrpp:chunk offset="131181682" nBytes="217" chunkPositionInArray="[285,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.13.L3.RetStd_IR001.v6.0.31.0.G15287180710.nc.h5"/>
+            <dmrpp:chunk offset="131051561" nBytes="217" chunkPositionInArray="[286,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.14.L3.RetStd_IR001.v6.0.31.0.G15288181532.nc.h5"/>
+            <dmrpp:chunk offset="122890514" nBytes="217" chunkPositionInArray="[287,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.15.L3.RetStd_IR001.v6.0.31.0.G15292105844.nc.h5"/>
+            <dmrpp:chunk offset="130249146" nBytes="217" chunkPositionInArray="[288,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.16.L3.RetStd_IR001.v6.0.31.0.G15292111218.nc.h5"/>
+            <dmrpp:chunk offset="131290566" nBytes="217" chunkPositionInArray="[289,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.17.L3.RetStd_IR001.v6.0.31.0.G15291213341.nc.h5"/>
+            <dmrpp:chunk offset="131982302" nBytes="217" chunkPositionInArray="[290,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.18.L3.RetStd_IR001.v6.0.31.0.G15292183048.nc.h5"/>
+            <dmrpp:chunk offset="131680821" nBytes="217" chunkPositionInArray="[291,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.19.L3.RetStd_IR001.v6.0.31.0.G15293180703.nc.h5"/>
+            <dmrpp:chunk offset="131560668" nBytes="217" chunkPositionInArray="[292,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.20.L3.RetStd_IR001.v6.0.31.0.G15294183756.nc.h5"/>
+            <dmrpp:chunk offset="131744412" nBytes="217" chunkPositionInArray="[293,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.21.L3.RetStd_IR001.v6.0.31.0.G15296182331.nc.h5"/>
+            <dmrpp:chunk offset="130635393" nBytes="217" chunkPositionInArray="[294,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.22.L3.RetStd_IR001.v6.0.31.0.G15299105437.nc.h5"/>
+            <dmrpp:chunk offset="131648087" nBytes="217" chunkPositionInArray="[295,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.23.L3.RetStd_IR001.v6.0.31.0.G15299110134.nc.h5"/>
+            <dmrpp:chunk offset="131664544" nBytes="217" chunkPositionInArray="[296,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.24.L3.RetStd_IR001.v6.0.31.0.G15299105522.nc.h5"/>
+            <dmrpp:chunk offset="131607032" nBytes="217" chunkPositionInArray="[297,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.25.L3.RetStd_IR001.v6.0.31.0.G15299190428.nc.h5"/>
+            <dmrpp:chunk offset="131200797" nBytes="217" chunkPositionInArray="[298,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.26.L3.RetStd_IR001.v6.0.31.0.G15300185045.nc.h5"/>
+            <dmrpp:chunk offset="131746908" nBytes="217" chunkPositionInArray="[299,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.27.L3.RetStd_IR001.v6.0.31.0.G15301185928.nc.h5"/>
+            <dmrpp:chunk offset="130954933" nBytes="217" chunkPositionInArray="[300,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.28.L3.RetStd_IR001.v6.0.31.0.G15302183008.nc.h5"/>
+            <dmrpp:chunk offset="131238649" nBytes="217" chunkPositionInArray="[301,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.29.L3.RetStd_IR001.v6.0.31.0.G15303183201.nc.h5"/>
+            <dmrpp:chunk offset="131616662" nBytes="217" chunkPositionInArray="[302,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.30.L3.RetStd_IR001.v6.0.31.0.G15304181811.nc.h5"/>
+            <dmrpp:chunk offset="130440229" nBytes="217" chunkPositionInArray="[303,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.10.31.L3.RetStd_IR001.v6.0.31.0.G15305182054.nc.h5"/>
+            <dmrpp:chunk offset="130457575" nBytes="217" chunkPositionInArray="[304,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.01.L3.RetStd_IR001.v6.0.31.0.G15306172043.nc.h5"/>
+            <dmrpp:chunk offset="130755424" nBytes="217" chunkPositionInArray="[305,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.02.L3.RetStd_IR001.v6.0.31.0.G15307173725.nc.h5"/>
+            <dmrpp:chunk offset="131291747" nBytes="217" chunkPositionInArray="[306,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.03.L3.RetStd_IR001.v6.0.31.0.G15308184039.nc.h5"/>
+            <dmrpp:chunk offset="131367529" nBytes="217" chunkPositionInArray="[307,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.04.L3.RetStd_IR001.v6.0.31.0.G15309175722.nc.h5"/>
+            <dmrpp:chunk offset="131973194" nBytes="217" chunkPositionInArray="[308,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.05.L3.RetStd_IR001.v6.0.31.0.G15310174156.nc.h5"/>
+            <dmrpp:chunk offset="131658382" nBytes="217" chunkPositionInArray="[309,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.06.L3.RetStd_IR001.v6.0.31.0.G15311174328.nc.h5"/>
+            <dmrpp:chunk offset="130685287" nBytes="217" chunkPositionInArray="[310,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.07.L3.RetStd_IR001.v6.0.31.0.G15313022554.nc.h5"/>
+            <dmrpp:chunk offset="131085907" nBytes="217" chunkPositionInArray="[311,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.08.L3.RetStd_IR001.v6.0.31.0.G15313181728.nc.h5"/>
+            <dmrpp:chunk offset="131888863" nBytes="217" chunkPositionInArray="[312,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.09.L3.RetStd_IR001.v6.0.31.0.G15314173250.nc.h5"/>
+            <dmrpp:chunk offset="132004090" nBytes="217" chunkPositionInArray="[313,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.10.L3.RetStd_IR001.v6.0.31.0.G15317190829.nc.h5"/>
+            <dmrpp:chunk offset="131801094" nBytes="217" chunkPositionInArray="[314,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.11.L3.RetStd_IR001.v6.0.31.0.G15317202128.nc.h5"/>
+            <dmrpp:chunk offset="131589628" nBytes="217" chunkPositionInArray="[315,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.12.L3.RetStd_IR001.v6.0.31.0.G15317210501.nc.h5"/>
+            <dmrpp:chunk offset="131804626" nBytes="217" chunkPositionInArray="[316,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.13.L3.RetStd_IR001.v6.0.31.0.G15318181838.nc.h5"/>
+            <dmrpp:chunk offset="131566867" nBytes="217" chunkPositionInArray="[317,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.14.L3.RetStd_IR001.v6.0.31.0.G15319171913.nc.h5"/>
+            <dmrpp:chunk offset="132162435" nBytes="217" chunkPositionInArray="[318,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.15.L3.RetStd_IR001.v6.0.31.0.G15320174853.nc.h5"/>
+            <dmrpp:chunk offset="132064635" nBytes="217" chunkPositionInArray="[319,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.16.L3.RetStd_IR001.v6.0.31.0.G15321175428.nc.h5"/>
+            <dmrpp:chunk offset="132086090" nBytes="217" chunkPositionInArray="[320,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.17.L3.RetStd_IR001.v6.0.31.0.G15322173634.nc.h5"/>
+            <dmrpp:chunk offset="132174551" nBytes="217" chunkPositionInArray="[321,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.18.L3.RetStd_IR001.v6.0.31.0.G15323173646.nc.h5"/>
+            <dmrpp:chunk offset="132118790" nBytes="217" chunkPositionInArray="[322,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.19.L3.RetStd_IR001.v6.0.31.0.G15327171246.nc.h5"/>
+            <dmrpp:chunk offset="128511996" nBytes="217" chunkPositionInArray="[323,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.20.L3.RetStd_IR001.v6.0.31.0.G15327174304.nc.h5"/>
+            <dmrpp:chunk offset="130018279" nBytes="217" chunkPositionInArray="[324,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.21.L3.RetStd_IR001.v6.0.31.0.G15327175839.nc.h5"/>
+            <dmrpp:chunk offset="131289917" nBytes="217" chunkPositionInArray="[325,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.22.L3.RetStd_IR001.v6.0.31.0.G15328160009.nc.h5"/>
+            <dmrpp:chunk offset="131669239" nBytes="217" chunkPositionInArray="[326,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.23.L3.RetStd_IR001.v6.0.31.0.G15328171702.nc.h5"/>
+            <dmrpp:chunk offset="131993138" nBytes="217" chunkPositionInArray="[327,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.24.L3.RetStd_IR001.v6.0.31.0.G15329174949.nc.h5"/>
+            <dmrpp:chunk offset="131617498" nBytes="315" chunkPositionInArray="[328,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.25.L3.RetStd_IR001.v6.0.31.0.G15338133714.nc.h5"/>
+            <dmrpp:chunk offset="131752113" nBytes="315" chunkPositionInArray="[329,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.26.L3.RetStd_IR001.v6.0.31.0.G15338140629.nc.h5"/>
+            <dmrpp:chunk offset="131724499" nBytes="315" chunkPositionInArray="[330,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.27.L3.RetStd_IR001.v6.0.31.0.G15341130700.nc.h5"/>
+            <dmrpp:chunk offset="131698729" nBytes="217" chunkPositionInArray="[331,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.28.L3.RetStd_IR001.v6.0.31.0.G15334014939.nc.h5"/>
+            <dmrpp:chunk offset="131576965" nBytes="217" chunkPositionInArray="[332,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.29.L3.RetStd_IR001.v6.0.31.0.G15335015610.nc.h5"/>
+            <dmrpp:chunk offset="131555223" nBytes="217" chunkPositionInArray="[333,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.11.30.L3.RetStd_IR001.v6.0.31.0.G15335173247.nc.h5"/>
+            <dmrpp:chunk offset="131607430" nBytes="217" chunkPositionInArray="[334,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.01.L3.RetStd_IR001.v6.0.31.0.G15336180328.nc.h5"/>
+            <dmrpp:chunk offset="130931940" nBytes="217" chunkPositionInArray="[335,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.02.L3.RetStd_IR001.v6.0.31.0.G15337191146.nc.h5"/>
+            <dmrpp:chunk offset="130088910" nBytes="315" chunkPositionInArray="[336,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.03.L3.RetStd_IR001.v6.0.31.0.G15338200027.nc.h5"/>
+            <dmrpp:chunk offset="130784642" nBytes="217" chunkPositionInArray="[337,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.04.L3.RetStd_IR001.v6.0.31.0.G15339182910.nc.h5"/>
+            <dmrpp:chunk offset="131045382" nBytes="217" chunkPositionInArray="[338,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.05.L3.RetStd_IR001.v6.0.31.0.G15340172926.nc.h5"/>
+            <dmrpp:chunk offset="130756843" nBytes="217" chunkPositionInArray="[339,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.06.L3.RetStd_IR001.v6.0.31.0.G15341175309.nc.h5"/>
+            <dmrpp:chunk offset="129428474" nBytes="217" chunkPositionInArray="[340,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.07.L3.RetStd_IR001.v6.0.31.0.G15342173411.nc.h5"/>
+            <dmrpp:chunk offset="128671613" nBytes="217" chunkPositionInArray="[341,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.08.L3.RetStd_IR001.v6.0.31.0.G15343174548.nc.h5"/>
+            <dmrpp:chunk offset="131366608" nBytes="217" chunkPositionInArray="[342,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.09.L3.RetStd_IR001.v6.0.31.0.G15344174447.nc.h5"/>
+            <dmrpp:chunk offset="131661159" nBytes="217" chunkPositionInArray="[343,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.10.L3.RetStd_IR001.v6.0.31.0.G15345173547.nc.h5"/>
+            <dmrpp:chunk offset="130660526" nBytes="217" chunkPositionInArray="[344,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.11.L3.RetStd_IR001.v6.0.31.0.G15346173637.nc.h5"/>
+            <dmrpp:chunk offset="130864042" nBytes="217" chunkPositionInArray="[345,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.12.L3.RetStd_IR001.v6.0.31.0.G15347173750.nc.h5"/>
+            <dmrpp:chunk offset="130632947" nBytes="217" chunkPositionInArray="[346,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.13.L3.RetStd_IR001.v6.0.31.0.G15349151342.nc.h5"/>
+            <dmrpp:chunk offset="130846068" nBytes="217" chunkPositionInArray="[347,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.14.L3.RetStd_IR001.v6.0.31.0.G15349183244.nc.h5"/>
+            <dmrpp:chunk offset="130741747" nBytes="217" chunkPositionInArray="[348,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.15.L3.RetStd_IR001.v6.0.31.0.G15350164838.nc.h5"/>
+            <dmrpp:chunk offset="118186958" nBytes="217" chunkPositionInArray="[349,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.16.L3.RetStd_IR001.v6.0.31.0.G15351172052.nc.h5"/>
+            <dmrpp:chunk offset="129820571" nBytes="217" chunkPositionInArray="[350,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.17.L3.RetStd_IR001.v6.0.31.0.G15355185144.nc.h5"/>
+            <dmrpp:chunk offset="130796381" nBytes="217" chunkPositionInArray="[351,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.18.L3.RetStd_IR001.v6.0.31.0.G15353180234.nc.h5"/>
+            <dmrpp:chunk offset="130604885" nBytes="217" chunkPositionInArray="[352,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.19.L3.RetStd_IR001.v6.0.31.0.G15357151707.nc.h5"/>
+            <dmrpp:chunk offset="130372507" nBytes="217" chunkPositionInArray="[353,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.20.L3.RetStd_IR001.v6.0.31.0.G15357153310.nc.h5"/>
+            <dmrpp:chunk offset="131109049" nBytes="217" chunkPositionInArray="[354,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.21.L3.RetStd_IR001.v6.0.31.0.G15357154855.nc.h5"/>
+            <dmrpp:chunk offset="130632827" nBytes="217" chunkPositionInArray="[355,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.22.L3.RetStd_IR001.v6.0.31.0.G15357171531.nc.h5"/>
+            <dmrpp:chunk offset="131212673" nBytes="217" chunkPositionInArray="[356,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.23.L3.RetStd_IR001.v6.0.31.0.G15358171257.nc.h5"/>
+            <dmrpp:chunk offset="130714754" nBytes="217" chunkPositionInArray="[357,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.24.L3.RetStd_IR001.v6.0.31.0.G15359171421.nc.h5"/>
+            <dmrpp:chunk offset="130500885" nBytes="217" chunkPositionInArray="[358,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.25.L3.RetStd_IR001.v6.0.31.0.G15362153615.nc.h5"/>
+            <dmrpp:chunk offset="129973519" nBytes="217" chunkPositionInArray="[359,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.26.L3.RetStd_IR001.v6.0.31.0.G15362202938.nc.h5"/>
+            <dmrpp:chunk offset="127291449" nBytes="217" chunkPositionInArray="[360,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.27.L3.RetStd_IR001.v6.0.31.0.G15363023350.nc.h5"/>
+            <dmrpp:chunk offset="128042742" nBytes="217" chunkPositionInArray="[361,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.28.L3.RetStd_IR001.v6.0.31.0.G15363170846.nc.h5"/>
+            <dmrpp:chunk offset="129555374" nBytes="217" chunkPositionInArray="[362,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.29.L3.RetStd_IR001.v6.0.31.0.G15364172519.nc.h5"/>
+            <dmrpp:chunk offset="128288130" nBytes="315" chunkPositionInArray="[363,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.30.L3.RetStd_IR001.v6.0.31.0.G16116184203.nc.h5"/>
+            <dmrpp:chunk offset="125562961" nBytes="315" chunkPositionInArray="[364,0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.12.31.L3.RetStd_IR001.v6.0.31.0.G16118131039.nc.h5"/>
+        </dmrpp:chunks>
+    </Float64>
+    <Float64 name="Longitude_01_01">
+        <Dim name="/Longitude"/>
+        <Attribute name="long_name" type="String">
+            <Value>Longitude</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>degrees_east</Value>
+        </Attribute>
+        <Attribute name="format" type="String">
+            <Value>F6.1</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Longitude</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Longitude</Value>
+        </Attribute>
+        <dmrpp:chunks compressionType="deflate shuffle">
+            <dmrpp:chunkDimensionSizes>360</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="130792644" nBytes="315" chunkPositionInArray="[0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.01.L3.RetStd_IR001.v6.0.11.0.G15013155825.nc.h5"/>
+        </dmrpp:chunks>
+    </Float64>
+    <Float64 name="Longitude_01_02">
+        <Dim name="/Longitude"/>
+        <Attribute name="long_name" type="String">
+            <Value>Longitude</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>degrees_east</Value>
+        </Attribute>
+        <Attribute name="format" type="String">
+            <Value>F6.1</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Longitude</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Longitude</Value>
+        </Attribute>
+        <dmrpp:chunks compressionType="deflate shuffle">
+            <dmrpp:chunkDimensionSizes>360</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="130458091" nBytes="315" chunkPositionInArray="[0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.02.L3.RetStd_IR001.v6.0.11.0.G15005190621.nc.h5"/>
+        </dmrpp:chunks>
+    </Float64>
+    <Float64 name="Longitude_01_03">
+        <Dim name="/Longitude"/>
+        <Attribute name="long_name" type="String">
+            <Value>Longitude</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>degrees_east</Value>
+        </Attribute>
+        <Attribute name="format" type="String">
+            <Value>F6.1</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Longitude</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Longitude</Value>
+        </Attribute>
+        <dmrpp:chunks compressionType="deflate shuffle">
+            <dmrpp:chunkDimensionSizes>360</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="129550068" nBytes="315" chunkPositionInArray="[0]" href="https://s3.amazonaws.com/cloudydap/airs/AIRS.2015.01.03.L3.RetStd_IR001.v6.0.11.0.G15006005549.nc.h5"/>
+        </dmrpp:chunks>
+    </Float64>
+
+</Dataset>
