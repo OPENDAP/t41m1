@@ -1,6 +1,6 @@
 #!/bin/bash
 
-max_reps=300;
+max_reps=100;
 
 DAP2_CE="ClrOLR_A%5B0:1:364%5D%5B0:1:179%5D%5B0:1:359%5D";
 
@@ -20,19 +20,26 @@ done=
 while test -z "${done}"
 do
     { time -p curl -s "${airs_local_join_new}.dods?${DAP2_CE}" > airs_local_join_new.dods;} 2>>airs_local_join_new.txt; 
+    echo -n "-";
     { time -p curl -s "${airs_riofs_join_new}.dods?${DAP2_CE}" > airs_riofs_join_new.dods;} 2>>airs_riofs_join_new.txt; 
-    
+    echo -n "\\";
+
     { time -p curl -s "${airs_dmrpp_local_join_new}.dods?${DAP2_CE}" > airs_dmrpp_local_join_new.dods;} 2>>airs_dmrpp_local_join_new.txt; 
+    echo -n "|";
     { time -p curl -s "${airs_dmrpp_remote_join_new}.dods?${DAP2_CE}" > airs_dmrpp_remote_join_new.dods;} 2>>airs_dmrpp_remote_join_new.txt; 
+    echo -n "/";
 
     { time -p curl -s "${dmrpp_agg_test_06}.dods?${DAP2_CE}" > dmrpp_agg_test_06.dods;} 2>>dmrpp_agg_test_06.txt; 
+    echo -n "-";
     { time -p curl -s "${dmrpp_agg_test_07}.dods?${DAP2_CE}" > dmrpp_agg_test_07.dods;} 2>>dmrpp_agg_test_07.txt; 
+    echo -n "_";
     let rep=rep+1;
     if [ ${rep} -ge ${max_reps} ]
     then
         done="true";
     fi
-    echo -n ".";
+    echo -n "+";
     
 done
 
+echo "";
