@@ -21,20 +21,24 @@ let rep=0;
 done=
 while test -z "${done}"
 do
-    #{ time -p curl -s "${airs_local_join_new}.dods?${DAP2_CE}" > results/airs_local_join_new.dods;} 2>>results/airs_local_join_new.txt; 
-    #echo -n "-";
-    #{ time -p curl -s "${airs_riofs_join_new}.dods?${DAP2_CE}" > results/airs_riofs_join_new.dods;} 2>>results/airs_riofs_join_new.txt; 
-    #echo -n "\\";
+    { time -p curl -s "${airs_local_join_new}.dods?${DAP2_CE}" > results/airs_local_join_new.dods;} 2>>results/airs_local_join_new.txt; 
+    echo -n "-";
+    
+    { time -p curl -s "${airs_riofs_join_new}.dods?${DAP2_CE}" > results/airs_riofs_join_new.dods;} 2>>results/airs_riofs_join_new.txt; 
+    echo -n "\\";
 
     { time -p curl -s "${airs_dmrpp_local_join_new}.dods?${DAP2_CE}" > results/airs_dmrpp_local_join_new.dods;} 2>>results/airs_dmrpp_local_join_new.txt; 
     echo -n "|";
-    #{ time -p curl -s "${airs_dmrpp_remote_join_new}.dods?${DAP2_CE}" > results/airs_dmrpp_remote_join_new.dods;} 2>>results/airs_dmrpp_remote_join_new.txt; 
-    #echo -n "/";
+    
+    { time -p curl -s "${airs_dmrpp_remote_join_new}.dods?${DAP2_CE}" > results/airs_dmrpp_remote_join_new.dods;} 2>>results/airs_dmrpp_remote_join_new.txt; 
+    echo -n "/";
 
-    #{ time -p curl -s "${dmrpp_agg_test_06}.dods?${DAP2_CE}" > results/dmrpp_agg_test_06.dods;} 2>>results/dmrpp_agg_test_06.txt; 
-    #echo -n "-";
+    { time -p curl -s "${dmrpp_agg_test_06}.dods?${DAP2_CE}" > results/dmrpp_agg_test_06.dods;} 2>>results/dmrpp_agg_test_06.txt; 
+    echo -n "-";
+    
     { time -p curl -s "${dmrpp_agg_test_07}.dods?${DAP2_CE}" > results/dmrpp_agg_test_07.dods;} 2>>results/dmrpp_agg_test_07.txt; 
     echo -n "_";
+    
     let rep=rep+1;
     if [ ${rep} -ge ${max_reps} ]
     then
