@@ -13,25 +13,27 @@ airs_dmrpp_remote_join_new="http://t41m1.opendap.org:8080/opendap/t41m1/airs_dmr
 dmrpp_agg_test_06="http://t41m1.opendap.org:8080/opendap/t41m1/dmrpp_agg_test_06.dmrpp";
 dmrpp_agg_test_07="http://t41m1.opendap.org:8080/opendap/t41m1/dmrpp_agg_test_07.dmrpp";
 
-rm -vfr dmrpp_agg_test_06.txt dmrpp_agg_test_07.txt airs_local_join_new.txt airs_riofs_join_new.txt airs_dmrpp_local_join_new.txt airs_dmrpp_remote_join_new.txt
+rm -vfr results
+mkdir -p results;
+
 
 let rep=0;
 done=
 while test -z "${done}"
 do
-    #{ time -p curl -s "${airs_local_join_new}.dods?${DAP2_CE}" > airs_local_join_new.dods;} 2>>airs_local_join_new.txt; 
+    #{ time -p curl -s "${airs_local_join_new}.dods?${DAP2_CE}" > airs_local_join_new.dods;} 2>>results/airs_local_join_new.txt; 
     #echo -n "-";
-    #{ time -p curl -s "${airs_riofs_join_new}.dods?${DAP2_CE}" > airs_riofs_join_new.dods;} 2>>airs_riofs_join_new.txt; 
+    #{ time -p curl -s "${airs_riofs_join_new}.dods?${DAP2_CE}" > airs_riofs_join_new.dods;} 2>>results/airs_riofs_join_new.txt; 
     #echo -n "\\";
 
-    #{ time -p curl -s "${airs_dmrpp_local_join_new}.dods?${DAP2_CE}" > airs_dmrpp_local_join_new.dods;} 2>>airs_dmrpp_local_join_new.txt; 
+    #{ time -p curl -s "${airs_dmrpp_local_join_new}.dods?${DAP2_CE}" > airs_dmrpp_local_join_new.dods;} 2>>results/airs_dmrpp_local_join_new.txt; 
     #echo -n "|";
-    #{ time -p curl -s "${airs_dmrpp_remote_join_new}.dods?${DAP2_CE}" > airs_dmrpp_remote_join_new.dods;} 2>>airs_dmrpp_remote_join_new.txt; 
+    #{ time -p curl -s "${airs_dmrpp_remote_join_new}.dods?${DAP2_CE}" > airs_dmrpp_remote_join_new.dods;} 2>>results/airs_dmrpp_remote_join_new.txt; 
     #echo -n "/";
 
-    #{ time -p curl -s "${dmrpp_agg_test_06}.dods?${DAP2_CE}" > dmrpp_agg_test_06.dods;} 2>>dmrpp_agg_test_06.txt; 
+    #{ time -p curl -s "${dmrpp_agg_test_06}.dods?${DAP2_CE}" > dmrpp_agg_test_06.dods;} 2>>results/dmrpp_agg_test_06.txt; 
     #echo -n "-";
-    { time -p curl -s "${dmrpp_agg_test_07}.dods?${DAP2_CE}" > dmrpp_agg_test_07.dods;} 2>>dmrpp_agg_test_07.txt; 
+    { time -p curl -s "${dmrpp_agg_test_07}.dods?${DAP2_CE}" > dmrpp_agg_test_07.dods;} 2>>results/dmrpp_agg_test_07.txt; 
     echo -n "_";
     let rep=rep+1;
     if [ ${rep} -ge ${max_reps} ]
