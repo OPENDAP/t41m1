@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Dataset xmlns="http://xml.opendap.org/ns/DAP/4.0#" xmlns:dmrpp="http://xml.opendap.org/dap/dmrpp/1.0.0#" dapVersion="4.0" dmrVersion="1.0" name="nc4_group_mlls_za.h5" dmrpp:href="https://s3.amazonaws.com/cloudydap/samples/nc4_group_mlls_za.h5">
+    <Dimension name="lat" size="2"/>
+    <Dimension name="zdim" size="3"/>
+    <Float32 name="g1_lat1">
+        <Dim name="/lat"/>
+        <Attribute name="units" type="String">
+            <Value>degrees_north</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>lat1</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/g1/lat1</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="6792" nBytes="8"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="g1_lon1">
+        <Dim name="/lat"/>
+        <Attribute name="units" type="String">
+            <Value>degrees_east</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>lon1</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/g1/lon1</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="6800" nBytes="8"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="g1_pres2">
+        <Dim name="/lat"/>
+        <Dim name="/zdim"/>
+        <Attribute name="units" type="String">
+            <Value>hPa</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>pres2</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/g1/pres2</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="6808" nBytes="24"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="pres1">
+        <Dim name="/lat"/>
+        <Dim name="/zdim"/>
+        <Attribute name="units" type="String">
+            <Value>hPa</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>pres1</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/pres1</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="6768" nBytes="24"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="lat">
+        <Dim name="/lat"/>
+        <Attribute name="units" type="String">
+            <Value>degrees_north</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>lat</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/lat</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="6748" nBytes="8"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Int32 name="zdim">
+        <Dim name="/zdim"/>
+        <Attribute name="units" type="String">
+            <Value>km</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>zdim</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/zdim</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="6756" nBytes="12"/>
+        </dmrpp:chunks>
+    </Int32>
+    <Attribute name="g1" type="Container"/>
+</Dataset>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Dataset xmlns="http://xml.opendap.org/ns/DAP/4.0#" xmlns:dmrpp="http://xml.opendap.org/dap/dmrpp/1.0.0#" dapVersion="4.0" dmrVersion="1.0" name="t_flatten_name_clash.h5" dmrpp:href="https://s3.amazonaws.com/cloudydap/samples/t_flatten_name_clash.h5">
+    <Int32 name="a_b_c_d">
+        <Dim size="5"/>
+        <Dim size="6"/>
+        <Attribute name="origname" type="String">
+            <Value>d</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/a/b/c/d</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="5800" nBytes="120"/>
+        </dmrpp:chunks>
+    </Int32>
+    <Int32 name="a_b_c_d_1">
+        <Dim size="2"/>
+        <Dim size="2"/>
+        <Attribute name="origname" type="String">
+            <Value>d</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/a_b_c/d</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="5920" nBytes="16"/>
+        </dmrpp:chunks>
+    </Int32>
+    <Attribute name="a" type="Container"/>
+    <Attribute name="a_b" type="Container"/>
+    <Attribute name="a_b_c" type="Container"/>
+    <Attribute name="a_b_c_1" type="Container"/>
+</Dataset>

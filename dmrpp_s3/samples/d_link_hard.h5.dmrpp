@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Dataset xmlns="http://xml.opendap.org/ns/DAP/4.0#" xmlns:dmrpp="http://xml.opendap.org/dap/dmrpp/1.0.0#" dapVersion="4.0" dmrVersion="1.0" name="d_link_hard.h5" dmrpp:href="https://s3.amazonaws.com/cloudydap/samples/d_link_hard.h5">
+    <Int32 name="dset1">
+        <Dim size="5"/>
+        <Attribute name="origname" type="String">
+            <Value>dset1</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/dset1</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="2144" nBytes="20"/>
+        </dmrpp:chunks>
+    </Int32>
+    <Int32 name="g1_g3_dset1_hard">
+        <Dim size="5"/>
+        <Attribute name="origname" type="String">
+            <Value>dset1_hard</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/g1/g3/dset1_hard</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="2144" nBytes="20"/>
+        </dmrpp:chunks>
+    </Int32>
+    <Int32 name="g2_dset1_hard">
+        <Dim size="5"/>
+        <Attribute name="origname" type="String">
+            <Value>dset1_hard</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/g2/dset1_hard</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="2144" nBytes="20"/>
+        </dmrpp:chunks>
+    </Int32>
+    <Attribute name="g1" type="Container"/>
+    <Attribute name="g1_g3" type="Container"/>
+    <Attribute name="g1_g3_g4_hard" type="Container"/>
+    <Attribute name="g2" type="Container"/>
+    <Attribute name="g2_g4_hard" type="Container"/>
+    <Attribute name="g4" type="Container"/>
+</Dataset>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Dataset xmlns="http://xml.opendap.org/ns/DAP/4.0#" xmlns:dmrpp="http://xml.opendap.org/dap/dmrpp/1.0.0#" dapVersion="4.0" dmrVersion="1.0" name="grid_2_3d_size.h5" dmrpp:href="https://s3.amazonaws.com/cloudydap/samples/grid_2_3d_size.h5">
+    <Dimension name="GeoGrid1_ZDim" size="2"/>
+    <Dimension name="GeoGrid1_lat" size="8"/>
+    <Dimension name="GeoGrid1_lon" size="16"/>
+    <Dimension name="GeoGrid2_ZDim" size="2"/>
+    <Dimension name="GeoGrid2_lat" size="4"/>
+    <Dimension name="GeoGrid2_lon" size="8"/>
+    <Float32 name="GeoGrid1_Temperature">
+        <Dim name="/GeoGrid1_ZDim"/>
+        <Dim name="/GeoGrid1_lat"/>
+        <Dim name="/GeoGrid1_lon"/>
+        <Attribute name="units" type="String">
+            <Value>K</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Temperature</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS/GRIDS/GeoGrid1/Data Fields/Temperature</Value>
+        </Attribute>
+        <Attribute name="orig_dimname_list" type="String">
+            <Value>ZDim YDim XDim</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="40672" nBytes="1024"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="GeoGrid2_Temperature">
+        <Dim name="/GeoGrid2_ZDim"/>
+        <Dim name="/GeoGrid2_lat"/>
+        <Dim name="/GeoGrid2_lon"/>
+        <Attribute name="units" type="String">
+            <Value>K</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Temperature</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS/GRIDS/GeoGrid2/Data Fields/Temperature</Value>
+        </Attribute>
+        <Attribute name="orig_dimname_list" type="String">
+            <Value>ZDim YDim XDim</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="41696" nBytes="256"/>
+        </dmrpp:chunks>
+    </Float32>
+    <String name="StructMetadata_0">
+        <Attribute name="origname" type="String">
+            <Value>StructMetadata.0</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS INFORMATION/StructMetadata.0</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="5304" nBytes="32000"/>
+        </dmrpp:chunks>
+    </String>
+    <Float32 name="GeoGrid1_lon">
+        <Dim name="/GeoGrid1_lon"/>
+        <Attribute name="units" type="String">
+            <Value>degrees_east</Value>
+        </Attribute>
+    </Float32>
+    <Float32 name="GeoGrid1_lat">
+        <Dim name="/GeoGrid1_lat"/>
+        <Attribute name="units" type="String">
+            <Value>degrees_north</Value>
+        </Attribute>
+    </Float32>
+    <Int32 name="GeoGrid1_ZDim">
+        <Dim name="/GeoGrid1_ZDim"/>
+        <Attribute name="units" type="String">
+            <Value>level</Value>
+        </Attribute>
+    </Int32>
+    <Float32 name="GeoGrid2_lon">
+        <Dim name="/GeoGrid2_lon"/>
+        <Attribute name="units" type="String">
+            <Value>degrees_east</Value>
+        </Attribute>
+    </Float32>
+    <Float32 name="GeoGrid2_lat">
+        <Dim name="/GeoGrid2_lat"/>
+        <Attribute name="units" type="String">
+            <Value>degrees_north</Value>
+        </Attribute>
+    </Float32>
+    <Int32 name="GeoGrid2_ZDim">
+        <Dim name="/GeoGrid2_ZDim"/>
+        <Attribute name="units" type="String">
+            <Value>level</Value>
+        </Attribute>
+    </Int32>
+    <Attribute name="HDFEOS" type="Container"/>
+    <Attribute name="HDFEOS_ADDITIONAL" type="Container"/>
+    <Attribute name="HDFEOS_ADDITIONAL_FILE_ATTRIBUTES" type="Container"/>
+    <Attribute name="HDFEOS_GRIDS" type="Container"/>
+    <Attribute name="HDFEOS_GRIDS_GeoGrid1" type="Container"/>
+    <Attribute name="HDFEOS_GRIDS_GeoGrid1_Data_Fields" type="Container"/>
+    <Attribute name="HDFEOS_GRIDS_GeoGrid2" type="Container"/>
+    <Attribute name="HDFEOS_GRIDS_GeoGrid2_Data_Fields" type="Container"/>
+    <Attribute name="HDFEOS_INFORMATION" type="Container">
+        <Attribute name="HDFEOSVersion" type="String">
+            <Value>HDFEOS_5.1.13</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS INFORMATION</Value>
+        </Attribute>
+    </Attribute>
+</Dataset>

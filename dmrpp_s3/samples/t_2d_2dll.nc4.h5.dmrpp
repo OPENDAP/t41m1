@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Dataset xmlns="http://xml.opendap.org/ns/DAP/4.0#" xmlns:dmrpp="http://xml.opendap.org/dap/dmrpp/1.0.0#" dapVersion="4.0" dmrVersion="1.0" name="t_2d_2dll.nc4.h5" dmrpp:href="https://s3.amazonaws.com/cloudydap/samples/t_2d_2dll.nc4.h5">
+    <Dimension name="xc" size="4"/>
+    <Dimension name="yc" size="4"/>
+    <Float32 name="mydata">
+        <Dim name="/xc"/>
+        <Dim name="/yc"/>
+        <Attribute name="origname" type="String">
+            <Value>mydata</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/mydata</Value>
+        </Attribute>
+        <Attribute name="coordinates" type="String">
+            <Value>lat lon</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="6872" nBytes="64"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="lat">
+        <Dim name="/xc"/>
+        <Dim name="/yc"/>
+        <Attribute name="units" type="String">
+            <Value>degrees_north</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>lat</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/lat</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="6808" nBytes="64"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="lon">
+        <Dim name="/xc"/>
+        <Dim name="/yc"/>
+        <Attribute name="units" type="String">
+            <Value>degrees_east</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>lon</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/lon</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="6744" nBytes="64"/>
+        </dmrpp:chunks>
+    </Float32>
+</Dataset>

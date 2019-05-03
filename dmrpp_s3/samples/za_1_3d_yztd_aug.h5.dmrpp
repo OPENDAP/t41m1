@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Dataset xmlns="http://xml.opendap.org/ns/DAP/4.0#" xmlns:dmrpp="http://xml.opendap.org/dap/dmrpp/1.0.0#" dapVersion="4.0" dmrVersion="1.0" name="za_1_3d_yztd_aug.h5" dmrpp:href="https://s3.amazonaws.com/cloudydap/samples/za_1_3d_yztd_aug.h5">
+    <Dimension name="TDim" size="2"/>
+    <Dimension name="YDim" size="8"/>
+    <Dimension name="ZDim" size="4"/>
+    <Float32 name="Date">
+        <Dim name="/TDim"/>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>0.000000000</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>days since 2012-1-1 0:0:0</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Date</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS/ZAS/ZA/Data Fields/Date</Value>
+        </Attribute>
+        <Attribute name="orig_dimname" type="String">
+            <Value>TDim</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="40696" nBytes="8"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Latitude">
+        <Dim name="/YDim"/>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>0.000000000</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>degrees_north</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Latitude</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS/ZAS/ZA/Data Fields/Latitude</Value>
+        </Attribute>
+        <Attribute name="orig_dimname" type="String">
+            <Value>YDim</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="40704" nBytes="32"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Pressure">
+        <Dim name="/ZDim"/>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>0.000000000</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>hPa</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Pressure</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS/ZAS/ZA/Data Fields/Pressure</Value>
+        </Attribute>
+        <Attribute name="orig_dimname" type="String">
+            <Value>ZDim</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="40672" nBytes="16"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Temperature">
+        <Dim name="/TDim"/>
+        <Dim name="/ZDim"/>
+        <Dim name="/YDim"/>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>0.000000000</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Temperature</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS/ZAS/ZA/Data Fields/Temperature</Value>
+        </Attribute>
+        <Attribute name="orig_dimname_list" type="String">
+            <Value>TDim ZDim YDim</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="40736" nBytes="256"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Time">
+        <Dim name="/TDim"/>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>0.000000000</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>seconds since 2012-1-1 0:0:0</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Time</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS/ZAS/ZA/Data Fields/Time</Value>
+        </Attribute>
+        <Attribute name="orig_dimname" type="String">
+            <Value>TDim</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="40688" nBytes="8"/>
+        </dmrpp:chunks>
+    </Float32>
+    <String name="StructMetadata_0">
+        <Attribute name="origname" type="String">
+            <Value>StructMetadata.0</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS INFORMATION/StructMetadata.0</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="5304" nBytes="32000"/>
+        </dmrpp:chunks>
+    </String>
+    <Float32 name="TDim">
+        <Dim name="/TDim"/>
+        <Attribute name="origname" type="String">
+            <Value>TDim</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS/ZAS/ZA/TDim</Value>
+        </Attribute>
+        <Attribute name="orig_dimname" type="String">
+            <Value>TDim</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="18446744073709551615" nBytes="8"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="YDim">
+        <Dim name="/YDim"/>
+        <Attribute name="origname" type="String">
+            <Value>YDim</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS/ZAS/ZA/YDim</Value>
+        </Attribute>
+        <Attribute name="orig_dimname" type="String">
+            <Value>YDim</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="18446744073709551615" nBytes="32"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="ZDim">
+        <Dim name="/ZDim"/>
+        <Attribute name="origname" type="String">
+            <Value>ZDim</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS/ZAS/ZA/ZDim</Value>
+        </Attribute>
+        <Attribute name="orig_dimname" type="String">
+            <Value>ZDim</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="18446744073709551615" nBytes="16"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Attribute name="HDFEOS" type="Container"/>
+    <Attribute name="HDFEOS_ADDITIONAL" type="Container"/>
+    <Attribute name="HDFEOS_ADDITIONAL_FILE_ATTRIBUTES" type="Container"/>
+    <Attribute name="HDFEOS_ZAS" type="Container"/>
+    <Attribute name="HDFEOS_ZAS_ZA" type="Container"/>
+    <Attribute name="HDFEOS_ZAS_ZA_Data_Fields" type="Container"/>
+    <Attribute name="HDFEOS_INFORMATION" type="Container">
+        <Attribute name="HDFEOSVersion" type="String">
+            <Value>HDFEOS_5.1.13</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS INFORMATION</Value>
+        </Attribute>
+    </Attribute>
+</Dataset>

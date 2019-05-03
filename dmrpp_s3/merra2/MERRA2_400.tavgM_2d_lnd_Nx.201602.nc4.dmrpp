@@ -1,0 +1,4197 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Dataset xmlns="http://xml.opendap.org/ns/DAP/4.0#" xmlns:dmrpp="http://xml.opendap.org/dap/dmrpp/1.0.0#" dapVersion="4.0" dmrVersion="1.0" name="MERRA2_400.tavgM_2d_lnd_Nx.201602.nc4" dmrpp:href="https://s3.amazonaws.com/cloudydap/merra2/MERRA2_400.tavgM_2d_lnd_Nx.201602.nc4">
+    <Dimension name="time" size="1"/>
+    <Dimension name="lat" size="361"/>
+    <Dimension name="lon" size="576"/>
+    <Float32 name="SNOMAS">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Total_snow_storage_land</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>kg m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>SNOMAS</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/SNOMAS</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="55332235" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_SNOMAS">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_SNOMAS</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>kg m-2 kg m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_SNOMAS</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_SNOMAS</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="31211659" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_SPLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_SPLAND</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2 W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_SPLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_SPLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="32875147" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_GHLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_GHLAND</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2 W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_GHLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_GHLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="437131" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="SFMC">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>water_surface_layer</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>m-3 m-3</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>SFMC</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/SFMC</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="48678283" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="TSOIL5">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>soil_temperatures_layer_5</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>TSOIL5</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/TSOIL5</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="68640139" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="TSOIL3">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>soil_temperatures_layer_3</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>TSOIL3</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/TSOIL3</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="66976651" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="FRUNST">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>fractional_area_of_unsaturated_zone</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>FRUNST</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/FRUNST</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="18735499" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_FRUNST">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_FRUNST</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>1 1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_FRUNST</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_FRUNST</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="81948043" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_FRSAT">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_FRSAT</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>1 1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_FRSAT</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_FRSAT</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="80284555" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="SPWATR">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>rate_of_spurious_land_water_source</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>kg m-2 s-1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>SPWATR</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/SPWATR</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="60322699" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="PARDRLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>surface_downwelling_par_beam_flux</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>PARDRLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/PARDRLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="37033867" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_ECHANGE">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_ECHANGE</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2 W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_ECHANGE</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_ECHANGE</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="75294091" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="RUNOFF">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>overland_runoff_including_throughflow</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>kg m-2 s-1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>RUNOFF</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/RUNOFF</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="45351307" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="EVPSOIL">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>baresoil_evap_energy_flux</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>EVPSOIL</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/EVPSOIL</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="12081547" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_TSOIL1">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_TSOIL1</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_TSOIL1</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_TSOIL1</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="44519563" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_TSURF">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_TSURF</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_TSURF</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_TSURF</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="54500491" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_TSOIL2">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_TSOIL2</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_TSOIL2</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_TSOIL2</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="46183051" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_QINFIL">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_QINFIL</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>kg m-2 s-1 kg m-2 s-1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_QINFIL</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_QINFIL</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="19567243" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_PRECSNOLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_PRECSNOLAND</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>kg m-2 s-1 kg m-2 s-1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_PRECSNOLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_PRECSNOLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="14576779" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_LHLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_LHLAND</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2 W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_LHLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_LHLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="7922827" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="TSOIL4">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>soil_temperatures_layer_4</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>TSOIL4</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/TSOIL4</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="67808395" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_SPWATR">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_SPWATR</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>kg m-2 s-1 kg m-2 s-1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_SPWATR</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_SPWATR</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="36202123" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="FRSNO">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>fractional_area_of_land_snowcover</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>FRSNO</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/FRSNO</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="17072011" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="PRECSNOLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>snowfall_land</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>kg m-2 s-1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>PRECSNOLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/PRECSNOLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="38697355" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_TPSNOW">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_TPSNOW</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_TPSNOW</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_TPSNOW</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="41192587" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_SNODP">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_SNODP</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>m m</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_SNODP</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_SNODP</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="29548171" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="SWLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Net_shortwave_land</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>SWLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/SWLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="61986187" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_GWETROOT">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_GWETROOT</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>1 1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_GWETROOT</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_GWETROOT</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="2932363" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_GWETTOP">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_GWETTOP</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>1 1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_GWETTOP</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_GWETTOP</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="4595851" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="PRECTOTLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Total_precipitation_land</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>kg m-2 s-1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>PRECTOTLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/PRECTOTLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="40360843" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_TSAT">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_TSAT</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_TSAT</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_TSAT</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="42856075" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="SNODP">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>snow_depth</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>m</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>SNODP</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/SNODP</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="53668747" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_SHLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_SHLAND</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2 W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_SHLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_SHLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="26221195" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="FRWLT">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>fractional_area_of_wilting_zone</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>FRWLT</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/FRWLT</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="20398987" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_LAI">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_LAI</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>1 1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_LAI</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_LAI</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="6259339" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_SPSNOW">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_SPSNOW</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2 W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_SPSNOW</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_SPSNOW</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="34538635" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="TSOIL2">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>soil_temperatures_layer_2</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>TSOIL2</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/TSOIL2</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="66144907" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_TWLT">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_TWLT</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_TWLT</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_TWLT</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="59490955" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_EVPSOIL">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_EVPSOIL</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2 W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_EVPSOIL</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_EVPSOIL</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="78621067" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="ECHANGE">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>rate_of_change_of_total_land_energy</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>ECHANGE</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/ECHANGE</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="5427595" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="EVPINTR">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>interception_loss_energy_flux</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>EVPINTR</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/EVPINTR</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="8754571" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="GHLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Ground_heating_land</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>GHLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/GHLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="22062475" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_EVPTRNS">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_EVPTRNS</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2 W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_EVPTRNS</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_EVPTRNS</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="79452811" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="LHLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Latent_heat_flux_land</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>LHLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/LHLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="32043403" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="TPSNOW">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>surface_temperature_of_snow</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>TPSNOW</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/TPSNOW</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="63649675" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_GWETPROF">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_GWETPROF</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>1 1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_GWETPROF</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_GWETPROF</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="2100619" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="PRMC">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>water_profile</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>m-3 m-3</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>PRMC</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/PRMC</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="42024331" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="SHLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Sensible_heat_flux_land</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>SHLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/SHLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="50341771" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_FRWLT">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_FRWLT</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>1 1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_FRWLT</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_FRWLT</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="82779787" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="SPSNOW">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>rate_of_spurious_snow_energy</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>SPSNOW</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/SPSNOW</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="58659211" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="EVPSBLN">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>snow_ice_evaporation_energy_flux</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>EVPSBLN</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/EVPSBLN</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="10418059" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_TSOIL6">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_TSOIL6</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_TSOIL6</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_TSOIL6</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="52837003" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_EVPINTR">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_EVPINTR</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2 W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_EVPINTR</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_EVPINTR</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="76957579" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="GWETTOP">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>surface_soil_wetness</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>GWETTOP</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/GWETTOP</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="28716427" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_SFMC">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_SFMC</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>m-3 m-3 m-3 m-3</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_SFMC</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_SFMC</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="24557707" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_TWLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_TWLAND</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>kg m-2 kg m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_TWLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_TWLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="57827467" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="TUNST">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>surface_temperature_of_unsaturated_zone</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>TUNST</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/TUNST</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="71135371" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_RZMC">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_RZMC</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>m-3 m-3 m-3 m-3</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_RZMC</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_RZMC</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="22894219" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_TSOIL3">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_TSOIL3</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_TSOIL3</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_TSOIL3</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="47846539" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="PARDFLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>surface_downwelling_par_diffuse_flux</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>PARDFLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/PARDFLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="35370379" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="LWLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Net_longwave_land</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>LWLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/LWLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="33706891" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="GWETPROF">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>ave_prof_soil_moisture</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>GWETPROF</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/GWETPROF</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="25389451" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="EVLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Evaporation_land</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>kg m-2 s-1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>EVLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/EVLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="7091083" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="TWLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Avail_water_storage_land</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>kg m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>TWLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/TWLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="71967115" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_FRSNO">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_FRSNO</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>1 1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_FRSNO</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_FRSNO</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="81116299" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="TSAT">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>surface_temperature_of_saturated_zone</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>TSAT</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/TSAT</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="64481419" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_WCHANGE">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_WCHANGE</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>kg m-2 s-1 kg m-2 s-1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_WCHANGE</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_WCHANGE</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="61154443" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="LAI">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>leaf_area_index</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>LAI</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/LAI</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="30379915" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_EVLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_EVLAND</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>kg m-2 s-1 kg m-2 s-1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_EVLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_EVLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="76125835" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="BASEFLOW">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>baseflow_flux</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>kg m-2 s-1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>BASEFLOW</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/BASEFLOW</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="3764107" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_BASEFLOW">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_BASEFLOW</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>kg m-2 s-1 kg m-2 s-1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_BASEFLOW</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_BASEFLOW</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="74462347" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="GWETROOT">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>root_zone_soil_wetness</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>GWETROOT</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/GWETROOT</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="27052939" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="QINFIL">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Soil_water_infiltration_rate</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>kg m-2 s-1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>QINFIL</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/QINFIL</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="43687819" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_TSOIL4">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_TSOIL4</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_TSOIL4</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_TSOIL4</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="49510027" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="GRN">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>greeness_fraction</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>GRN</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/GRN</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="23725963" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_GRN">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_GRN</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>1 1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_GRN</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_GRN</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="1268875" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="FRSAT">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>fractional_area_of_saturated_zone</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>FRSAT</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/FRSAT</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="15408523" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="TWLT">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>surface_temperature_of_wilted_zone</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>TWLT</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/TWLT</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="72798859" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_SWLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_SWLAND</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2 W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_SWLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_SWLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="37865611" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_TSOIL5">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_TSOIL5</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_TSOIL5</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_TSOIL5</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="51173515" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_PARDFLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_PARDFLAND</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2 W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_PARDFLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_PARDFLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="11249803" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="TSOIL1">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>soil_temperatures_layer_1</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>TSOIL1</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/TSOIL1</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="65313163" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="TSOIL6">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>soil_temperatures_layer_6</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>TSOIL6</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/TSOIL6</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="69471883" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_TELAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_TELAND</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>J m-2 J m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_TELAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_TELAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="39529099" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_PARDRLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_PARDRLAND</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2 W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_PARDRLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_PARDRLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="12913291" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_RUNOFF">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_RUNOFF</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>kg m-2 s-1 kg m-2 s-1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_RUNOFF</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_RUNOFF</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="21230731" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_LWLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_LWLAND</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2 W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_LWLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_LWLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="9586315" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="WCHANGE">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>rate_of_change_of_total_land_water</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>kg m-2 s-1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>WCHANGE</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/WCHANGE</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="73630603" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="EVPTRNS">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>transpiration_energy_flux</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>EVPTRNS</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/EVPTRNS</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="13745035" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_TUNST">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_TUNST</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_TUNST</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_TUNST</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="56163979" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_PRMC">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_PRMC</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>m-3 m-3 m-3 m-3</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_PRMC</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_PRMC</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="17903755" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="SMLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Snowmelt_flux_land</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>kg m-2 s-1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>SMLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/SMLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="52005259" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="SPLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>rate_of_spurious_land_energy_source</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>SPLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/SPLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="56995723" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="TSURF">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>surface_temperature_of_land_incl_snow</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>TSURF</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/TSURF</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="70303627" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="RZMC">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>water_root_zone</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>m-3 m-3</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>RZMC</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/RZMC</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="47014795" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="TELAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Total_energy_storage_land</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>J m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>TELAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/TELAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="62817931" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_EVPSBLN">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_EVPSBLN</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>W m-2 W m-2</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_EVPSBLN</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_EVPSBLN</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="77789323" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_SMLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_SMLAND</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>kg m-2 s-1 kg m-2 s-1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_SMLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_SMLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="27884683" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_PRECTOTLAND">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_PRECTOTLAND</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>kg m-2 s-1 kg m-2 s-1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_PRECTOTLAND</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_PRECTOTLAND</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1 361 576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="16240267" nBytes="831744" chunkPositionInArray="[0,0,0]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float64 name="lat">
+        <Dim name="/lat"/>
+        <Attribute name="long_name" type="String">
+            <Value>latitude</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>degrees_north</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>lat</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/lat</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="118547" nBytes="2888"/>
+        </dmrpp:chunks>
+    </Float64>
+    <Float64 name="lon">
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>longitude</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>degrees_east</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>lon</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/lon</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="113939" nBytes="4608"/>
+        </dmrpp:chunks>
+    </Float64>
+    <Int32 name="time">
+        <Dim name="/time"/>
+        <Attribute name="long_name" type="String">
+            <Value>time</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>minutes since 2016-02-01 00:30:00</Value>
+        </Attribute>
+        <Attribute name="time_increment" type="Int32">
+            <Value>60000</Value>
+        </Attribute>
+        <Attribute name="begin_date" type="Int32">
+            <Value>20160201</Value>
+        </Attribute>
+        <Attribute name="begin_time" type="Int32">
+            <Value>3000</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>time</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/time</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunkDimensionSizes>1</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="76748" nBytes="4" chunkPositionInArray="[0]"/>
+        </dmrpp:chunks>
+    </Int32>
+    <Attribute name="HDF5_GLOBAL" type="Container">
+        <Attribute name="Contact" type="String">
+            <Value>http://gmao.gsfc.nasa.gov</Value>
+        </Attribute>
+        <Attribute name="History" type="String">
+            <Value>Original file generated: Fri Mar 18 06:24:00 2016 GMT</Value>
+        </Attribute>
+        <Attribute name="Filename" type="String">
+            <Value>MERRA2_400.tavgM_2d_lnd_Nx.201602.nc4</Value>
+        </Attribute>
+        <Attribute name="Comment" type="String">
+            <Value>GMAO filename: d5124_m2_jan10.tavg1_2d_lnd_Nx.monthly.201602.nc4</Value>
+        </Attribute>
+        <Attribute name="Source" type="String">
+            <Value>CVS tag: GEOSadas-5_12_4_p5 experiment_id: d5124_m2_jan10</Value>
+        </Attribute>
+        <Attribute name="Conventions" type="String">
+            <Value>CF-1</Value>
+        </Attribute>
+        <Attribute name="Institution" type="String">
+            <Value>NASA Global Modeling and Assimilation Office</Value>
+        </Attribute>
+        <Attribute name="References" type="String">
+            <Value>http://gmao.gsfc.nasa.gov</Value>
+        </Attribute>
+        <Attribute name="Format" type="String">
+            <Value>NetCDF-4/HDF-5</Value>
+        </Attribute>
+        <Attribute name="SpatialCoverage" type="String">
+            <Value>global</Value>
+        </Attribute>
+        <Attribute name="VersionID" type="String">
+            <Value>5.12.4</Value>
+        </Attribute>
+        <Attribute name="TemporalRange" type="String">
+            <Value>1980-01-01 -&gt; 2016-12-31</Value>
+        </Attribute>
+        <Attribute name="identifier_product_doi_authority" type="String">
+            <Value>http://dx.doi.org/</Value>
+        </Attribute>
+        <Attribute name="ShortName" type="String">
+            <Value>M2TMNXLND</Value>
+        </Attribute>
+        <Attribute name="RangeBeginningDate" type="String">
+            <Value>2016-02-01</Value>
+        </Attribute>
+        <Attribute name="RangeEndingDate" type="String">
+            <Value>2016-02-29</Value>
+        </Attribute>
+        <Attribute name="GranuleID" type="String">
+            <Value>MERRA2_400.tavgM_2d_lnd_Nx.201602.nc4</Value>
+        </Attribute>
+        <Attribute name="ProductionDateTime" type="String">
+            <Value>Original file generated: Fri Mar 18 06:24:00 2016 GMT</Value>
+        </Attribute>
+        <Attribute name="LongName" type="String">
+            <Value>MERRA2 tavg1_2d_lnd_Nx: 2d,1-Hourly,Time-Averaged,Single-Level,Assimilation,Land Surface Diagnostics Monthly Mean</Value>
+        </Attribute>
+        <Attribute name="Title" type="String">
+            <Value>MERRA2 tavg1_2d_lnd_Nx: 2d,1-Hourly,Time-Averaged,Single-Level,Assimilation,Land Surface Diagnostics Monthly Mean</Value>
+        </Attribute>
+        <Attribute name="SouthernmostLatitude" type="String">
+            <Value>-90.0</Value>
+        </Attribute>
+        <Attribute name="NorthernmostLatitude" type="String">
+            <Value>90.0</Value>
+        </Attribute>
+        <Attribute name="WesternmostLongitude" type="String">
+            <Value>-180.0</Value>
+        </Attribute>
+        <Attribute name="EasternmostLongitude" type="String">
+            <Value>179.375</Value>
+        </Attribute>
+        <Attribute name="LatitudeResolution" type="String">
+            <Value>0.5</Value>
+        </Attribute>
+        <Attribute name="LongitudeResolution" type="String">
+            <Value>0.625</Value>
+        </Attribute>
+        <Attribute name="DataResolution" type="String">
+            <Value>0.5 x 0.625</Value>
+        </Attribute>
+        <Attribute name="identifier_product_doi" type="String">
+            <Value>10.5067/8S35XF81C28F</Value>
+        </Attribute>
+        <Attribute name="RangeBeginningTime" type="String">
+            <Value>00:00:00.000000</Value>
+        </Attribute>
+        <Attribute name="RangeEndingTime" type="String">
+            <Value>23:59:59.000000</Value>
+        </Attribute>
+    </Attribute>
+    <Attribute name="DODS_EXTRA" type="Container">
+        <Attribute name="Unlimited_Dimension" type="String">
+            <Value>time</Value>
+        </Attribute>
+    </Attribute>
+</Dataset>

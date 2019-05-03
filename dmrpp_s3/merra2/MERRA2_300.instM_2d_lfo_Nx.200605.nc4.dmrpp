@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Dataset xmlns="http://xml.opendap.org/ns/DAP/4.0#" xmlns:dmrpp="http://xml.opendap.org/dap/dmrpp/1.0.0#" dapVersion="4.0" dmrVersion="1.0" name="MERRA2_300.instM_2d_lfo_Nx.200605.nc4" dmrpp:href="https://s3.amazonaws.com/cloudydap/merra2/MERRA2_300.instM_2d_lfo_Nx.200605.nc4">
+    <Dimension name="time" size="1"/>
+    <Dimension name="lat" size="361"/>
+    <Dimension name="lon" size="576"/>
+    <Float32 name="PS">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>surface_pressure</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>Pa</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>PS</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/PS</Value>
+        </Attribute>
+        <dmrpp:chunks compressionType="deflate shuffle">
+            <dmrpp:chunkDimensionSizes>1 91 144</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="546203" nBytes="27859" chunkPositionInArray="[0,0,0]"/>
+            <dmrpp:chunk offset="574062" nBytes="28554" chunkPositionInArray="[0,0,144]"/>
+            <dmrpp:chunk offset="602616" nBytes="28412" chunkPositionInArray="[0,0,288]"/>
+            <dmrpp:chunk offset="631028" nBytes="28791" chunkPositionInArray="[0,0,432]"/>
+            <dmrpp:chunk offset="659819" nBytes="24032" chunkPositionInArray="[0,91,0]"/>
+            <dmrpp:chunk offset="683851" nBytes="28775" chunkPositionInArray="[0,91,144]"/>
+            <dmrpp:chunk offset="712626" nBytes="27833" chunkPositionInArray="[0,91,288]"/>
+            <dmrpp:chunk offset="740459" nBytes="27829" chunkPositionInArray="[0,91,432]"/>
+            <dmrpp:chunk offset="768288" nBytes="26977" chunkPositionInArray="[0,182,0]"/>
+            <dmrpp:chunk offset="795265" nBytes="28319" chunkPositionInArray="[0,182,144]"/>
+            <dmrpp:chunk offset="823584" nBytes="33580" chunkPositionInArray="[0,182,288]"/>
+            <dmrpp:chunk offset="857164" nBytes="29122" chunkPositionInArray="[0,182,432]"/>
+            <dmrpp:chunk offset="886286" nBytes="27481" chunkPositionInArray="[0,273,0]"/>
+            <dmrpp:chunk offset="913767" nBytes="28707" chunkPositionInArray="[0,273,144]"/>
+            <dmrpp:chunk offset="942474" nBytes="27403" chunkPositionInArray="[0,273,288]"/>
+            <dmrpp:chunk offset="969877" nBytes="28119" chunkPositionInArray="[0,273,432]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="TLML">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>surface_air_temperature</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>TLML</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/TLML</Value>
+        </Attribute>
+        <dmrpp:chunks compressionType="deflate shuffle">
+            <dmrpp:chunkDimensionSizes>1 91 144</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="2144050" nBytes="28290" chunkPositionInArray="[0,0,0]"/>
+            <dmrpp:chunk offset="2172340" nBytes="29008" chunkPositionInArray="[0,0,144]"/>
+            <dmrpp:chunk offset="2201348" nBytes="28721" chunkPositionInArray="[0,0,288]"/>
+            <dmrpp:chunk offset="2230069" nBytes="29381" chunkPositionInArray="[0,0,432]"/>
+            <dmrpp:chunk offset="2259450" nBytes="27248" chunkPositionInArray="[0,91,0]"/>
+            <dmrpp:chunk offset="2286698" nBytes="29148" chunkPositionInArray="[0,91,144]"/>
+            <dmrpp:chunk offset="2315846" nBytes="28661" chunkPositionInArray="[0,91,288]"/>
+            <dmrpp:chunk offset="2344507" nBytes="28642" chunkPositionInArray="[0,91,432]"/>
+            <dmrpp:chunk offset="2373149" nBytes="28483" chunkPositionInArray="[0,182,0]"/>
+            <dmrpp:chunk offset="2401632" nBytes="28781" chunkPositionInArray="[0,182,144]"/>
+            <dmrpp:chunk offset="2430413" nBytes="30860" chunkPositionInArray="[0,182,288]"/>
+            <dmrpp:chunk offset="2461273" nBytes="29289" chunkPositionInArray="[0,182,432]"/>
+            <dmrpp:chunk offset="2490562" nBytes="26621" chunkPositionInArray="[0,273,0]"/>
+            <dmrpp:chunk offset="2517183" nBytes="27120" chunkPositionInArray="[0,273,144]"/>
+            <dmrpp:chunk offset="2544303" nBytes="26669" chunkPositionInArray="[0,273,288]"/>
+            <dmrpp:chunk offset="2570972" nBytes="26570" chunkPositionInArray="[0,273,432]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_HLML">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_HLML</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>m m</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_HLML</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_HLML</Value>
+        </Attribute>
+        <dmrpp:chunks compressionType="deflate shuffle">
+            <dmrpp:chunkDimensionSizes>1 91 144</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="2597542" nBytes="38476" chunkPositionInArray="[0,0,0]"/>
+            <dmrpp:chunk offset="2636018" nBytes="38994" chunkPositionInArray="[0,0,144]"/>
+            <dmrpp:chunk offset="2675012" nBytes="39085" chunkPositionInArray="[0,0,288]"/>
+            <dmrpp:chunk offset="2714097" nBytes="39173" chunkPositionInArray="[0,0,432]"/>
+            <dmrpp:chunk offset="2753270" nBytes="40487" chunkPositionInArray="[0,91,0]"/>
+            <dmrpp:chunk offset="2793757" nBytes="40916" chunkPositionInArray="[0,91,144]"/>
+            <dmrpp:chunk offset="2834673" nBytes="40827" chunkPositionInArray="[0,91,288]"/>
+            <dmrpp:chunk offset="2875500" nBytes="40794" chunkPositionInArray="[0,91,432]"/>
+            <dmrpp:chunk offset="2916294" nBytes="40798" chunkPositionInArray="[0,182,0]"/>
+            <dmrpp:chunk offset="2957092" nBytes="41219" chunkPositionInArray="[0,182,144]"/>
+            <dmrpp:chunk offset="2998311" nBytes="41307" chunkPositionInArray="[0,182,288]"/>
+            <dmrpp:chunk offset="3039618" nBytes="40934" chunkPositionInArray="[0,182,432]"/>
+            <dmrpp:chunk offset="3080552" nBytes="36838" chunkPositionInArray="[0,273,0]"/>
+            <dmrpp:chunk offset="3117390" nBytes="37774" chunkPositionInArray="[0,273,144]"/>
+            <dmrpp:chunk offset="3155164" nBytes="37387" chunkPositionInArray="[0,273,288]"/>
+            <dmrpp:chunk offset="3192551" nBytes="36276" chunkPositionInArray="[0,273,432]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="QLML">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>surface_specific_humidity</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>QLML</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/QLML</Value>
+        </Attribute>
+        <dmrpp:chunks compressionType="deflate shuffle">
+            <dmrpp:chunkDimensionSizes>1 91 144</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="997996" nBytes="34981" chunkPositionInArray="[0,0,0]"/>
+            <dmrpp:chunk offset="1032977" nBytes="35974" chunkPositionInArray="[0,0,144]"/>
+            <dmrpp:chunk offset="1068951" nBytes="35828" chunkPositionInArray="[0,0,288]"/>
+            <dmrpp:chunk offset="1104779" nBytes="36373" chunkPositionInArray="[0,0,432]"/>
+            <dmrpp:chunk offset="1141152" nBytes="33803" chunkPositionInArray="[0,91,0]"/>
+            <dmrpp:chunk offset="1174955" nBytes="36073" chunkPositionInArray="[0,91,144]"/>
+            <dmrpp:chunk offset="1211028" nBytes="35543" chunkPositionInArray="[0,91,288]"/>
+            <dmrpp:chunk offset="1246571" nBytes="35703" chunkPositionInArray="[0,91,432]"/>
+            <dmrpp:chunk offset="1282274" nBytes="34849" chunkPositionInArray="[0,182,0]"/>
+            <dmrpp:chunk offset="1317123" nBytes="35707" chunkPositionInArray="[0,182,144]"/>
+            <dmrpp:chunk offset="1352830" nBytes="38651" chunkPositionInArray="[0,182,288]"/>
+            <dmrpp:chunk offset="1391481" nBytes="35644" chunkPositionInArray="[0,182,432]"/>
+            <dmrpp:chunk offset="1427125" nBytes="32892" chunkPositionInArray="[0,273,0]"/>
+            <dmrpp:chunk offset="1460017" nBytes="34306" chunkPositionInArray="[0,273,144]"/>
+            <dmrpp:chunk offset="1494323" nBytes="33165" chunkPositionInArray="[0,273,288]"/>
+            <dmrpp:chunk offset="1527488" nBytes="33348" chunkPositionInArray="[0,273,432]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="HLML">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>surface_layer_height</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>m</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>HLML</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HLML</Value>
+        </Attribute>
+        <dmrpp:chunks compressionType="deflate shuffle">
+            <dmrpp:chunkDimensionSizes>1 91 144</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="85845" nBytes="28739" chunkPositionInArray="[0,0,0]"/>
+            <dmrpp:chunk offset="114584" nBytes="29464" chunkPositionInArray="[0,0,144]"/>
+            <dmrpp:chunk offset="144048" nBytes="29143" chunkPositionInArray="[0,0,288]"/>
+            <dmrpp:chunk offset="173191" nBytes="29699" chunkPositionInArray="[0,0,432]"/>
+            <dmrpp:chunk offset="202890" nBytes="27281" chunkPositionInArray="[0,91,0]"/>
+            <dmrpp:chunk offset="230171" nBytes="29362" chunkPositionInArray="[0,91,144]"/>
+            <dmrpp:chunk offset="259533" nBytes="28754" chunkPositionInArray="[0,91,288]"/>
+            <dmrpp:chunk offset="288287" nBytes="28736" chunkPositionInArray="[0,91,432]"/>
+            <dmrpp:chunk offset="317023" nBytes="28686" chunkPositionInArray="[0,182,0]"/>
+            <dmrpp:chunk offset="345709" nBytes="28817" chunkPositionInArray="[0,182,144]"/>
+            <dmrpp:chunk offset="374526" nBytes="30721" chunkPositionInArray="[0,182,288]"/>
+            <dmrpp:chunk offset="405247" nBytes="29381" chunkPositionInArray="[0,182,432]"/>
+            <dmrpp:chunk offset="434628" nBytes="27752" chunkPositionInArray="[0,273,0]"/>
+            <dmrpp:chunk offset="462380" nBytes="28232" chunkPositionInArray="[0,273,144]"/>
+            <dmrpp:chunk offset="490612" nBytes="27734" chunkPositionInArray="[0,273,288]"/>
+            <dmrpp:chunk offset="518346" nBytes="27857" chunkPositionInArray="[0,273,432]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_SPEEDLML">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_SPEEDLML</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>m s-1 m s-1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_SPEEDLML</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_SPEEDLML</Value>
+        </Attribute>
+        <dmrpp:chunks compressionType="deflate shuffle">
+            <dmrpp:chunkDimensionSizes>1 91 144</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="4455754" nBytes="38374" chunkPositionInArray="[0,0,0]"/>
+            <dmrpp:chunk offset="4494128" nBytes="38626" chunkPositionInArray="[0,0,144]"/>
+            <dmrpp:chunk offset="4532754" nBytes="38560" chunkPositionInArray="[0,0,288]"/>
+            <dmrpp:chunk offset="4571314" nBytes="38730" chunkPositionInArray="[0,0,432]"/>
+            <dmrpp:chunk offset="4610044" nBytes="40085" chunkPositionInArray="[0,91,0]"/>
+            <dmrpp:chunk offset="4650129" nBytes="40801" chunkPositionInArray="[0,91,144]"/>
+            <dmrpp:chunk offset="4690930" nBytes="40455" chunkPositionInArray="[0,91,288]"/>
+            <dmrpp:chunk offset="4731385" nBytes="40882" chunkPositionInArray="[0,91,432]"/>
+            <dmrpp:chunk offset="4772267" nBytes="40683" chunkPositionInArray="[0,182,0]"/>
+            <dmrpp:chunk offset="4812950" nBytes="40897" chunkPositionInArray="[0,182,144]"/>
+            <dmrpp:chunk offset="4853847" nBytes="41281" chunkPositionInArray="[0,182,288]"/>
+            <dmrpp:chunk offset="4895128" nBytes="41263" chunkPositionInArray="[0,182,432]"/>
+            <dmrpp:chunk offset="4936391" nBytes="37856" chunkPositionInArray="[0,273,0]"/>
+            <dmrpp:chunk offset="4974247" nBytes="38235" chunkPositionInArray="[0,273,144]"/>
+            <dmrpp:chunk offset="5012482" nBytes="37788" chunkPositionInArray="[0,273,288]"/>
+            <dmrpp:chunk offset="5050270" nBytes="37904" chunkPositionInArray="[0,273,432]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="SPEEDLML">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>surface_wind_speed</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>m s-1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>SPEEDLML</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/SPEEDLML</Value>
+        </Attribute>
+        <dmrpp:chunks compressionType="deflate shuffle">
+            <dmrpp:chunkDimensionSizes>1 91 144</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="1560836" nBytes="34949" chunkPositionInArray="[0,0,0]"/>
+            <dmrpp:chunk offset="1595785" nBytes="35573" chunkPositionInArray="[0,0,144]"/>
+            <dmrpp:chunk offset="1631358" nBytes="34684" chunkPositionInArray="[0,0,288]"/>
+            <dmrpp:chunk offset="1666042" nBytes="35422" chunkPositionInArray="[0,0,432]"/>
+            <dmrpp:chunk offset="1701464" nBytes="35785" chunkPositionInArray="[0,91,0]"/>
+            <dmrpp:chunk offset="1737249" nBytes="37772" chunkPositionInArray="[0,91,144]"/>
+            <dmrpp:chunk offset="1775021" nBytes="37666" chunkPositionInArray="[0,91,288]"/>
+            <dmrpp:chunk offset="1812687" nBytes="38429" chunkPositionInArray="[0,91,432]"/>
+            <dmrpp:chunk offset="1851116" nBytes="37323" chunkPositionInArray="[0,182,0]"/>
+            <dmrpp:chunk offset="1888439" nBytes="38329" chunkPositionInArray="[0,182,144]"/>
+            <dmrpp:chunk offset="1926768" nBytes="39220" chunkPositionInArray="[0,182,288]"/>
+            <dmrpp:chunk offset="1965988" nBytes="38214" chunkPositionInArray="[0,182,432]"/>
+            <dmrpp:chunk offset="2004202" nBytes="34683" chunkPositionInArray="[0,273,0]"/>
+            <dmrpp:chunk offset="2038885" nBytes="35958" chunkPositionInArray="[0,273,144]"/>
+            <dmrpp:chunk offset="2074843" nBytes="34709" chunkPositionInArray="[0,273,288]"/>
+            <dmrpp:chunk offset="2109552" nBytes="34498" chunkPositionInArray="[0,273,432]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_QLML">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_QLML</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>1 1</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_QLML</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_QLML</Value>
+        </Attribute>
+        <dmrpp:chunks compressionType="deflate shuffle">
+            <dmrpp:chunkDimensionSizes>1 91 144</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="3825831" nBytes="38010" chunkPositionInArray="[0,0,0]"/>
+            <dmrpp:chunk offset="3863841" nBytes="38743" chunkPositionInArray="[0,0,144]"/>
+            <dmrpp:chunk offset="3902584" nBytes="39302" chunkPositionInArray="[0,0,288]"/>
+            <dmrpp:chunk offset="3941886" nBytes="39356" chunkPositionInArray="[0,0,432]"/>
+            <dmrpp:chunk offset="3981242" nBytes="40096" chunkPositionInArray="[0,91,0]"/>
+            <dmrpp:chunk offset="4021338" nBytes="40722" chunkPositionInArray="[0,91,144]"/>
+            <dmrpp:chunk offset="4062060" nBytes="40317" chunkPositionInArray="[0,91,288]"/>
+            <dmrpp:chunk offset="4102377" nBytes="40949" chunkPositionInArray="[0,91,432]"/>
+            <dmrpp:chunk offset="4143326" nBytes="40677" chunkPositionInArray="[0,182,0]"/>
+            <dmrpp:chunk offset="4184003" nBytes="40872" chunkPositionInArray="[0,182,144]"/>
+            <dmrpp:chunk offset="4224875" nBytes="41440" chunkPositionInArray="[0,182,288]"/>
+            <dmrpp:chunk offset="4266315" nBytes="40854" chunkPositionInArray="[0,182,432]"/>
+            <dmrpp:chunk offset="4307169" nBytes="37094" chunkPositionInArray="[0,273,0]"/>
+            <dmrpp:chunk offset="4344263" nBytes="37631" chunkPositionInArray="[0,273,144]"/>
+            <dmrpp:chunk offset="4381894" nBytes="37049" chunkPositionInArray="[0,273,288]"/>
+            <dmrpp:chunk offset="4418943" nBytes="36811" chunkPositionInArray="[0,273,432]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_PS">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_PS</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>Pa Pa</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_PS</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_PS</Value>
+        </Attribute>
+        <dmrpp:chunks compressionType="deflate shuffle">
+            <dmrpp:chunkDimensionSizes>1 91 144</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="3228827" nBytes="35130" chunkPositionInArray="[0,0,0]"/>
+            <dmrpp:chunk offset="3263957" nBytes="36325" chunkPositionInArray="[0,0,144]"/>
+            <dmrpp:chunk offset="3300282" nBytes="35463" chunkPositionInArray="[0,0,288]"/>
+            <dmrpp:chunk offset="3335745" nBytes="35923" chunkPositionInArray="[0,0,432]"/>
+            <dmrpp:chunk offset="3371668" nBytes="36860" chunkPositionInArray="[0,91,0]"/>
+            <dmrpp:chunk offset="3408528" nBytes="39100" chunkPositionInArray="[0,91,144]"/>
+            <dmrpp:chunk offset="3447628" nBytes="39161" chunkPositionInArray="[0,91,288]"/>
+            <dmrpp:chunk offset="3486789" nBytes="38968" chunkPositionInArray="[0,91,432]"/>
+            <dmrpp:chunk offset="3525757" nBytes="38760" chunkPositionInArray="[0,182,0]"/>
+            <dmrpp:chunk offset="3564517" nBytes="38910" chunkPositionInArray="[0,182,144]"/>
+            <dmrpp:chunk offset="3603427" nBytes="40501" chunkPositionInArray="[0,182,288]"/>
+            <dmrpp:chunk offset="3643928" nBytes="39475" chunkPositionInArray="[0,182,432]"/>
+            <dmrpp:chunk offset="3683403" nBytes="35732" chunkPositionInArray="[0,273,0]"/>
+            <dmrpp:chunk offset="3719135" nBytes="35506" chunkPositionInArray="[0,273,144]"/>
+            <dmrpp:chunk offset="3754641" nBytes="35372" chunkPositionInArray="[0,273,288]"/>
+            <dmrpp:chunk offset="3790013" nBytes="35818" chunkPositionInArray="[0,273,432]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Var_TLML">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>Variance_of_TLML</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>K K</Value>
+        </Attribute>
+        <Attribute name="_FillValue" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="missing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="fmissing_value" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Var_TLML</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/Var_TLML</Value>
+        </Attribute>
+        <dmrpp:chunks compressionType="deflate shuffle">
+            <dmrpp:chunkDimensionSizes>1 91 144</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="5088174" nBytes="38373" chunkPositionInArray="[0,0,0]"/>
+            <dmrpp:chunk offset="5126547" nBytes="38986" chunkPositionInArray="[0,0,144]"/>
+            <dmrpp:chunk offset="5165533" nBytes="38976" chunkPositionInArray="[0,0,288]"/>
+            <dmrpp:chunk offset="5204509" nBytes="39092" chunkPositionInArray="[0,0,432]"/>
+            <dmrpp:chunk offset="5243601" nBytes="40396" chunkPositionInArray="[0,91,0]"/>
+            <dmrpp:chunk offset="5283997" nBytes="40924" chunkPositionInArray="[0,91,144]"/>
+            <dmrpp:chunk offset="5324921" nBytes="41112" chunkPositionInArray="[0,91,288]"/>
+            <dmrpp:chunk offset="5366033" nBytes="41007" chunkPositionInArray="[0,91,432]"/>
+            <dmrpp:chunk offset="5407040" nBytes="40892" chunkPositionInArray="[0,182,0]"/>
+            <dmrpp:chunk offset="5447932" nBytes="41377" chunkPositionInArray="[0,182,144]"/>
+            <dmrpp:chunk offset="5489309" nBytes="41421" chunkPositionInArray="[0,182,288]"/>
+            <dmrpp:chunk offset="5530730" nBytes="41037" chunkPositionInArray="[0,182,432]"/>
+            <dmrpp:chunk offset="5571767" nBytes="36861" chunkPositionInArray="[0,273,0]"/>
+            <dmrpp:chunk offset="5608628" nBytes="37588" chunkPositionInArray="[0,273,144]"/>
+            <dmrpp:chunk offset="5646216" nBytes="37263" chunkPositionInArray="[0,273,288]"/>
+            <dmrpp:chunk offset="5683479" nBytes="36375" chunkPositionInArray="[0,273,432]"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float64 name="lat">
+        <Dim name="/lat"/>
+        <Attribute name="long_name" type="String">
+            <Value>latitude</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>degrees_north</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>lat</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/lat</Value>
+        </Attribute>
+        <dmrpp:chunks compressionType="deflate shuffle">
+            <dmrpp:chunkDimensionSizes>361</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="85530" nBytes="315" chunkPositionInArray="[0]"/>
+        </dmrpp:chunks>
+    </Float64>
+    <Float64 name="lon">
+        <Dim name="/lon"/>
+        <Attribute name="long_name" type="String">
+            <Value>longitude</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>degrees_east</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>lon</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/lon</Value>
+        </Attribute>
+        <dmrpp:chunks compressionType="deflate shuffle">
+            <dmrpp:chunkDimensionSizes>576</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="84880" nBytes="650" chunkPositionInArray="[0]"/>
+        </dmrpp:chunks>
+    </Float64>
+    <Int32 name="time">
+        <Dim name="/time"/>
+        <Attribute name="long_name" type="String">
+            <Value>time</Value>
+        </Attribute>
+        <Attribute name="units" type="String">
+            <Value>minutes since 2006-05-01 00:00:00</Value>
+        </Attribute>
+        <Attribute name="time_increment" type="Int32">
+            <Value>60000</Value>
+        </Attribute>
+        <Attribute name="begin_date" type="Int32">
+            <Value>20060501</Value>
+        </Attribute>
+        <Attribute name="begin_time" type="Int32">
+            <Value>0</Value>
+        </Attribute>
+        <Attribute name="vmax" type="Float32">
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="vmin" type="Float32">
+            <Value>-9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float32">
+            <Value>-9.999999870e+14</Value>
+            <Value>9.999999870e+14</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>time</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/time</Value>
+        </Attribute>
+        <dmrpp:chunks compressionType="deflate shuffle">
+            <dmrpp:chunkDimensionSizes>1</dmrpp:chunkDimensionSizes>
+            <dmrpp:chunk offset="20544" nBytes="12" chunkPositionInArray="[0]"/>
+        </dmrpp:chunks>
+    </Int32>
+    <Attribute name="HDF5_GLOBAL" type="Container">
+        <Attribute name="History" type="String">
+            <Value>Original file generated: Mon Jun 29 11:14:39 2015 GMT</Value>
+        </Attribute>
+        <Attribute name="Filename" type="String">
+            <Value>MERRA2_300.instM_2d_lfo_Nx.200605.nc4</Value>
+        </Attribute>
+        <Attribute name="Comment" type="String">
+            <Value>GMAO filename: d5124_m2_jan00.inst1_2d_lfo_Nx.monthly.200605.nc4</Value>
+        </Attribute>
+        <Attribute name="Conventions" type="String">
+            <Value>CF-1</Value>
+        </Attribute>
+        <Attribute name="Institution" type="String">
+            <Value>NASA Global Modeling and Assimilation Office</Value>
+        </Attribute>
+        <Attribute name="References" type="String">
+            <Value>http://gmao.gsfc.nasa.gov</Value>
+        </Attribute>
+        <Attribute name="Format" type="String">
+            <Value>NetCDF-4/HDF-5</Value>
+        </Attribute>
+        <Attribute name="SpatialCoverage" type="String">
+            <Value>global</Value>
+        </Attribute>
+        <Attribute name="VersionID" type="String">
+            <Value>5.12.4</Value>
+        </Attribute>
+        <Attribute name="TemporalRange" type="String">
+            <Value>1980-01-01 -&gt; 2016-12-31</Value>
+        </Attribute>
+        <Attribute name="identifier_product_doi_authority" type="String">
+            <Value>http://dx.doi.org/</Value>
+        </Attribute>
+        <Attribute name="ShortName" type="String">
+            <Value>M2IMNXLFO</Value>
+        </Attribute>
+        <Attribute name="RangeBeginningDate" type="String">
+            <Value>2006-05-01</Value>
+        </Attribute>
+        <Attribute name="RangeEndingDate" type="String">
+            <Value>2006-05-31</Value>
+        </Attribute>
+        <Attribute name="GranuleID" type="String">
+            <Value>MERRA2_300.instM_2d_lfo_Nx.200605.nc4</Value>
+        </Attribute>
+        <Attribute name="ProductionDateTime" type="String">
+            <Value>Original file generated: Mon Jun 29 11:14:39 2015 GMT</Value>
+        </Attribute>
+        <Attribute name="LongName" type="String">
+            <Value>MERRA2 inst1_2d_lfo_Nx: 2d,1-Hourly,Instantaneous,Single-Level,Assimilation,Land Surface Forcings Monthly Mean</Value>
+        </Attribute>
+        <Attribute name="Title" type="String">
+            <Value>MERRA2 inst1_2d_lfo_Nx: 2d,1-Hourly,Instantaneous,Single-Level,Assimilation,Land Surface Forcings Monthly Mean</Value>
+        </Attribute>
+        <Attribute name="SouthernmostLatitude" type="String">
+            <Value>-90.0</Value>
+        </Attribute>
+        <Attribute name="NorthernmostLatitude" type="String">
+            <Value>90.0</Value>
+        </Attribute>
+        <Attribute name="WesternmostLongitude" type="String">
+            <Value>-180.0</Value>
+        </Attribute>
+        <Attribute name="EasternmostLongitude" type="String">
+            <Value>179.375</Value>
+        </Attribute>
+        <Attribute name="LatitudeResolution" type="String">
+            <Value>0.5</Value>
+        </Attribute>
+        <Attribute name="LongitudeResolution" type="String">
+            <Value>0.625</Value>
+        </Attribute>
+        <Attribute name="DataResolution" type="String">
+            <Value>0.5 x 0.625</Value>
+        </Attribute>
+        <Attribute name="Source" type="String">
+            <Value>CVS tag: GEOSadas-5_12_4</Value>
+        </Attribute>
+        <Attribute name="Contact" type="String">
+            <Value>http://gmao.gsfc.nasa.gov</Value>
+        </Attribute>
+        <Attribute name="identifier_product_doi" type="String">
+            <Value>10.5067/11F99Y6TXN99</Value>
+        </Attribute>
+        <Attribute name="RangeBeginningTime" type="String">
+            <Value>00:00:00.000000</Value>
+        </Attribute>
+        <Attribute name="RangeEndingTime" type="String">
+            <Value>23:00:00.000000</Value>
+        </Attribute>
+    </Attribute>
+    <Attribute name="DODS_EXTRA" type="Container">
+        <Attribute name="Unlimited_Dimension" type="String">
+            <Value>time</Value>
+        </Attribute>
+    </Attribute>
+</Dataset>

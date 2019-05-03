@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Dataset xmlns="http://xml.opendap.org/ns/DAP/4.0#" xmlns:dmrpp="http://xml.opendap.org/dap/dmrpp/1.0.0#" dapVersion="4.0" dmrVersion="1.0" name="nc4_unlimited_0.h5" dmrpp:href="https://s3.amazonaws.com/cloudydap/samples/nc4_unlimited_0.h5">
+    <Dimension name="time" size="0"/>
+    <Dimension name="lat" size="10"/>
+    <Dimension name="lon" size="5"/>
+    <Float32 name="t">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="origname" type="String">
+            <Value>t</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/t</Value>
+        </Attribute>
+    </Float32>
+    <Float64 name="p">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="_FillValue" type="Float64">
+            <Value>-9999.0000000000000</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>p</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/p</Value>
+        </Attribute>
+    </Float64>
+    <Float32 name="z">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="units" type="String">
+            <Value>meters</Value>
+        </Attribute>
+        <Attribute name="valid_range" type="Float64">
+            <Value>0.0000000000000000</Value>
+            <Value>5000.0000000000000</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>z</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/z</Value>
+        </Attribute>
+    </Float32>
+    <Int32 name="rh">
+        <Dim name="/time"/>
+        <Dim name="/lat"/>
+        <Dim name="/lon"/>
+        <Attribute name="_FillValue" type="Int32">
+            <Value>-1</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>rh</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/rh</Value>
+        </Attribute>
+    </Int32>
+    <Int32 name="lat">
+        <Dim name="/lat"/>
+        <Attribute name="units" type="String">
+            <Value>degrees_north</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>lat</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/lat</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="7715" nBytes="40"/>
+        </dmrpp:chunks>
+    </Int32>
+    <Int32 name="lon">
+        <Dim name="/lon"/>
+        <Attribute name="units" type="String">
+            <Value>degrees_east</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>lon</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/lon</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="7429" nBytes="20"/>
+        </dmrpp:chunks>
+    </Int32>
+    <Int32 name="time">
+        <Dim name="/time"/>
+        <Attribute name="units" type="String">
+            <Value>seconds</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>time</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/time</Value>
+        </Attribute>
+    </Int32>
+    <Attribute name="DODS_EXTRA" type="Container">
+        <Attribute name="Unlimited_Dimension" type="String">
+            <Value>time</Value>
+        </Attribute>
+    </Attribute>
+</Dataset>

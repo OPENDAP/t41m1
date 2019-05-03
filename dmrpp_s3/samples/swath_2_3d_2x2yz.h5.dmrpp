@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Dataset xmlns="http://xml.opendap.org/ns/DAP/4.0#" xmlns:dmrpp="http://xml.opendap.org/dap/dmrpp/1.0.0#" dapVersion="4.0" dmrVersion="1.0" name="swath_2_3d_2x2yz.h5" dmrpp:href="https://s3.amazonaws.com/cloudydap/samples/swath_2_3d_2x2yz.h5">
+    <Dimension name="Swath1_ZDim" size="2"/>
+    <Dimension name="Swath1_YDim" size="4"/>
+    <Dimension name="Swath1_XDim" size="8"/>
+    <Dimension name="Swath2_ZDim" size="4"/>
+    <Dimension name="Swath2_YDim" size="8"/>
+    <Dimension name="Swath2_XDim" size="16"/>
+    <Float32 name="Swath1_Temperature">
+        <Dim name="/Swath1_ZDim"/>
+        <Dim name="/Swath1_YDim"/>
+        <Dim name="/Swath1_XDim"/>
+        <Attribute name="units" type="String">
+            <Value>K</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Temperature</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS/SWATHS/Swath1/Data Fields/Temperature</Value>
+        </Attribute>
+        <Attribute name="coordinates" type="String">
+            <Value>Swath1_Pressure Swath1_Latitude Swath1_Longitude</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="41640" nBytes="256"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Swath2_Temperature">
+        <Dim name="/Swath2_ZDim"/>
+        <Dim name="/Swath2_YDim"/>
+        <Dim name="/Swath2_XDim"/>
+        <Attribute name="units" type="String">
+            <Value>K</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Temperature</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS/SWATHS/Swath2/Data Fields/Temperature</Value>
+        </Attribute>
+        <Attribute name="coordinates" type="String">
+            <Value>Swath2_Pressure Swath2_Latitude Swath2_Longitude</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="48752" nBytes="2048"/>
+        </dmrpp:chunks>
+    </Float32>
+    <String name="StructMetadata_0">
+        <Attribute name="origname" type="String">
+            <Value>StructMetadata.0</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS INFORMATION/StructMetadata.0</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="5304" nBytes="32000"/>
+        </dmrpp:chunks>
+    </String>
+    <Float32 name="Swath1_Latitude">
+        <Dim name="/Swath1_YDim"/>
+        <Dim name="/Swath1_XDim"/>
+        <Attribute name="units" type="String">
+            <Value>degrees_north</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Latitude</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS/SWATHS/Swath1/Geolocation Fields/Latitude</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="41384" nBytes="128"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Swath1_Longitude">
+        <Dim name="/Swath1_YDim"/>
+        <Dim name="/Swath1_XDim"/>
+        <Attribute name="units" type="String">
+            <Value>degrees_east</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Longitude</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS/SWATHS/Swath1/Geolocation Fields/Longitude</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="41512" nBytes="128"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Swath1_Pressure">
+        <Dim name="/Swath1_ZDim"/>
+        <Attribute name="units" type="String">
+            <Value>hPa</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Pressure</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS/SWATHS/Swath1/Geolocation Fields/Pressure</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="41376" nBytes="8"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Swath2_Latitude">
+        <Dim name="/Swath2_YDim"/>
+        <Dim name="/Swath2_XDim"/>
+        <Attribute name="units" type="String">
+            <Value>degrees_north</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Latitude</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS/SWATHS/Swath2/Geolocation Fields/Latitude</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="41912" nBytes="512"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Swath2_Longitude">
+        <Dim name="/Swath2_YDim"/>
+        <Dim name="/Swath2_XDim"/>
+        <Attribute name="units" type="String">
+            <Value>degrees_east</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Longitude</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS/SWATHS/Swath2/Geolocation Fields/Longitude</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="42424" nBytes="512"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="Swath2_Pressure">
+        <Dim name="/Swath2_ZDim"/>
+        <Attribute name="units" type="String">
+            <Value>hPa</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>Pressure</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS/SWATHS/Swath2/Geolocation Fields/Pressure</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="41896" nBytes="16"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Attribute name="HDFEOS" type="Container"/>
+    <Attribute name="HDFEOS_ADDITIONAL" type="Container"/>
+    <Attribute name="HDFEOS_ADDITIONAL_FILE_ATTRIBUTES" type="Container"/>
+    <Attribute name="HDFEOS_SWATHS" type="Container"/>
+    <Attribute name="HDFEOS_SWATHS_Swath1" type="Container"/>
+    <Attribute name="HDFEOS_SWATHS_Swath1_Data_Fields" type="Container"/>
+    <Attribute name="HDFEOS_SWATHS_Swath1_Geolocation_Fields" type="Container"/>
+    <Attribute name="HDFEOS_SWATHS_Swath2" type="Container"/>
+    <Attribute name="HDFEOS_SWATHS_Swath2_Data_Fields" type="Container"/>
+    <Attribute name="HDFEOS_SWATHS_Swath2_Geolocation_Fields" type="Container"/>
+    <Attribute name="HDFEOS_INFORMATION" type="Container">
+        <Attribute name="HDFEOSVersion" type="String">
+            <Value>HDFEOS_5.1.13</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/HDFEOS INFORMATION</Value>
+        </Attribute>
+    </Attribute>
+</Dataset>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Dataset xmlns="http://xml.opendap.org/ns/DAP/4.0#" xmlns:dmrpp="http://xml.opendap.org/dap/dmrpp/1.0.0#" dapVersion="4.0" dmrVersion="1.0" name="nc4_group_mlls_1g.h5" dmrpp:href="https://s3.amazonaws.com/cloudydap/samples/nc4_group_mlls_1g.h5">
+    <Dimension name="g1_dim1" size="2"/>
+    <Dimension name="g1_dim2" size="3"/>
+    <Float32 name="g1_lat1">
+        <Dim name="/g1_dim1"/>
+        <Dim name="/g1_dim2"/>
+        <Attribute name="units" type="String">
+            <Value>degrees_north</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>lat1</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/g1/lat1</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="8404" nBytes="24"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="g1_lon1">
+        <Dim name="/g1_dim1"/>
+        <Dim name="/g1_dim2"/>
+        <Attribute name="units" type="String">
+            <Value>degrees_east</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>lon1</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/g1/lon1</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="8428" nBytes="24"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="g1_lat2">
+        <Dim name="/g1_dim1"/>
+        <Dim name="/g1_dim2"/>
+        <Attribute name="units" type="String">
+            <Value>degrees_north</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>lat2</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/g1/lat2</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="8452" nBytes="24"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="g1_lon2">
+        <Dim name="/g1_dim1"/>
+        <Dim name="/g1_dim2"/>
+        <Attribute name="units" type="String">
+            <Value>degrees_east</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>lon2</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/g1/lon2</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="8476" nBytes="24"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="g1_pres">
+        <Dim name="/g1_dim1"/>
+        <Dim name="/g1_dim2"/>
+        <Attribute name="units" type="String">
+            <Value>hPa</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>pres</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/g1/pres</Value>
+        </Attribute>
+        <Attribute name="coordinates" type="String">
+            <Value>g1_lat1 g1_lon1</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="8500" nBytes="24"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Float32 name="g1_temp">
+        <Dim name="/g1_dim1"/>
+        <Dim name="/g1_dim2"/>
+        <Attribute name="units" type="String">
+            <Value>K</Value>
+        </Attribute>
+        <Attribute name="origname" type="String">
+            <Value>temp</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/g1/temp</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="8524" nBytes="24"/>
+        </dmrpp:chunks>
+    </Float32>
+    <Int32 name="g1_dim1">
+        <Dim name="/g1_dim1"/>
+        <Attribute name="origname" type="String">
+            <Value>dim1</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/g1/dim1</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="8384" nBytes="8"/>
+        </dmrpp:chunks>
+    </Int32>
+    <Int32 name="g1_dim2">
+        <Dim name="/g1_dim2"/>
+        <Attribute name="origname" type="String">
+            <Value>dim2</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/g1/dim2</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="8392" nBytes="12"/>
+        </dmrpp:chunks>
+    </Int32>
+    <Attribute name="g1" type="Container"/>
+</Dataset>

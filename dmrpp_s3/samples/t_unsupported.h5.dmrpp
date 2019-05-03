@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Dataset xmlns="http://xml.opendap.org/ns/DAP/4.0#" xmlns:dmrpp="http://xml.opendap.org/dap/dmrpp/1.0.0#" dapVersion="4.0" dmrVersion="1.0" name="t_unsupported.h5" dmrpp:href="https://s3.amazonaws.com/cloudydap/samples/t_unsupported.h5">
+    <Int64 name="long_long">
+        <Dim size="2"/>
+        <Attribute name="value" type="Int64">
+            <Value>1</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="2120" nBytes="16"/>
+        </dmrpp:chunks>
+    </Int64>
+    <Int16 name="dataset">
+        <Dim size="3"/>
+        <Dim size="16"/>
+        <Attribute name="origname" type="String">
+            <Value>dataset</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/dataset</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="1960" nBytes="48"/>
+        </dmrpp:chunks>
+    </Int16>
+    <UInt32 name="group1_dataset1">
+        <Dim size="4"/>
+        <Attribute name="origname" type="String">
+            <Value>dataset1</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/group1/dataset1</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="2072" nBytes="16"/>
+        </dmrpp:chunks>
+    </UInt32>
+    <Byte name="group1_dataset2">
+        <Dim size="4"/>
+        <Attribute name="origname" type="String">
+            <Value>dataset2</Value>
+        </Attribute>
+        <Attribute name="fullnamepath" type="String">
+            <Value>/group1/dataset2</Value>
+        </Attribute>
+        <dmrpp:chunks>
+            <dmrpp:chunk offset="18446744073709551615" nBytes="4"/>
+        </dmrpp:chunks>
+    </Byte>
+    <Attribute name="group1" type="Container"/>
+</Dataset>
