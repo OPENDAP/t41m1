@@ -55,7 +55,7 @@ do
     echo -n "-";
     
     { time -p curl -s "${dmrpp_agg_test_07}.dods?${DAP2_CE}" > results/dmrpp_agg_test_07.dods;} 2>>results/dmrpp_agg_test_07.txt; 
-    echo -n "\\";
+    echo -n "_";
     
     let rep=rep+1;
     if [ ${rep} -ge ${max_reps} ]
