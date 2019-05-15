@@ -12,7 +12,7 @@ agg_file_count=`echo "${agg_files}" | wc -l | tr -d '[:space:]'`;
 verbose=
 
 
-dmrpp_header=`cat<<EOF
+dmrpp_open=`cat<<EOF
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <Dataset 
     xmlns="http://xml.opendap.org/ns/DAP/4.0#" 
@@ -276,8 +276,6 @@ function set_variable_element() {
         
     if test -n "${verbose}"; then echo "var_decl: ${var_decl}"; fi
         
-    
-    
     start_line=`grep -n "${var_decl}" ${file_name} | awk '{split($0,a,":");print a[1];}' -`;  
     if test -n "${verbose}"; then echo "start_line: ${start_line}";fi
         
@@ -300,7 +298,7 @@ function set_variable_element() {
 
 
 
-echo "${dmrpp_header}";
+echo "${dmrpp_open}";
 
 mkSingleLatitude;
 mkSingleLongitude;
