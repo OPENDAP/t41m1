@@ -1,8 +1,13 @@
 #!/bin/bash
 
-max_reps=10
+max_reps=100
 
 DAP2_CE="ClrOLR_A%5B0:1:364%5D%5B0:1:179%5D%5B0:1:359%5D"
+# For this CE, we're using a different DMR++ that does not have the ClrORL_A
+# and we slide this so that we get the same number of bytes as with the previous
+# CE. The DMR++ is smaller than the whole DMR++ (case 8 adn 9) but bigger than
+# the DMR++ in cases 6 and 7.
+DAP2_CE_10="CH4_VMR_A%5B0:1:364%5D%5B5%5D%5B0:1:179%5D%5B0:1:359%5D"
 
 # Aggregates hdf5 files using the ncml module and the hdf5 module. The hdf5 files reside
 # on the local disk.
@@ -38,6 +43,8 @@ dmrpp_agg_test_08="http://t41m1.opendap.org:8080/opendap/t41m1/dmrpp_agg_test_08
 
 # Data in the local FS. Aggregate all variables
 dmrpp_agg_test_09="http://t41m1.opendap.org:8080/opendap/t41m1/dmrpp_agg_test_09.dmrpp.gz"
+
+dmrpp_agg_test_10="http://t41m1.opendap.org:8080/opendap/t41m1/dmrpp_agg_test_10.dmrpp.gz"
 
 # Data in the local FS, served by the TDS, aggregate all variables
 airs_local_join_new_tds="http://54.164.114.242:8080/thredds/dodsC/local_fs/airs_local_join_new_tds.ncml"
@@ -94,6 +101,9 @@ do
     spin
     
     { time -p curl -s "${dmrpp_agg_test_09}.dods?${DAP2_CE}" > results/dmrpp_agg_test_09.dods;} 2>>results/dmrpp_agg_test_09.txt 
+    spin
+
+    { time -p curl -s "${dmrpp_agg_test_10}.dods?${DAP2_CE_10}" > results/dmrpp_agg_test_10.dods;} 2>>results/dmrpp_agg_test_10.txt 
     spin
 
     { time -p curl -s "${airs_local_join_new_tds}.dods?${DAP2_CE}" > results/airs_local_join_new_tds.dods;} 2>>results/airs_local_join_new_tds.txt 
