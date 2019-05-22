@@ -1,0 +1,10 @@
+#!/bin/bash
+
+for i in results/*.txt
+do
+    name=`basename -s ".txt" $i`
+    echo "${name}" | tee $name.csv
+    grep real $i | awk '{print $2;}' - >> results/$name.csv 
+done
+
+paste *.csv > results/all_tests.csv
