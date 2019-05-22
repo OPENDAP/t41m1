@@ -5,7 +5,7 @@ max_reps=100
 DAP2_CE_ONE_VAR="ClrOLR_A%5B0:1:364%5D%5B0:1:179%5D%5B0:1:359%5D"
 DAP2_CE_ONE_DAY="ClrOLR_A%5B5%5D%5B0:1:179%5D%5B0:1:359%5D"
 DAP2_CE_ONE_LON="ClrOLR_A%5B0:1:359%5D%5B0:1:179%5D%5B5%5D"
-DAP2_CE="${DAP2_CE_ONE_DAY}"
+DAP2_CE="${DAP2_CE_ONE_LON}"
 # For this CE, we're using a different DMR++ that does not have the ClrORL_A
 # and we slide this so that we get the same number of bytes as with the previous
 # CE. The DMR++ is smaller than the whole DMR++ (case 8 adn 9) but bigger than
