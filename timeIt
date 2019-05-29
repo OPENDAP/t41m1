@@ -62,8 +62,8 @@ hyrax_trad_aggregations="yes"
 spinner="-"
 
 function spin {
-    echo -n $spinner
-    case $spinner in
+    echo -e -n '\b'${spinner}
+    case ${spinner} in
 	"-") spinner="\\";;
         "\\") spinner="|";;
         "|") spinner="/";;
@@ -101,17 +101,28 @@ do
         # { time -p curl -s "${airs_riofs_join_new}.dods?${DAP2_CE}" > results/airs_riofs_join_new.dods;} 2>>results/airs_riofs_join_new.txt 
         # spin
     
-        { time -p curl -s -i "${airs_dmrpp_local_join_new}.dods?${DAP2_CE}" > results/airs_dmrpp_local_join_new.dods;} 2>>results/airs_dmrpp_local_join_new.txt 
-        head -1 results/airs_dmrpp_local_join_new.dods | grep 200
+        #{ time -p curl -s -i "${airs_dmrpp_local_join_new}.dods?${DAP2_CE}" > results/airs_dmrpp_local_join_new.dods;} 2>>results/airs_dmrpp_local_join_new.txt 
+        #head -1 results/airs_dmrpp_local_join_new.dods | grep 200
+        #status=$?
+        #echo "status: ${status}"
+        #if [ ${status} -ne 0 ] 
+        #then
+        #    cp results/airs_dmrpp_local_join_new.dods errors/airs_dmrpp_local_join_new_${rep}.dods
+        #fi
+        #spin
+        
+        { time -p curl -s -i "${airs_dmrpp_remote_join_new}.dods?${DAP2_CE}" > results/airs_dmrpp_remote_join_new.dods;} 2>>results/airs_dmrpp_remote_join_new.txt 
+        head -1 results/airs_dmrpp_remote_join_new.dods | grep 200
         status=$?
         echo "status: ${status}"
         if [ ${status} -ne 0 ] 
         then
-            cp results/airs_dmrpp_local_join_new.dods errors/airs_dmrpp_local_join_new_${rep}.dods
+            cp results/airs_dmrpp_remote_join_new.dods errors/airs_dmrpp_remote_join_new${rep}.dods
         fi
         spin
+
         
-        #{ time -p curl -s "${airs_dmrpp_remote_join_new}.dods?${DAP2_CE}" > results/airs_dmrpp_remote_join_new.dods;} 2>>results/airs_dmrpp_remote_join_new.txt 
+        
         #spin
     fi
 
