@@ -86,13 +86,14 @@ function spin {
 function time_service_response() {
     test_name="${1}"
     test_url="${2}"
+    tag=${3}
     
     #echo "test_name: ${test_name}"
     #echo "test_url: ${test_url}"
     
     timing_file=results/${test_name}.txt
-    response_file=results/${test_name}_${rep}.dods
-    error_file=results/${test_name}_${rep}_error.dods
+    response_file=results/${test_name}_${tag}.dods
+    error_file=results/${test_name}_${tag}_error.dods
     { time -p curl -s -i "${test_url}" > ${response_file};} 2>>${timing_file} 
     head -1 ${response_file} | grep 200 
     status=$?
@@ -111,7 +112,7 @@ function time_service_response() {
 
 ##########################################################
 #
-# main() 
+# main() (more or less)
 #
 
 # Clean results dir
@@ -133,7 +134,7 @@ do
         #time_service_response "airs_riofs_join_new" "${airs_riofs_join_new}.dods?${DAP2_CE}"
         #time_service_response "airs_dmrpp_local_join_new" "${airs_dmrpp_local_join_new}.dods?${DAP2_CE}"
                 
-        time_service_response "airs_dmrpp_remote_join_new" "${airs_dmrpp_remote_join_new}.dods?${DAP2_CE}"
+        time_service_response "airs_dmrpp_remote_join_new" "${airs_dmrpp_remote_join_new}.dods?${DAP2_CE}" ${rep}
         
     fi
 
