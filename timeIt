@@ -111,13 +111,13 @@ do
         #fi
         #spin
         
-        { time -p curl -s -i "${airs_dmrpp_remote_join_new}.dods?${DAP2_CE}" > results/airs_dmrpp_remote_join_new.dods;} 2>>results/airs_dmrpp_remote_join_new.txt 
-        head -1 results/airs_dmrpp_remote_join_new.dods | grep 200
+        { time -p curl -s -i "${airs_dmrpp_remote_join_new}.dods?${DAP2_CE}" > results/airs_dmrpp_remote_join_new_${rep}_.dods;} 2>>results/airs_dmrpp_remote_join_new.txt 
+        head -1 results/airs_dmrpp_remote_join_new_${rep}_.dods | grep 200 
         status=$?
         echo "status: ${status}"
         if [ ${status} -ne 0 ] 
         then
-            cp results/airs_dmrpp_remote_join_new.dods results/airs_dmrpp_remote_join_new_${rep}_error.dods
+            mv results/airs_dmrpp_remote_join_new_${rep}_.dods results/airs_dmrpp_remote_join_new_${rep}_error.dods
         fi
         spin
 
