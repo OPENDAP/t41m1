@@ -1,6 +1,6 @@
 #!/bin/bash
 
-max_reps=100
+max_reps=500
 
 DAP2_CE_ONE_VAR="ClrOLR_A%5B0:1:364%5D%5B0:1:179%5D%5B0:1:359%5D"
 DAP2_CE_ONE_DAY="ClrOLR_A%5B5%5D%5B0:1:179%5D%5B0:1:359%5D"
@@ -82,9 +82,9 @@ function go_git_that_thang() {
 
 
 # Clean results dir
-rm -vfr results errors
+rm -vfr results 
 # make a new results dir.
-mkdir -p results errors
+mkdir -p results 
 
 
 let rep=0
@@ -117,7 +117,7 @@ do
         echo "status: ${status}"
         if [ ${status} -ne 0 ] 
         then
-            cp results/airs_dmrpp_remote_join_new.dods errors/airs_dmrpp_remote_join_new_${rep}.dods
+            cp results/airs_dmrpp_remote_join_new.dods results/airs_dmrpp_remote_join_new_${rep}_error.dods
         fi
         spin
 
