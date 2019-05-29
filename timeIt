@@ -59,8 +59,12 @@ airs_local_join_new_tds="http://54.164.114.242:8080/thredds/dodsC/local_fs/airs_
 # Set to "yes" to run the aggregations that take along time.
 hyrax_trad_aggregations="yes"
 
-spinner="-"
 
+##########################################################
+#
+# spin
+#
+spinner="-"
 function spin {
     echo -e -n '\b'${spinner}
     case ${spinner} in
@@ -71,15 +75,44 @@ function spin {
 	*) spinner="-";;
     esac
 }
+##########################################################
 
-function go_git_that_thang() {
+
+
+##########################################################
+#
+# time_service_response() 
+#
+function time_service_response() {
+    test_name="${1}"
+    test_url="${2}"
     
-    echo "foo"
+    #echo "test_name: ${test_name}"
+    #echo "test_url: ${test_url}"
     
-    
+    timing_file=results/${test_name}.txt
+    response_file=results/${test_name}_${rep}.dods
+    error_file=results/${test_name}_${rep}_error.dods
+    { time -p curl -s -i "${test_url}" > ${response_file};} 2>>${timing_file} 
+    head -1 ${response_file} | grep 200 
+    status=$?
+    echo "status: ${status}"
+    if [ ${status} -ne 0 ] 
+    then
+        mv ${response_file} ${error_file}
+    fi 
+    spin  
 }
+##########################################################
 
 
+
+
+
+##########################################################
+#
+# main() 
+#
 
 # Clean results dir
 rm -vfr results 
@@ -95,57 +128,22 @@ do
 
     if test -n "$hyrax_trad_aggregations" -a "$hyrax_trad_aggregations" = "yes"
     then
-        #{ time -p curl -s "${airs_local_join_new}.dods?${DAP2_CE}" > results/airs_local_join_new.dods;} 2>>results/airs_local_join_new.txt 
-        #spin
-    
-        # { time -p curl -s "${airs_riofs_join_new}.dods?${DAP2_CE}" > results/airs_riofs_join_new.dods;} 2>>results/airs_riofs_join_new.txt 
-        # spin
-    
-        #{ time -p curl -s -i "${airs_dmrpp_local_join_new}.dods?${DAP2_CE}" > results/airs_dmrpp_local_join_new.dods;} 2>>results/airs_dmrpp_local_join_new.txt 
-        #head -1 results/airs_dmrpp_local_join_new.dods | grep 200
-        #status=$?
-        #echo "status: ${status}"
-        #if [ ${status} -ne 0 ] 
-        #then
-        #    cp results/airs_dmrpp_local_join_new.dods errors/airs_dmrpp_local_join_new_${rep}.dods
-        #fi
-        #spin
         
-        { time -p curl -s -i "${airs_dmrpp_remote_join_new}.dods?${DAP2_CE}" > results/airs_dmrpp_remote_join_new_${rep}_.dods;} 2>>results/airs_dmrpp_remote_join_new.txt 
-        head -1 results/airs_dmrpp_remote_join_new_${rep}_.dods | grep 200 
-        status=$?
-        echo "status: ${status}"
-        if [ ${status} -ne 0 ] 
-        then
-            mv results/airs_dmrpp_remote_join_new_${rep}_.dods results/airs_dmrpp_remote_join_new_${rep}_error.dods
-        fi
-        spin
-
+        #time_service_response "airs_local_join_new" "${airs_local_join_new}.dods?${DAP2_CE}"
+        #time_service_response "airs_riofs_join_new" "${airs_riofs_join_new}.dods?${DAP2_CE}"
+        #time_service_response "airs_dmrpp_local_join_new" "${airs_dmrpp_local_join_new}.dods?${DAP2_CE}"
+                
+        time_service_response "airs_dmrpp_remote_join_new" "${airs_dmrpp_remote_join_new}.dods?${DAP2_CE}"
         
-        
-        #spin
     fi
 
-    #{ time -p curl -s "${dmrpp_agg_test_06}.dods?${DAP2_CE}" > results/dmrpp_agg_test_06.dods;} 2>>results/dmrpp_agg_test_06.txt 
-    #spin
-
-    #{ time -p curl -s "${dmrpp_agg_test_07}.dods?${DAP2_CE}" > results/dmrpp_agg_test_07.dods;} 2>>results/dmrpp_agg_test_07.txt 
-    #spin
-
-    #{ time -p curl -s "${dmrpp_agg_test_08}.dods?${DAP2_CE}" > results/dmrpp_agg_test_08.dods;} 2>>results/dmrpp_agg_test_08.txt   
-    #spin
-    
-    #{ time -p curl -s "${dmrpp_agg_test_09}.dods?${DAP2_CE}" > results/dmrpp_agg_test_09.dods;} 2>>results/dmrpp_agg_test_09.txt 
-    #spin
-
-    #{ time -p curl -s "${dmrpp_agg_test_10}.dods?${DAP2_CE}" > results/dmrpp_agg_test_10.dods;} 2>>results/dmrpp_agg_test_10.txt 
-    #spin
-
-    #{ time -p curl -s "${dmrpp_agg_test_11}.dods?${DAP2_CE_11}" > results/dmrpp_agg_test_11.dods;} 2>>results/dmrpp_agg_test_11.txt
-    #spin
-
-    #{ time -p curl -s "${airs_local_join_new_tds}.dods?${DAP2_CE}" > results/airs_local_join_new_tds.dods;} 2>>results/airs_local_join_new_tds.txt 
-    #spin
+    #time_service_response "dmrpp_agg_test_06" "${dmrpp_agg_test_06}.dods?${DAP2_CE}"
+    #time_service_response "dmrpp_agg_test_07" "${dmrpp_agg_test_07}.dods?${DAP2_CE}"
+    #time_service_response "dmrpp_agg_test_08" "${dmrpp_agg_test_08}.dods?${DAP2_CE}"
+    #time_service_response "dmrpp_agg_test_09" "${dmrpp_agg_test_09}.dods?${DAP2_CE}"
+    #time_service_response "dmrpp_agg_test_10" "${dmrpp_agg_test_10}.dods?${DAP2_CE}"
+    #time_service_response "dmrpp_agg_test_11" "${dmrpp_agg_test_11}.dods?${DAP2_CE_11}"
+    #time_service_response "airs_local_join_new_tds" "${airs_local_join_new_tds}.dods?${DAP2_CE}"
 
     let rep=rep+1
     if [ ${rep} -ge ${max_reps} ]
@@ -156,5 +154,10 @@ do
     spin
     
 done
-
 echo ""
+
+##########################################################
+
+
+
+
