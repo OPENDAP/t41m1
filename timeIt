@@ -2,10 +2,18 @@
 
 max_reps=100
 
+# All the data from the ClrOLR_A variable (all locations, all days)
 DAP2_CE_ONE_VAR="ClrOLR_A%5B0:1:364%5D%5B0:1:179%5D%5B0:1:359%5D"
+
+# All the data from the ClrOLR_A variable for a single day
 DAP2_CE_ONE_DAY="ClrOLR_A%5B5%5D%5B0:1:179%5D%5B0:1:359%5D"
+
+# A single longitude location with all of the latitudes over 360 days
 DAP2_CE_ONE_LON="ClrOLR_A%5B0:1:359%5D%5B0:1:179%5D%5B5%5D"
+
+# Current operational CE.
 DAP2_CE="${DAP2_CE_ONE_VAR}"
+
 # For this CE, we're using a different DMR++ that does not have the ClrORL_A
 # and we slide this so that we get the same number of bytes as with the previous
 # CE. The DMR++ is smaller than the whole DMR++ (case 8 adn 9) but bigger than
