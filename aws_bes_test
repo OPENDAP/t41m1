@@ -1,0 +1,40 @@
+#!/bin/sh
+
+DATASET="/t41m1/dmrpp_s3/airs/AIRS.2015.01.01.L3.RetStd_IR001.v6.0.11.0.G15013155825.nc.h5.dmrpp"
+DAP2_CE_ONE_VAR_ALL_DAYS="ClrOLR_A[0:1:364][0:1:179][0:1:359]"
+DAP2_CE="${DAP2_CE_ONE_VAR_ALL_DAYS}"
+
+
+function make_bes_cmd() {
+BES_CMD=`cat <<EOF 
+<?xml version="1.0" encoding="UTF-8"?>
+<bes:request xmlns:bes="http://xml.opendap.org/ns/bes/1.0#" reqID="[thread:http-nio-8080-exec-9-27]">
+  <bes:setContext name="xdap_accept">3.2</bes:setContext>
+  <bes:setContext name="dap_explicit_containers">no</bes:setContext>
+  <bes:setContext name="errors">xml</bes:setContext>
+  <bes:setContext name="max_response_size">0</bes:setContext>
+  <bes:setContainer name="catalogContainer" space="catalog">${DATASET}</bes:setContainer>
+  <bes:define name="d1" space="default">
+    <bes:container name="catalogContainer">
+      <bes:constraint>${DAP2_CE}</bes:constraint>
+    </bes:container>
+  </bes:define>
+  <bes:get type="dods" definition="d1" />
+</bes:request>
+EOF
+`
+}
+
+response_file=aws_test.dods
+timing_file=aws_test.log
+DAP2_CE="${DAP2_CE_ONE_VAR_ALL_DAYS}"
+for DATASET in `cat airs_dmrpp_agg_files`
+do
+    make_bes_cmd
+    echo "BES_CMD: "
+    echo "${BES_CMD}"
+    echo "${BES_CMD}" > bes.cmd
+    { time besstandalone -c ${prefix}/etc/bes/bes.conf -i bes.cmd > ${response_file}; } 2>>${timing_file}
+    getdap -D -M ${response_file}
+    exit
+done
