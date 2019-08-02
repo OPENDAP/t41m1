@@ -25,9 +25,12 @@ EOF
 `
 }
 
-response_file=aws_test.dods
-timing_file=aws_test.log
+response_file=aws_bes_test.dods
+timing_file=aws_bes_test.time
+log_file=aws_bes_test.log
 DAP2_CE="${DAP2_CE_AIRS_ONE_VAR}"
+
+rm -f ${timing_file} ${log_file}
 for DATASET in `cat airs_dmrpp_agg_files`
 do
     make_bes_cmd
@@ -35,6 +38,5 @@ do
     echo "${BES_CMD}"
     echo "${BES_CMD}" > bes.cmd
     { time besstandalone -c ${prefix}/etc/bes/bes.conf -i bes.cmd > ${response_file}; } 2>>${timing_file}
-    getdap -D -M ${response_file}
-    exit
+    getdap -D -M ${response_file} >> ${log_file}
 done
