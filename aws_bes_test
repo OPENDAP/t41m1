@@ -1,10 +1,5 @@
 #!/bin/sh
 
-DATASET="/t41m1/dmrpp_s3/airs/AIRS.2015.01.01.L3.RetStd_IR001.v6.0.11.0.G15013155825.nc.h5.dmrpp"
-DAP2_CE_AIRS_ONE_VAR="ClrOLR_A[0:1:179][0:1:359]"
-DAP2_CE="${DAP2_CE_AIRS_ONE_VAR}"
-
-
 function make_bes_cmd() {
 BES_CMD=`cat <<EOF 
 <?xml version="1.0" encoding="UTF-8"?>
@@ -25,18 +20,25 @@ EOF
 `
 }
 
+reps=100;
+
 response_file=aws_bes_test.dods
 timing_file=aws_bes_test.time
 log_file=aws_bes_test.log
 DAP2_CE="${DAP2_CE_AIRS_ONE_VAR}"
 
 rm -f ${timing_file} ${log_file}
-for DATASET in `cat airs_dmrpp_agg_files`
+
+for i in {1..100}
 do
-    make_bes_cmd
-    # echo "BES_CMD: "
-    # echo "${BES_CMD}"
-    echo "${BES_CMD}" > bes.cmd
-    { time besstandalone -c ${prefix}/etc/bes/bes.conf -i bes.cmd > ${response_file}; } 2>>${timing_file}
-    getdap -D -M ${response_file} >> ${log_file}
+    echo "Starting rep ${i}"
+    for DATASET in `cat airs_dmrpp_agg_files`
+    do
+        make_bes_cmd
+        # echo "BES_CMD: "
+        # echo "${BES_CMD}"
+        echo "${BES_CMD}" > bes.cmd
+        { time besstandalone -c ${prefix}/etc/bes/bes.conf -i bes.cmd > ${response_file}; } 2>>${timing_file}
+        # getdap -D -M ${response_file} >> ${log_file}
+    done
 done
