@@ -34,8 +34,8 @@ rm -f ${timing_file} ${log_file}
 for DATASET in `cat airs_dmrpp_agg_files`
 do
     make_bes_cmd
-    echo "BES_CMD: "
-    echo "${BES_CMD}"
+    # echo "BES_CMD: "
+    # echo "${BES_CMD}"
     echo "${BES_CMD}" > bes.cmd
     { time besstandalone -c ${prefix}/etc/bes/bes.conf -i bes.cmd > ${response_file}; } 2>>${timing_file}
     getdap -D -M ${response_file} >> ${log_file}
