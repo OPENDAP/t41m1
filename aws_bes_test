@@ -38,7 +38,7 @@ do
         # echo "BES_CMD: "
         # echo "${BES_CMD}"
         echo "${BES_CMD}" > bes.cmd
-        { time besstandalone -c ${prefix}/etc/bes/bes.conf -i bes.cmd > ${response_file}; } 2>>${timing_file}
+        { time -p besstandalone -c ${prefix}/etc/bes/bes.conf -i bes.cmd > ${response_file}; } 2>>${timing_file}
         # getdap -D -M ${response_file} >> ${log_file}
     done
 done
