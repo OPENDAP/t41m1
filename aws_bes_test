@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -x 
+# set -x 
 
 function make_bes_cmd() {
 BES_CMD=`cat <<EOF 
@@ -44,5 +44,6 @@ do
         ls -l ${response_file} >> ${timing_file}
         echo "########################" >> ${timing_file}
         # getdap -D -M ${response_file} >> ${log_file}
+        exit;
     done
 done
