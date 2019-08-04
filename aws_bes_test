@@ -41,6 +41,7 @@ do
         make_bes_cmd
         # echo "BES_CMD: "
         # echo "${BES_CMD}"
+        echo "Dataset: ${DATASET}" >> ${timing_file}
         echo "${BES_CMD}" > bes.cmd
         { time -p besstandalone -c ${prefix}/etc/bes/bes.conf -i bes.cmd > ${response_file}; } 2>>${timing_file}
         ls -l ${response_file} >> ${timing_file}
