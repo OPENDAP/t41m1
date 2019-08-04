@@ -41,10 +41,10 @@ do
         make_bes_cmd
         # echo "BES_CMD: "
         # echo "${BES_CMD}"
-        echo "Date: "`date -Ins` ${timing_file}
         echo "Dataset: ${DATASET}" >> ${timing_file}
         echo "${BES_CMD}" > bes.cmd
-        { time -p besstandalone -c ${prefix}/etc/bes/bes.conf -i bes.cmd > ${response_file}; } 2>>${timing_file}
+        echo "Start: "`date -Ins` >> ${timing_file}
+       { time -p besstandalone -c ${prefix}/etc/bes/bes.conf -i bes.cmd > ${response_file}; } 2>>${timing_file}
         ls -l ${response_file} >> ${timing_file}
         echo "########################" >> ${timing_file}
         # getdap -D -M ${response_file} >> ${log_file}
