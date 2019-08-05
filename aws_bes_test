@@ -1,5 +1,8 @@
 #!/bin/sh
 
+RESULTS_DIR="./${0}.results"
+echo "RESULTS_DIR: ${RESULTS_DIR}"
+
 DAP2_CE_AIRS_ONE_VAR="ClrOLR_A[0:1:179][0:1:359]"
 DAP2_CE_AIRS_ONE_VAR_AGG="ClrOLR_A[0:1:364][0:1:179][0:1:359]"
 REPS=100;
@@ -47,9 +50,9 @@ function make_and_time_bess_request {
 
 function bess_airs_datset_dmrpp_files(){
     
-    log_file=bess_airs_datset_dmrpp.log
-    response_file=bess_airs_datset_dmrpp.dods
-    timing_file=bess_airs_datset_dmrpp.time
+    log_file="${RESULTS_DIR}/bess_airs_dmrpp_datasets.log"
+    response_file="${RESULTS_DIR}/bess_airs_dmrpp_datasets.dods"
+    timing_file="${RESULTS_DIR}/bess_airs_dmrpp_datasets.time"
 
     dataset_list="airs_dmrpp_agg_files"
     DAP2_CE="${DAP2_CE_AIRS_ONE_VAR}"
@@ -69,9 +72,9 @@ function bess_airs_datset_dmrpp_files(){
 
 function bess_airs_onevar_dmrpp_agg() {
 
-    log_file=bess_airs_onevar_dmrpp_agg.log
-    response_file=bess_airs_onevar_dmrpp_agg.dods
-    timing_file=bess_airs_onevar_dmrpp_agg.time
+    log_file="${RESULTS_DIR}/bess_airs_onevar_dmrpp_agg.log"
+    response_file="${RESULTS_DIR}/bess_airs_onevar_dmrpp_agg.dods"
+    timing_file="${RESULTS_DIR}/bess_airs_onevar_dmrpp_agg.time"
 
     DATASET="t41m1/dmrpp_agg_test_06.dmrpp"
     DAP2_CE="${DAP2_CE_AIRS_ONE_VAR_AGG}"
@@ -97,9 +100,9 @@ function make_and_time_curl_range_get_request {
 
 function curl_range_get_airs_onevar_chunks(){
     
-    log_file=curl_range_get_airs_onevar_chunks.log
-    response_file=curl_range_get_airs_onevar_chunks.dods
-    timing_file=curl_range_get_airs_onevar_chunks.time
+    log_file="${RESULTS_DIR}/curl_range_get_airs_onevar_chunks.log"
+    response_file="${RESULTS_DIR}/curl_range_get_airs_onevar_chunks.dods"
+    timing_file="${RESULTS_DIR}/curl_range_get_airs_onevar_chunks.time"
 
     for rep in {1..10000}
     do        
@@ -123,6 +126,9 @@ function curl_range_get_airs_onevar_chunks(){
         done <${AIRS_DMRPP_AGG_CHUNKS_TXT}
     done
 }
+
+rm -rf ${RESULTS_DIR}
+mkdir -p ${RESULTS_DIR}
 
 # bess_airs_datset_dmrpp_files
 
