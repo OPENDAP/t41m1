@@ -117,7 +117,7 @@ function curl_range_get_airs_onevar_chunks(){
             #echo "CHUNK_POSITION: ${CHUNK_POSITION}"
             
             CURL_START=${OFFSET}
-            CURL_END=`echo "${OFFSET} + ${NUM_BYTES}" | bc`
+            CURL_END=`echo "${OFFSET} + ${NUM_BYTES} - 1" | bc`
             make_and_time_curl_range_get_request
     
         done <${AIRS_DMRPP_AGG_CHUNKS_TXT}
