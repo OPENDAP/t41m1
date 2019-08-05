@@ -1,0 +1,26 @@
+#!/bin/bash
+
+seperator=" "
+
+
+cat $1 | awk -v sep="${seperator}" '
+{
+    i=index($0,"<dmrpp:chunk "); 
+    if(i>0){
+        
+        split($2,s,"\""); 
+        offset=s[2]; 
+        
+        split($3,s,"\""); 
+        nbytes=s[2]; 
+        
+        split($4,s,"\""); 
+        chunkPositionInArray=s[2]; 
+        
+        split($5,s,"\""); 
+        href=s[2]; 
+        
+        printf("%s%s%s%s%s%s%s\n",href, sep, offset, sep, nbytes, sep, chunkPositionInArray);
+    }
+}
+' -
