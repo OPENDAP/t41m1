@@ -101,28 +101,27 @@ function curl_range_get_airs_onevar_chunks(){
     response_file=curl_range_get_airs_onevar_chunks.dods
     timing_file=curl_range_get_airs_onevar_chunks.time
 
-    DATASET="t41m1/dmrpp_agg_test_06.dmrpp"
-    DAP2_CE="${DAP2_CE_AIRS_ONE_VAR_AGG}"
+    for rep in {1..10000}
+    do        
+        echo "### curl_range_get_airs_onevar_chunks() - Starting REP ${rep}" >> ${timing_file}
+        while read chunk_row; do
+            
+            echo "Processing chunk: ${chunk_row}"
+            URL=`echo ${chunk_row} | awk '{print $1;}' -`
+            #echo "URL: ${URL}"
+            OFFSET=`echo ${chunk_row} | awk '{print $2;}' -`
+            #echo "OFFSET: ${OFFSET}"
+            NUM_BYTES=`echo ${chunk_row} | awk '{print $3;}' -`
+            #echo "NUM_BYTES: ${NUM_BYTES}"
+            CHUNK_POSITION=`echo ${chunk_row} | awk '{print $4;}' -`
+            #echo "CHUNK_POSITION: ${CHUNK_POSITION}"
+            
+            CURL_START=${OFFSET}
+            CURL_END=`echo "${OFFSET} + ${NUM_BYTES}" | bc`
+            make_and_time_curl_range_get_request
     
-    while read chunk_row; do
-        
-        echo "Processing chunk: ${chunk_row}"
-        URL=`echo ${chunk_row} | awk '{print $1;}' -`
-        #echo "URL: ${URL}"
-        OFFSET=`echo ${chunk_row} | awk '{print $2;}' -`
-        #echo "OFFSET: ${OFFSET}"
-        NUM_BYTES=`echo ${chunk_row} | awk '{print $3;}' -`
-        #echo "NUM_BYTES: ${NUM_BYTES}"
-        CHUNK_POISTION=`echo ${chunk_row} | awk '{print $4;}' -`
-        #echo "CHUNK_POISTION: ${CHUNK_POISTION}"
-        
-        CURL_START=${OFFSET}
-        CURL_END=`echo "${OFFSET} + ${NUM_BYTES}" | bc`
-        make_and_time_curl_range_get_request
-
-    done <${AIRS_DMRPP_AGG_CHUNKS_TXT}
-    
-      
+        done <${AIRS_DMRPP_AGG_CHUNKS_TXT}
+    done
 }
 
 # bess_airs_datset_dmrpp_files
