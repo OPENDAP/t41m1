@@ -1,5 +1,6 @@
 #!/bin/sh
 
+HYRAX="http://t41m1.opendap.org:8080/opendap"
 RESULTS_DIR="./aws_bes_test.results"
 echo "RESULTS_DIR: ${RESULTS_DIR}"
 
@@ -47,8 +48,51 @@ function make_and_time_bess_request {
    
 }
 
+function make_and_time_curl_range_get_request {
+    
+    echo "URL: ${URL}" >> ${timing_file}
+    echo "Start: "`date -Ins` >> ${timing_file}
+    # echo "Start: "`date` >> ${timing_file}
+    { time -p curl -s -r ${CURL_START}-${CURL_END} -g ${URL} > ${response_file}; } 2>>${timing_file}
+    ls -l ${response_file} >> ${timing_file}
+    echo "# - - - - - - - - - - - - - - - - - -" >> ${timing_file}   
+}
 
-function bess_airs_datset_dmrpp_files(){
+function make_and_time_curl_get_request {
+    
+    echo "URL: ${URL}" >> ${timing_file}
+    echo "Start: "`date -Ins` >> ${timing_file}
+    # echo "Start: "`date` >> ${timing_file}
+    { time -p curl -s -g ${URL} > ${response_file}; } 2>>${timing_file}
+    ls -l ${response_file} >> ${timing_file}
+    echo "# - - - - - - - - - - - - - - - - - -" >> ${timing_file}   
+}
+
+
+
+function hyrax_airs_dataset_dmrpp_files(){
+    
+    log_file="${RESULTS_DIR}/hyrax_airs_dataset_dmrpp_files.log"
+    response_file="${RESULTS_DIR}/hyrax_airs_dataset_dmrpp_files.dods"
+    timing_file="${RESULTS_DIR}/hyrax_airs_dataset_dmrpp_files.time"
+
+    dataset_list="airs_dmrpp_agg_files"
+    DAP2_CE="${DAP2_CE_AIRS_ONE_VAR}"
+    
+
+    rm -f ${timing_file} ${log_file}
+    for rep in {1..100}
+    do
+        echo "### bess_airs_datset_dmrpp_files() - Starting REP ${rep}" >> ${timing_file}
+        for DATASET in `cat ${dataset_list}`
+        do
+            URL="${HYRAX}/${DATASET}?${DAP2_CE}"
+            make_and_time_curl_get_request
+        done
+    done
+}
+
+function bess_airs_dataset_dmrpp_files(){
     
     log_file="${RESULTS_DIR}/bess_airs_dmrpp_datasets.log"
     response_file="${RESULTS_DIR}/bess_airs_dmrpp_datasets.dods"
@@ -87,15 +131,6 @@ function bess_airs_onevar_dmrpp_agg() {
     done
 }
 
-function make_and_time_curl_range_get_request {
-    
-    echo "URL: ${URL}" >> ${timing_file}
-    echo "Start: "`date -Ins` >> ${timing_file}
-    # echo "Start: "`date` >> ${timing_file}
-    { time -p curl -s -r ${CURL_START}-${CURL_END} -g ${URL} > ${response_file}; } 2>>${timing_file}
-    ls -l ${response_file} >> ${timing_file}
-    echo "# - - - - - - - - - - - - - - - - - -" >> ${timing_file}   
-}
 
 
 function curl_range_get_airs_onevar_chunks(){
@@ -131,9 +166,11 @@ function curl_range_get_airs_onevar_chunks(){
 rm -rf ${RESULTS_DIR}
 mkdir -p ${RESULTS_DIR}
 
-bess_airs_datset_dmrpp_files
+#bess_airs_dataset_dmrpp_files
 
-bess_airs_onevar_dmrpp_agg
+#bess_airs_onevar_dmrpp_agg
 
-curl_range_get_airs_onevar_chunks
+#curl_range_get_airs_onevar_chunks
+
+hyrax_airs_dataset_dmrpp_files
     
