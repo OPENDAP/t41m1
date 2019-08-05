@@ -112,7 +112,7 @@ function curl_range_get_airs_onevar_chunks(){
             OFFSET=`echo ${chunk_row} | awk '{print $2;}' -`
             #echo "OFFSET: ${OFFSET}"
             NUM_BYTES=`echo ${chunk_row} | awk '{print $3;}' -`
-            #echo "NUM_BYTES: ${NUM_BYTES}"
+            echo "NUM_BYTES: ${NUM_BYTES}" >> ${timing_file}
             CHUNK_POSITION=`echo ${chunk_row} | awk '{print $4;}' -`
             #echo "CHUNK_POSITION: ${CHUNK_POSITION}"
             
