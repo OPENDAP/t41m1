@@ -76,7 +76,7 @@ function bess_airs_onevar_dmrpp_agg() {
     DAP2_CE="${DAP2_CE_AIRS_ONE_VAR_AGG}"
     
     rm -f ${timing_file} ${log_file}
-    for rep in {1..1000}
+    for rep in {1..10000}
     do
         echo "### bess_airs_onevar_dmrpp_agg() - Starting REP ${rep}" >> ${timing_file}
         make_and_time_request
