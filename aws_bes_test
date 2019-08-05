@@ -26,43 +26,10 @@ EOF
 `
 }
 
-function bess_airs_datset_dmrpp_files(){
+
+function make_and_time_request {
     
-    response_file=bess_airs_datset_dmrpp.dods
-    timing_file=bess_airs_datset_dmrpp.time
-    log_file=bess_airs_datset_dmrpp.log
-    dataset_list="airs_dmrpp_agg_files"
-    DAP2_CE="${DAP2_CE_AIRS_ONE_VAR}"
-
-    rm -f ${timing_file} ${log_file}
-
-    for DATASET in `cat ${dataset_list}`
-    do
-        make_bes_cmd
-        # echo "BES_CMD: "
-        # echo "${BES_CMD}"
-        echo "Dataset: ${DATASET}" >> ${timing_file}
-        echo "${BES_CMD}" > bes.cmd
-        echo "Start: "`date -Ins` >> ${timing_file}
-       { time -p besstandalone -c ${prefix}/etc/bes/bes.conf -i bes.cmd > ${response_file}; } 2>>${timing_file}
-        ls -l ${response_file} >> ${timing_file}
-        echo "########################" >> ${timing_file}
-        # getdap -D -M ${response_file} >> ${log_file}
-        # exit;
-    done
-}
-
-function bess_airs_onevar_dmrpp_agg() {
-
-    response_file=bess_airs_onevar_dmrpp_agg.dods
-    timing_file=bess_airs_onevar_dmrpp_agg.time
-    log_file=bess_airs_onevar_dmrpp_agg.log
-    DATASET="t41m1/dmrpp_agg_test_06.dmrpp"
-    DAP2_CE="${DAP2_CE_AIRS_ONE_VAR_AGG}"
-
-    rm -f ${timing_file} ${log_file}
-    
-    make_bes_cmd
+     make_bes_cmd
     # echo "BES_CMD: "
     # echo "${BES_CMD}"
     echo "Dataset: ${DATASET}" >> ${timing_file}
@@ -73,8 +40,52 @@ function bess_airs_onevar_dmrpp_agg() {
     echo "########################" >> ${timing_file}
     # getdap -D -M ${response_file} >> ${log_file}
     # exit;
-    
+   
 }
+
+
+function bess_airs_datset_dmrpp_files(){
+    
+    log_file=bess_airs_datset_dmrpp.log
+    response_file=bess_airs_datset_dmrpp.dods
+    timing_file=bess_airs_datset_dmrpp.time
+
+    dataset_list="airs_dmrpp_agg_files"
+    DAP2_CE="${DAP2_CE_AIRS_ONE_VAR}"
+
+
+    rm -f ${timing_file} ${log_file}
+    for rep in {1..100}
+    do
+        echo "bess_airs_datset_dmrpp_files() - Starting rep ${rep}"
+        for DATASET in `cat ${dataset_list}`
+        do
+            make_and_time_request
+        done
+    done
+}
+
+
+function bess_airs_onevar_dmrpp_agg() {
+
+    log_file=bess_airs_onevar_dmrpp_agg.log
+    response_file=bess_airs_onevar_dmrpp_agg.dods
+    timing_file=bess_airs_onevar_dmrpp_agg.time
+
+    DATASET="t41m1/dmrpp_agg_test_06.dmrpp"
+    DAP2_CE="${DAP2_CE_AIRS_ONE_VAR_AGG}"
+    
+    rm -f ${timing_file} ${log_file}
+    for rep in {1..100}
+    do
+        echo "bess_airs_onevar_dmrpp_agg() - Starting rep ${rep}"
+        make_and_time_request
+    done
+}
+
+
+
+
 
 
 for rep in {1..100}
@@ -82,5 +93,8 @@ do
     echo "Starting rep ${rep}"
     
     # bess_airs_datset_dmrpp_files
+    
     bess_airs_onevar_dmrpp_agg
+    
+    
 done
