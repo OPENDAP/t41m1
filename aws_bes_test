@@ -57,13 +57,11 @@ function bess_airs_datset_dmrpp_files(){
     rm -f ${timing_file} ${log_file}
     for rep in {1..100}
     do
-        echo "############### Starting REP ${rep} ######################" >> ${timing_file}
-        echo "bess_airs_datset_dmrpp_files()"
+        echo "### bess_airs_datset_dmrpp_files() - Starting REP ${rep}" >> ${timing_file}
         for DATASET in `cat ${dataset_list}`
         do
             make_and_time_request
         done
-        echo "################# End REP ${rep} #########################" >> ${timing_file}
     done
 }
 
@@ -80,25 +78,14 @@ function bess_airs_onevar_dmrpp_agg() {
     rm -f ${timing_file} ${log_file}
     for rep in {1..1000}
     do
-        echo "############### Starting REP ${rep} ######################" >> ${timing_file}
-        echo "bess_airs_onevar_dmrpp_agg()"
+        echo "### bess_airs_onevar_dmrpp_agg() - Starting REP ${rep}" >> ${timing_file}
         make_and_time_request
-        echo "################# End REP ${rep} #########################" >> ${timing_file}
     done
 }
 
 
 
+# bess_airs_datset_dmrpp_files
 
-
-
-for rep in {1..100}
-do
-    echo "Starting rep ${rep}"
+bess_airs_onevar_dmrpp_agg
     
-    # bess_airs_datset_dmrpp_files
-    
-    bess_airs_onevar_dmrpp_agg
-    
-    
-done
