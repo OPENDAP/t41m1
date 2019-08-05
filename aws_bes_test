@@ -1,6 +1,7 @@
 #!/bin/sh
 
 DAP2_CE_AIRS_ONE_VAR="ClrOLR_A[0:1:179][0:1:359]"
+REPS=100;
 
 # set -x 
 
@@ -24,19 +25,17 @@ EOF
 `
 }
 
-reps=100;
+function bess_airs_datset_dmrpp_files(){
+    
+    response_file=bess_airs_datset_dmrpp.dods
+    timing_file=bess_airs_datset_dmrpp.time
+    log_file=bess_airs_datset_dmrpp.log
+    dataset_list="airs_dmrpp_agg_files"
+    DAP2_CE="${DAP2_CE_AIRS_ONE_VAR}"
 
-response_file=aws_bes_test.dods
-timing_file=aws_bes_test.time
-log_file=aws_bes_test.log
-DAP2_CE="${DAP2_CE_AIRS_ONE_VAR}"
+    rm -f ${timing_file} ${log_file}
 
-rm -f ${timing_file} ${log_file}
-
-for i in {1..100}
-do
-    echo "Starting rep ${i}"
-    for DATASET in `cat airs_dmrpp_agg_files`
+    for DATASET in `cat ${dataset_list}`
     do
         make_bes_cmd
         # echo "BES_CMD: "
@@ -50,4 +49,17 @@ do
         # getdap -D -M ${response_file} >> ${log_file}
         # exit;
     done
+    
+    
+    
+    
+}
+
+
+for rep in {1..100}
+do
+    echo "Starting rep ${rep}"
+    
+    bess_airs_datset_dmrpp_files
+    
 done
