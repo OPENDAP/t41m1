@@ -49,9 +49,29 @@ function bess_airs_datset_dmrpp_files(){
         # getdap -D -M ${response_file} >> ${log_file}
         # exit;
     done
+}
+
+function bess_airs_onevar_dmrpp_agg() {
+
+    response_file=bess_airs_onevar_dmrpp_agg.dods
+    timing_file=bess_airs_onevar_dmrpp_agg.time
+    log_file=bess_airs_onevar_dmrpp_agg.log
+    DATASET="t41m1/dmrpp_agg_test_06.dmrpp"
+    DAP2_CE="${DAP2_CE_AIRS_ONE_VAR}"
+
+    rm -f ${timing_file} ${log_file}
     
-    
-    
+    make_bes_cmd
+    # echo "BES_CMD: "
+    echo "${BES_CMD}"
+    echo "Dataset: ${DATASET}" >> ${timing_file}
+    echo "${BES_CMD}" > bes.cmd
+    echo "Start: "`date -Ins` >> ${timing_file}
+   { time -p besstandalone -c ${prefix}/etc/bes/bes.conf -i bes.cmd > ${response_file}; } 2>>${timing_file}
+    ls -l ${response_file} >> ${timing_file}
+    echo "########################" >> ${timing_file}
+    # getdap -D -M ${response_file} >> ${log_file}
+    # exit;
     
 }
 
@@ -60,6 +80,6 @@ for rep in {1..100}
 do
     echo "Starting rep ${rep}"
     
-    bess_airs_datset_dmrpp_files
-    
+    # bess_airs_datset_dmrpp_files
+    bess_airs_onevar_dmrpp_agg
 done
