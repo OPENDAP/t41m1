@@ -1,6 +1,7 @@
 #!/bin/sh
 
 DAP2_CE_AIRS_ONE_VAR="ClrOLR_A[0:1:179][0:1:359]"
+DAP2_CE_AIRS_ONE_VAR_AGG="ClrOLR_A[0:1:364][0:1:179][0:1:359]"
 REPS=100;
 
 # set -x 
@@ -57,7 +58,7 @@ function bess_airs_onevar_dmrpp_agg() {
     timing_file=bess_airs_onevar_dmrpp_agg.time
     log_file=bess_airs_onevar_dmrpp_agg.log
     DATASET="t41m1/dmrpp_agg_test_06.dmrpp"
-    DAP2_CE="${DAP2_CE_AIRS_ONE_VAR}"
+    DAP2_CE="${DAP2_CE_AIRS_ONE_VAR_AGG}"
 
     rm -f ${timing_file} ${log_file}
     
