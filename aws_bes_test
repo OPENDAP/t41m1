@@ -3,6 +3,7 @@
 DAP2_CE_AIRS_ONE_VAR="ClrOLR_A[0:1:179][0:1:359]"
 DAP2_CE_AIRS_ONE_VAR_AGG="ClrOLR_A[0:1:364][0:1:179][0:1:359]"
 REPS=100;
+AIRS_DMRPP_AGG_CHUNKS_TXT="airs_agg_clr_olr_chunks.txt"
 
 # set -x 
 
@@ -27,7 +28,7 @@ EOF
 }
 
 
-function make_and_time_request {
+function make_and_time_bess_request {
     
      make_bes_cmd
     # echo "BES_CMD: "
@@ -35,7 +36,7 @@ function make_and_time_request {
     echo "Dataset: ${DATASET}" >> ${timing_file}
     echo "${BES_CMD}" > bes.cmd
     echo "Start: "`date -Ins` >> ${timing_file}
-   { time -p besstandalone -c ${prefix}/etc/bes/bes.conf -i bes.cmd > ${response_file}; } 2>>${timing_file}
+    { time -p besstandalone -c ${prefix}/etc/bes/bes.conf -i bes.cmd > ${response_file}; } 2>>${timing_file}
     ls -l ${response_file} >> ${timing_file}
     echo "# - - - - - - - - - - - - - - - - - -" >> ${timing_file}
     # getdap -D -M ${response_file} >> ${log_file}
@@ -60,7 +61,7 @@ function bess_airs_datset_dmrpp_files(){
         echo "### bess_airs_datset_dmrpp_files() - Starting REP ${rep}" >> ${timing_file}
         for DATASET in `cat ${dataset_list}`
         do
-            make_and_time_request
+            make_and_time_bess_request
         done
     done
 }
@@ -79,13 +80,54 @@ function bess_airs_onevar_dmrpp_agg() {
     for rep in {1..10000}
     do
         echo "### bess_airs_onevar_dmrpp_agg() - Starting REP ${rep}" >> ${timing_file}
-        make_and_time_request
+        make_and_time_bess_request
     done
 }
 
+function make_and_time_curl_range_get_request {
+    
+    echo "URL: ${URL}" >> ${timing_file}
+    #echo "Start: "`date -Ins` >> ${timing_file}
+    echo "Start: "`date` >> ${timing_file}
+    { time -p curl -s -r ${CURL_START}-${CURL_END} -g ${URL} > ${response_file}; } 2>>${timing_file}
+    ls -l ${response_file} >> ${timing_file}
+    echo "# - - - - - - - - - - - - - - - - - -" >> ${timing_file}   
+}
 
+
+function curl_range_get_airs_onevar_chunks(){
+    
+    log_file=curl_range_get_airs_onevar_chunks.log
+    response_file=curl_range_get_airs_onevar_chunks.dods
+    timing_file=curl_range_get_airs_onevar_chunks.time
+
+    DATASET="t41m1/dmrpp_agg_test_06.dmrpp"
+    DAP2_CE="${DAP2_CE_AIRS_ONE_VAR_AGG}"
+    
+    while read chunk_row; do
+        
+        echo "Processing chunk: ${chunk_row}"
+        URL=`echo ${chunk_row} | awk '{print $1;}' -`
+        #echo "URL: ${URL}"
+        OFFSET=`echo ${chunk_row} | awk '{print $2;}' -`
+        #echo "OFFSET: ${OFFSET}"
+        NUM_BYTES=`echo ${chunk_row} | awk '{print $3;}' -`
+        #echo "NUM_BYTES: ${NUM_BYTES}"
+        CHUNK_POISTION=`echo ${chunk_row} | awk '{print $4;}' -`
+        #echo "CHUNK_POISTION: ${CHUNK_POISTION}"
+        
+        CURL_START=${OFFSET}
+        CURL_END=`echo "${OFFSET} + ${NUM_BYTES}" | bc`
+        make_and_time_curl_range_get_request
+
+    done <${AIRS_DMRPP_AGG_CHUNKS_TXT}
+    
+      
+}
 
 # bess_airs_datset_dmrpp_files
 
-bess_airs_onevar_dmrpp_agg
+# bess_airs_onevar_dmrpp_agg
+
+curl_range_get_airs_onevar_chunks
     
