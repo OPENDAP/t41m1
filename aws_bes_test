@@ -87,8 +87,8 @@ function bess_airs_onevar_dmrpp_agg() {
 function make_and_time_curl_range_get_request {
     
     echo "URL: ${URL}" >> ${timing_file}
-    #echo "Start: "`date -Ins` >> ${timing_file}
-    echo "Start: "`date` >> ${timing_file}
+    echo "Start: "`date -Ins` >> ${timing_file}
+    # echo "Start: "`date` >> ${timing_file}
     { time -p curl -s -r ${CURL_START}-${CURL_END} -g ${URL} > ${response_file}; } 2>>${timing_file}
     ls -l ${response_file} >> ${timing_file}
     echo "# - - - - - - - - - - - - - - - - - -" >> ${timing_file}   
