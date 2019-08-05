@@ -104,6 +104,7 @@ function curl_range_get_airs_onevar_chunks(){
     response_file="${RESULTS_DIR}/curl_range_get_airs_onevar_chunks.dods"
     timing_file="${RESULTS_DIR}/curl_range_get_airs_onevar_chunks.time"
 
+    rm -f ${timing_file} ${log_file}
     for rep in {1..10000}
     do        
         echo "### curl_range_get_airs_onevar_chunks() - Starting REP ${rep}" >> ${timing_file}
@@ -130,9 +131,9 @@ function curl_range_get_airs_onevar_chunks(){
 rm -rf ${RESULTS_DIR}
 mkdir -p ${RESULTS_DIR}
 
-# bess_airs_datset_dmrpp_files
+bess_airs_datset_dmrpp_files
 
-# bess_airs_onevar_dmrpp_agg
+bess_airs_onevar_dmrpp_agg
 
 curl_range_get_airs_onevar_chunks
     
