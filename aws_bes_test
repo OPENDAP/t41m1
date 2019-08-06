@@ -171,13 +171,16 @@ function curl_range_get_airs_onevar_chunks(){
             
             echo "Processing chunk: ${chunk_row}"
             URL=`echo ${chunk_row} | awk '{print $1;}' -`
-            echo -n "Chunk URL: ${URL} "
+            echo -n "Chunk URL: ${URL} " >> ${timing_file}
+
             OFFSET=`echo ${chunk_row} | awk '{print $2;}' -`
-            echo -n "OFFSET: ${OFFSET} "
+            echo -n "OFFSET: ${OFFSET} " >> ${timing_file}
+
             NUM_BYTES=`echo ${chunk_row} | awk '{print $3;}' -`
             echo -n "NUM_BYTES: ${NUM_BYTES} " >> ${timing_file}
+            
             CHUNK_POSITION=`echo ${chunk_row} | awk '{print $4;}' -`
-            echo "CHUNK_POSITION: ${CHUNK_POSITION}"
+            echo "CHUNK_POSITION: ${CHUNK_POSITION}" >> ${timing_file}
 
             CURL_START=${OFFSET}
             CURL_END=`echo "${OFFSET} + ${NUM_BYTES} - 1" | bc`
