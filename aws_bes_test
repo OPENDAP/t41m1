@@ -8,6 +8,7 @@ DAP2_CE_AIRS_ONE_VAR="ClrOLR_A[0:1:179][0:1:359]"
 DAP2_CE_AIRS_ONE_VAR_AGG="ClrOLR_A[0:1:364][0:1:179][0:1:359]"
 REPS=100;
 AIRS_DMRPP_AGG_CHUNKS_TXT="airs_agg_clr_olr_chunks.txt"
+AIRS_DMRPP_AGG_FILES="airs_dmrpp_agg_files"
 
 # set -x 
 
@@ -76,19 +77,39 @@ function hyrax_airs_dataset_dmrpp_files(){
     response_file="${RESULTS_DIR}/hyrax_airs_dataset_dmrpp_files.dods"
     timing_file="${RESULTS_DIR}/hyrax_airs_dataset_dmrpp_files.time"
 
-    dataset_list="airs_dmrpp_agg_files"
     DAP2_CE="${DAP2_CE_AIRS_ONE_VAR}"
+    
+
+    rm -f ${timing_file} ${log_file}
+    for rep in {1..100}
+    do
+        echo "###--------------------------------------------------------" >> ${timing_file}
+        echo "### hyrax_airs_dataset_dmrpp_files() - Starting REP ${rep}" >> ${timing_file}
+        for DATASET in `cat ${AIRS_DMRPP_AGG_FILES}`
+        do
+            URL="${HYRAX}/${DATASET}.dods?${DAP2_CE}"
+            make_and_time_curl_get_request
+        done
+    done
+}
+
+function hyrax_airs_onevar_dmrpp_agg(){
+    
+    log_file="${RESULTS_DIR}/hyrax_airs_dataset_dmrpp_files.log"
+    response_file="${RESULTS_DIR}/hyrax_airs_dataset_dmrpp_files.dods"
+    timing_file="${RESULTS_DIR}/hyrax_airs_dataset_dmrpp_files.time"
+
+    dataset_list="t41m1/dmrpp_agg_test_06.dmrpp"
+    DAP2_CE="${DAP2_CE_AIRS_ONE_VAR_AGG}"
+    URL="${HYRAX}/${DATASET}.dods?${DAP2_CE}"
     
 
     rm -f ${timing_file} ${log_file}
     for rep in {1..1}
     do
-        echo "### bess_airs_datset_dmrpp_files() - Starting REP ${rep}" >> ${timing_file}
-        for DATASET in `cat ${dataset_list}`
-        do
-            URL="${HYRAX}/${DATASET}.dods?${DAP2_CE}"
-            make_and_time_curl_get_request
-        done
+        echo "###--------------------------------------------------------" >> ${timing_file}
+        echo "### hyrax_airs_onevar_dmrpp_agg() - Starting REP ${rep}" >> ${timing_file}
+        make_and_time_curl_get_request
     done
 }
 
@@ -98,15 +119,15 @@ function bess_airs_dataset_dmrpp_files(){
     response_file="${RESULTS_DIR}/bess_airs_dmrpp_datasets.dods"
     timing_file="${RESULTS_DIR}/bess_airs_dmrpp_datasets.time"
 
-    dataset_list="airs_dmrpp_agg_files"
     DAP2_CE="${DAP2_CE_AIRS_ONE_VAR}"
 
 
     rm -f ${timing_file} ${log_file}
     for rep in {1..100}
     do
+        echo "###--------------------------------------------------------" >> ${timing_file}
         echo "### bess_airs_datset_dmrpp_files() - Starting REP ${rep}" >> ${timing_file}
-        for DATASET in `cat ${dataset_list}`
+        for DATASET in `cat ${AIRS_DMRPP_AGG_FILES}`
         do
             make_and_time_bess_request
         done
@@ -126,6 +147,7 @@ function bess_airs_onevar_dmrpp_agg() {
     rm -f ${timing_file} ${log_file}
     for rep in {1..10000}
     do
+        echo "###--------------------------------------------------------" >> ${timing_file}
         echo "### bess_airs_onevar_dmrpp_agg() - Starting REP ${rep}" >> ${timing_file}
         make_and_time_bess_request
     done
@@ -172,5 +194,7 @@ mkdir -p ${RESULTS_DIR}
 
 #curl_range_get_airs_onevar_chunks
 
-hyrax_airs_dataset_dmrpp_files
+#hyrax_airs_dataset_dmrpp_files
+
+hyrax_airs_onevar_dmrpp_agg
     
