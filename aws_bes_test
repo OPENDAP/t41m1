@@ -71,11 +71,11 @@ function make_and_time_curl_get_request {
 
 
 
-function hyrax_airs_dataset_dmrpp_files(){
+function hyrax_airs_dmrpp_dataset_files(){
     
-    log_file="${RESULTS_DIR}/hyrax_airs_dataset_dmrpp_files.log"
-    response_file="${RESULTS_DIR}/hyrax_airs_dataset_dmrpp_files.dods"
-    timing_file="${RESULTS_DIR}/hyrax_airs_dataset_dmrpp_files.time"
+    log_file="${RESULTS_DIR}/hyrax_airs_dmrpp_dataset_files.log"
+    response_file="${RESULTS_DIR}/hyrax_airs_dmrpp_dataset_files.dods"
+    timing_file="${RESULTS_DIR}/hyrax_airs_dmrpp_dataset_files.time"
 
     DAP2_CE="${DAP2_CE_AIRS_ONE_VAR}"
     
@@ -190,13 +190,13 @@ function curl_range_get_airs_onevar_chunks(){
 rm -rf ${RESULTS_DIR}
 mkdir -p ${RESULTS_DIR}
 
-#bess_airs_dataset_dmrpp_files
+bess_airs_dataset_dmrpp_files
 
-#bess_airs_onevar_dmrpp_agg
+bess_airs_onevar_dmrpp_agg
 
-#curl_range_get_airs_onevar_chunks
+curl_range_get_airs_onevar_chunks
 
-#hyrax_airs_dataset_dmrpp_files
+hyrax_airs_dmrpp_dataset_files
 
 hyrax_airs_onevar_dmrpp_agg
     
