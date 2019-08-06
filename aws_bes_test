@@ -106,7 +106,7 @@ function hyrax_airs_onevar_dmrpp_agg(){
     
 
     rm -f ${timing_file} ${log_file}
-    for rep in {1..1}
+    for rep in {1..10000}
     do
         echo "###--------------------------------------------------------" >> ${timing_file}
         echo "### hyrax_airs_onevar_dmrpp_agg() - Starting REP ${rep}" >> ${timing_file}
