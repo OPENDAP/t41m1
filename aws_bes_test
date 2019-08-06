@@ -32,6 +32,7 @@ EOF
 `
 }
 
+REQUEST_FINISHED_BOUNDARY="### - - - - - - - - - - - - - - - - - - - - - - - -";
 
 function make_and_time_bess_request {
     
@@ -40,10 +41,11 @@ function make_and_time_bess_request {
     # echo "${BES_CMD}"
     echo "Dataset: ${DATASET}" >> ${timing_file}
     echo "${BES_CMD}" > bes.cmd
-    echo "Start: "`date -Ins` >> ${timing_file}
+    echo "StartTime: "`date -Ins` >> ${timing_file}
+    # echo "StartTime: "`date` >> ${timing_file}
     { time -p besstandalone -c ${prefix}/etc/bes/bes.conf -i bes.cmd > ${response_file}; } 2>>${timing_file}
     ls -l ${response_file} >> ${timing_file}
-    echo "# - - - - - - - - - - - - - - - - - -" >> ${timing_file}
+    echo "${REQUEST_FINISHED_BOUNDARY}" >> ${timing_file}
     # getdap -D -M ${response_file} >> ${log_file}
     # exit;
    
@@ -53,20 +55,20 @@ function make_and_time_curl_range_get_request {
     
     echo "RangeGET cURL: ${URL} CURL_START: ${CURL_START} CURL_END: ${CURL_END}" >> ${timing_file}
     echo "StartTime: "`date -Ins` >> ${timing_file}
-    # echo "Start: "`date` >> ${timing_file}
+    # echo "StartTime: "`date` >> ${timing_file}
     { time -p curl -s -r ${CURL_START}-${CURL_END} -g ${URL} > ${response_file}; } 2>>${timing_file}
     ls -l ${response_file} >> ${timing_file}
-    echo "# + + + + + + + + + + + + + + + + + + +" >> ${timing_file}   
+    echo "${REQUEST_FINISHED_BOUNDARY}" >> ${timing_file}
 }
 
 function make_and_time_curl_get_request {
     
     echo "GET cURL: ${URL}" >> ${timing_file}
-    echo "Start: "`date -Ins` >> ${timing_file}
-    # echo "Start: "`date` >> ${timing_file}
+    echo "StartTime: "`date -Ins` >> ${timing_file}
+    # echo "StartTime: "`date` >> ${timing_file}
     { time -p curl -s -g ${URL} > ${response_file}; } 2>>${timing_file}
     ls -l ${response_file} >> ${timing_file}
-    echo "# - - - - - - - - - - - - - - - - - -" >> ${timing_file}   
+    echo "${REQUEST_FINISHED_BOUNDARY}" >> ${timing_file}
 }
 
 
@@ -113,7 +115,7 @@ function hyrax_airs_onevar_dmrpp_agg(){
     done
 }
 
-function bess_airs_dataset_dmrpp_files(){
+function bess_airs_dmrpp_datasets(){
     
     log_file="${RESULTS_DIR}/bess_airs_dmrpp_datasets.log"
     response_file="${RESULTS_DIR}/bess_airs_dmrpp_datasets.dods"
@@ -162,7 +164,7 @@ function curl_range_get_airs_onevar_chunks(){
     timing_file="${RESULTS_DIR}/curl_range_get_airs_onevar_chunks.time"
 
     rm -f ${timing_file} ${log_file}
-    for rep in {1..1000}
+    for rep in {1..100}
     do        
         echo "###----------------------------------------------------------" >> ${timing_file}
         echo "### curl_range_get_airs_onevar_chunks() - Starting REP ${rep}" >> ${timing_file}
@@ -189,26 +191,69 @@ function curl_range_get_airs_onevar_chunks(){
     done
 }
 
+function hr_mark(){
+    half_mark="----------------------------------------------------------------------"
+    echo "${half_mark} + ${half_mark}";
+}
+
 function results_summary(){
- 
-    echo "-------------------------------------------------------------"; 
+    hr_mark
     echo "SUMMARY:"
     for timing_file in ${RESULTS_DIR}/*.time
     do 
-        echo -n "${timing_file} "
-        grep "real" ${timing_file} | awk '{sum+=$2+0.0; sumsq+=$2*$2+0.0; }
+        echo -n "timing_file: ${timing_file} "
+        grep "real" ${timing_file} | awk '\
+            {
+                sum+=$2+0.0; 
+                sumsq+=$2*$2+0.0;
+            }
             END{
-                printf("count: %d average: %f stdev: %f\n", 
-                NR, sum/NR, sqrt(sumsq/NR - (sum/NR)**2));
+                avg=sum/NR;
+                stdv=sqrt(sumsq/NR - (avg)**2);
+                stdvprcnt=100*stdv/avg;
+                printf("count: %d average: %f stdev: %f stdev%: %f\n", 
+                NR, avg, stdv, stdvprcnt);
             }' - ;
     done; 
-    echo "-------------------------------------------------------------"; 
+    hr_mark; 
+}
+
+function mk_csv(){
+
+    for timing_file in ${RESULTS_DIR}/*.time
+    do 
+        echo "${timing_file}"
+        
+        awk -v boundaryKey="${REQUEST_FINISHED_BOUNDARY}" \
+        'BEGIN{
+            startTimeKey="Start"; 
+            elapsedTimeKey="real"; 
+        }
+        {
+            if(index($0, boundaryKey)==1){
+                printf("%s %s\n", startTime, elapsedTime);
+            }
+            else {
+                if(index($0,startTimeKey)==1){
+                    startTime = $2;
+                }              
+                if(index($0,elapsedTimeKey)==1){
+                    elapsedTime = $2;
+                }              
+            }
+                        
+
+        }' ${timing_file}
+        
+    done; 
+
+
 }
 
 rm -rf ${RESULTS_DIR}
 mkdir -p ${RESULTS_DIR}
 
-bess_airs_dataset_dmrpp_files
+bess_airs_dmrpp_datasets
 
 bess_airs_onevar_dmrpp_agg
 
