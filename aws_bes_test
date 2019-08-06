@@ -6,7 +6,7 @@ echo "RESULTS_DIR: ${RESULTS_DIR}"
 
 DAP2_CE_AIRS_ONE_VAR="ClrOLR_A[0:1:179][0:1:359]"
 DAP2_CE_AIRS_ONE_VAR_AGG="ClrOLR_A[0:1:364][0:1:179][0:1:359]"
-REPS=100;
+
 AIRS_DMRPP_AGG_CHUNKS_TXT="airs_agg_clr_olr_chunks.txt"
 AIRS_DMRPP_AGG_FILES="airs_dmrpp_agg_files"
 
@@ -165,6 +165,7 @@ function curl_range_get_airs_onevar_chunks(){
     rm -f ${timing_file} ${log_file}
     for rep in {1..10000}
     do        
+        echo "###----------------------------------------------------------" >> ${timing_file}
         echo "### curl_range_get_airs_onevar_chunks() - Starting REP ${rep}" >> ${timing_file}
         while read chunk_row; do
             
