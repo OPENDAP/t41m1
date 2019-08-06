@@ -95,14 +95,13 @@ function hyrax_airs_dataset_dmrpp_files(){
 
 function hyrax_airs_onevar_dmrpp_agg(){
     
-    log_file="${RESULTS_DIR}/hyrax_airs_dataset_dmrpp_files.log"
-    response_file="${RESULTS_DIR}/hyrax_airs_dataset_dmrpp_files.dods"
-    timing_file="${RESULTS_DIR}/hyrax_airs_dataset_dmrpp_files.time"
+    log_file="${RESULTS_DIR}/hyrax_airs_onevar_dmrpp_agg.log"
+    response_file="${RESULTS_DIR}/hyrax_airs_onevar_dmrpp_agg.dods"
+    timing_file="${RESULTS_DIR}/hyrax_airs_onevar_dmrpp_agg.time"
 
     dataset_list="t41m1/dmrpp_agg_test_06.dmrpp"
     DAP2_CE="${DAP2_CE_AIRS_ONE_VAR_AGG}"
     URL="${HYRAX}/${DATASET}.dods?${DAP2_CE}"
-    
 
     rm -f ${timing_file} ${log_file}
     for rep in {1..1}
