@@ -36,7 +36,7 @@ REQUEST_FINISHED_BOUNDARY="### - - - - - - - - - - - - - - - - - - - - - - - -";
 
 reps10=10; reps100=100; reps1000=1000;
 
-reps10=1; reps100=1; reps1000=1;
+# reps10=1; reps100=1; reps1000=1;
 
 
 function make_and_time_bess_request {
@@ -227,8 +227,8 @@ function mk_csv(){
 
     for timing_file in ${RESULTS_DIR}/*.time
     do 
-        echo "${timing_file}"
-        
+        result_file="${timing_file}.csv"
+        echo "${timing_file}" >> ${result_file};
         awk -v boundaryKey="${REQUEST_FINISHED_BOUNDARY}" \
         'BEGIN{
             startTimeKey="Start"; 
@@ -246,13 +246,8 @@ function mk_csv(){
                     elapsedTime = $2;
                 }              
             }
-                        
-
-        }' ${timing_file}
-        
+        }' ${timing_file}  > ${result_file}
     done; 
-
-
 }
 
 rm -rf ${RESULTS_DIR}
@@ -267,6 +262,8 @@ curl_range_get_airs_onevar_chunks
 hyrax_airs_dmrpp_dataset_files
 
 hyrax_airs_onevar_dmrpp_agg
+
+mk_csv
 
 results_summary
 
