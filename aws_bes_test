@@ -189,6 +189,22 @@ function curl_range_get_airs_onevar_chunks(){
     done
 }
 
+function results_summary(){
+ 
+    echo "-------------------------------------------------------------"; 
+    echo "SUMMARY:"
+    for timing_file in ${RESULTS_DIR}/*.time
+    do 
+        echo -n "${timing_file} "
+        grep "real" ${timing_file} | awk '{sum+=$2+0.0; sumsq+=$2*$2+0.0; }
+            END{
+                printf("count: %d average: %f stdev: %f\n", 
+                NR, sum/NR, sqrt(sumsq/NR - (sum/NR)**2));
+            }' - ;
+    done; 
+    echo "-------------------------------------------------------------"; 
+}
+
 rm -rf ${RESULTS_DIR}
 mkdir -p ${RESULTS_DIR}
 
@@ -201,4 +217,7 @@ curl_range_get_airs_onevar_chunks
 hyrax_airs_dmrpp_dataset_files
 
 hyrax_airs_onevar_dmrpp_agg
-    
+
+results_summary
+
+     
