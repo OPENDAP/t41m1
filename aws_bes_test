@@ -228,7 +228,8 @@ function mk_csv(){
     for timing_file in ${RESULTS_DIR}/*.time
     do 
         result_file="${timing_file}.csv"
-        echo "${timing_file}" >> ${result_file};
+        echo "${timing_file}" > ${result_file};
+        echo "StartTime ElapsedTime" >> ${result_file};
         awk -v boundaryKey="${REQUEST_FINISHED_BOUNDARY}" \
         'BEGIN{
             startTimeKey="Start"; 
@@ -246,7 +247,7 @@ function mk_csv(){
                     elapsedTime = $2;
                 }              
             }
-        }' ${timing_file}  > ${result_file}
+        }' ${timing_file} >> ${result_file}
     done; 
 }
 
