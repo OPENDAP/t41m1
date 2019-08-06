@@ -81,7 +81,7 @@ function hyrax_airs_dmrpp_dataset_files(){
     
 
     rm -f ${timing_file} ${log_file}
-    for rep in {1..100}
+    for rep in {1..10}
     do
         echo "###--------------------------------------------------------" >> ${timing_file}
         echo "### hyrax_airs_dataset_dmrpp_files() - Starting REP ${rep}" >> ${timing_file}
@@ -106,7 +106,7 @@ function hyrax_airs_onevar_dmrpp_agg(){
     echo "hyrax_airs_onevar_dmrpp_agg() URL: ${URL}"
 
     rm -f ${timing_file} ${log_file}
-    for rep in {1..10000}
+    for rep in {1..1000}
     do
         echo "### hyrax_airs_onevar_dmrpp_agg() - Starting REP ${rep}" >> ${timing_file}
         make_and_time_curl_get_request
@@ -123,7 +123,7 @@ function bess_airs_dataset_dmrpp_files(){
 
 
     rm -f ${timing_file} ${log_file}
-    for rep in {1..100}
+    for rep in {1..10}
     do
         echo "###--------------------------------------------------------" >> ${timing_file}
         echo "### bess_airs_datset_dmrpp_files() - Starting REP ${rep}" >> ${timing_file}
@@ -145,7 +145,7 @@ function bess_airs_onevar_dmrpp_agg() {
     DAP2_CE="${DAP2_CE_AIRS_ONE_VAR_AGG}"
     
     rm -f ${timing_file} ${log_file}
-    for rep in {1..10000}
+    for rep in {1..1000}
     do
         echo "###--------------------------------------------------------" >> ${timing_file}
         echo "### bess_airs_onevar_dmrpp_agg() - Starting REP ${rep}" >> ${timing_file}
