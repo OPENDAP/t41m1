@@ -100,8 +100,7 @@ function hyrax_airs_onevar_dmrpp_agg(){
     timing_file="${RESULTS_DIR}/hyrax_airs_onevar_dmrpp_agg.time"
 
     DATASET="t41m1/dmrpp_agg_test_06.dmrpp"
-    DAP2_CE="${DAP2_CE_AIRS_ONE_VAR_AGG}"
-    URL="${HYRAX}/${DATASET}.dods?${DAP2_CE}"
+    URL="${HYRAX}/${DATASET}.dods?${DAP2_CE_AIRS_ONE_VAR_AGG}"
 
     echo "###--------------------------------------------------------" >> ${timing_file}
     echo "hyrax_airs_onevar_dmrpp_agg() URL: ${URL}"
@@ -193,13 +192,13 @@ function curl_range_get_airs_onevar_chunks(){
 rm -rf ${RESULTS_DIR}
 mkdir -p ${RESULTS_DIR}
 
-#bess_airs_dataset_dmrpp_files
+bess_airs_dataset_dmrpp_files
 
-#bess_airs_onevar_dmrpp_agg
+bess_airs_onevar_dmrpp_agg
 
 curl_range_get_airs_onevar_chunks
 
-#hyrax_airs_dmrpp_dataset_files
+hyrax_airs_dmrpp_dataset_files
 
-#hyrax_airs_onevar_dmrpp_agg
+hyrax_airs_onevar_dmrpp_agg
     
