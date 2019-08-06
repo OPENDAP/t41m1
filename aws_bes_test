@@ -51,17 +51,17 @@ function make_and_time_bess_request {
 
 function make_and_time_curl_range_get_request {
     
-    echo "cURL: ${URL}" >> ${timing_file}
-    echo "Start: "`date -Ins` >> ${timing_file}
+    echo "RangeGET cURL: ${URL} CURL_START: ${CURL_START} CURL_END: ${CURL_END}" >> ${timing_file}
+    echo "StartTime: "`date -Ins` >> ${timing_file}
     # echo "Start: "`date` >> ${timing_file}
     { time -p curl -s -r ${CURL_START}-${CURL_END} -g ${URL} > ${response_file}; } 2>>${timing_file}
     ls -l ${response_file} >> ${timing_file}
-    echo "# - - - - - - - - - - - - - - - - - -" >> ${timing_file}   
+    echo "# + + + + + + + + + + + + + + + + + + +" >> ${timing_file}   
 }
 
 function make_and_time_curl_get_request {
     
-    echo "cURL: ${URL}" >> ${timing_file}
+    echo "GET cURL: ${URL}" >> ${timing_file}
     echo "Start: "`date -Ins` >> ${timing_file}
     # echo "Start: "`date` >> ${timing_file}
     { time -p curl -s -g ${URL} > ${response_file}; } 2>>${timing_file}
@@ -104,7 +104,7 @@ function hyrax_airs_onevar_dmrpp_agg(){
     URL="${HYRAX}/${DATASET}.dods?${DAP2_CE}"
 
     echo "###--------------------------------------------------------" >> ${timing_file}
-    echo "URL: ${URL}"
+    echo "hyrax_airs_onevar_dmrpp_agg() URL: ${URL}"
 
     rm -f ${timing_file} ${log_file}
     for rep in {1..10000}
@@ -163,7 +163,7 @@ function curl_range_get_airs_onevar_chunks(){
     timing_file="${RESULTS_DIR}/curl_range_get_airs_onevar_chunks.time"
 
     rm -f ${timing_file} ${log_file}
-    for rep in {1..10000}
+    for rep in {1..1000}
     do        
         echo "###----------------------------------------------------------" >> ${timing_file}
         echo "### curl_range_get_airs_onevar_chunks() - Starting REP ${rep}" >> ${timing_file}
@@ -171,14 +171,14 @@ function curl_range_get_airs_onevar_chunks(){
             
             echo "Processing chunk: ${chunk_row}"
             URL=`echo ${chunk_row} | awk '{print $1;}' -`
-            #echo "URL: ${URL}"
+            echo -n "Chunk URL: ${URL} "
             OFFSET=`echo ${chunk_row} | awk '{print $2;}' -`
-            #echo "OFFSET: ${OFFSET}"
+            echo -n "OFFSET: ${OFFSET} "
             NUM_BYTES=`echo ${chunk_row} | awk '{print $3;}' -`
-            echo "NUM_BYTES: ${NUM_BYTES}" >> ${timing_file}
+            echo =n "NUM_BYTES: ${NUM_BYTES} " >> ${timing_file}
             CHUNK_POSITION=`echo ${chunk_row} | awk '{print $4;}' -`
-            #echo "CHUNK_POSITION: ${CHUNK_POSITION}"
-            
+            echo "CHUNK_POSITION: ${CHUNK_POSITION}"
+
             CURL_START=${OFFSET}
             CURL_END=`echo "${OFFSET} + ${NUM_BYTES} - 1" | bc`
             make_and_time_curl_range_get_request
