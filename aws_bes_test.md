@@ -39,7 +39,8 @@ the value of the aggregated variable.
 
 1. `hyrax_airs_dmrpp_dataset_files` - This test utilizes command line `curl` to 
 GET the ClrOLR_A variable data response for each of the 365 dmr++ files in the 
-AIRS aggregation. Again this is the same number of S3 accesses as proevious tests.
+AIRS aggregation. Again this is the same number of S3 accesses as previous 
+tests.
 
 1. `hyrax_airs_onevar_dmrpp_agg` - This test utilizes command line `curl` to GET 
 the aggregated ClrOLR_A variable data response from dmr++ aggregation, 

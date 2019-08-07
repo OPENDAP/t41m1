@@ -1,4 +1,5 @@
 #!/bin/sh
+# set -x 
 
 HYRAX="http://t41m1.opendap.org:8080/opendap"
 RESULTS_DIR="./aws_bes_test.results"
@@ -10,8 +11,17 @@ DAP2_CE_AIRS_ONE_VAR_AGG="ClrOLR_A[0:1:364][0:1:179][0:1:359]"
 AIRS_DMRPP_AGG_CHUNKS_TXT="airs_agg_clr_olr_chunks.txt"
 AIRS_DMRPP_AGG_FILES="airs_dmrpp_agg_files"
 
-# set -x 
+REQUEST_FINISHED_BOUNDARY="### - - - - - - - - - - - - - - - - - - - - - - - -";
 
+reps10=10; reps100=100; reps1000=1000;
+
+# reps10=1; reps100=1; reps1000=1;
+
+
+#####################################################################################
+#
+# make_bes_cmd
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function make_bes_cmd() {
 BES_CMD=`cat <<EOF 
 <?xml version="1.0" encoding="UTF-8"?>
@@ -32,13 +42,11 @@ EOF
 `
 }
 
-REQUEST_FINISHED_BOUNDARY="### - - - - - - - - - - - - - - - - - - - - - - - -";
 
-reps10=10; reps100=100; reps1000=1000;
-
-# reps10=1; reps100=1; reps1000=1;
-
-
+#####################################################################################
+#
+# 
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function make_and_time_bess_request {
     
      make_bes_cmd
@@ -56,6 +64,10 @@ function make_and_time_bess_request {
    
 }
 
+#####################################################################################
+#
+# 
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function make_and_time_curl_range_get_request {
     
     echo "RangeGET cURL: ${URL} CURL_START: ${CURL_START} CURL_END: ${CURL_END}" >> ${timing_file}
@@ -66,6 +78,10 @@ function make_and_time_curl_range_get_request {
     echo "${REQUEST_FINISHED_BOUNDARY}" >> ${timing_file}
 }
 
+#####################################################################################
+#
+# 
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function make_and_time_curl_get_request {
     
     echo "GET cURL: ${URL}" >> ${timing_file}
@@ -78,6 +94,12 @@ function make_and_time_curl_get_request {
 
 
 
+#####################################################################################
+#
+# `hyrax_airs_dmrpp_dataset_files` - This test utilizes command line `curl` to 
+# GET the ClrOLR_A variable data response for each of the 365 dmr++ files in the 
+# AIRS aggregation. 
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function hyrax_airs_dmrpp_dataset_files(){
     
     log_file="${RESULTS_DIR}/hyrax_airs_dmrpp_dataset_files.log"
@@ -100,6 +122,13 @@ function hyrax_airs_dmrpp_dataset_files(){
     done
 }
 
+#####################################################################################
+#
+# `hyrax_airs_onevar_dmrpp_agg` - This test utilizes command line `curl` to GET 
+# the aggregated ClrOLR_A variable data response from dmr++ aggregation, 
+# `dmrpp_agg_test_06.dmrpp`. Each pass gets the full value of the aggregated 
+# variable and again, makes the same number of S3 access as the other tests.
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function hyrax_airs_onevar_dmrpp_agg(){
     
     log_file="${RESULTS_DIR}/hyrax_airs_onevar_dmrpp_agg.log"
@@ -120,6 +149,14 @@ function hyrax_airs_onevar_dmrpp_agg(){
     done
 }
 
+#####################################################################################
+#
+# `bess_airs_dmrpp_datasets` - This test utilizes `besstandalone` requests to 
+# retrieve the ClrOLR_A variable from each of the 365 dmr++ datasets for the 
+# aggregated AIRS virtual dataset. Each pass represents the same number of S3 
+# accesses as requesting the aggregated ClrOLR_A from an NcML aggregation or from 
+# a dmr++ aggregation.
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function bess_airs_dmrpp_datasets(){
     
     log_file="${RESULTS_DIR}/bess_airs_dmrpp_datasets.log"
@@ -142,6 +179,16 @@ function bess_airs_dmrpp_datasets(){
 }
 
 
+#####################################################################################
+#
+# `bess_airs_onevar_dmrpp_agg` - The test utilizes a single `besstandalone` 
+# request to retieve the entire (365 aggregated time points) data value for the 
+# ClrOLR_A variable from the dmr++ aggregation `dmrpp_agg_test_06.dmrpp`. Each 
+# pass/rep/count values represents a single request for the aggregated ClrOLR_A 
+# value which will have the same number of S3 accesses as the same request put to 
+# the NcML aggregation of dmr++ file and as each pass in the first test, 
+# `bess_airs_dmrpp_datasets`. 
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function bess_airs_onevar_dmrpp_agg() {
 
     log_file="${RESULTS_DIR}/bess_airs_onevar_dmrpp_agg.log"
@@ -162,6 +209,13 @@ function bess_airs_onevar_dmrpp_agg() {
 
 
 
+#####################################################################################
+#
+# `curl_range_get_airs_onevar_chunks` - This test utilizes command line `curl` 
+# and its range GET capability to retreive each chunk of the 365 file aggregated 
+# variable ClrOLR_A from the various hdf5 objects held in S3. Each pass retrieves 
+# the value of the aggregated variable.
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function curl_range_get_airs_onevar_chunks(){
     
     log_file="${RESULTS_DIR}/curl_range_get_airs_onevar_chunks.log"
@@ -196,11 +250,19 @@ function curl_range_get_airs_onevar_chunks(){
     done
 }
 
+#####################################################################################
+#
+# 
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function hr_mark(){
     half_mark="----------------------------------------------------------------------"
     echo "${half_mark} + ${half_mark}";
 }
 
+#####################################################################################
+#
+# 
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function results_summary(){
     hr_mark
     echo "SUMMARY:"
@@ -223,6 +285,10 @@ function results_summary(){
     hr_mark; 
 }
 
+#####################################################################################
+#
+# 
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function mk_csv(){
 
     for timing_file in ${RESULTS_DIR}/*.time
@@ -251,6 +317,13 @@ function mk_csv(){
     done; 
 }
 
+#####################################################################################
+# MMMMMMMMMMMMMMMMMMMMAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNN ##
+# MMMMMMMMMMMMMMMMMMMMAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNN ##
+# MMMMMMMMMMMMMMMMMMMMAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNN ##
+# 
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+
 rm -rf ${RESULTS_DIR}
 mkdir -p ${RESULTS_DIR}
 
@@ -267,5 +340,10 @@ hyrax_airs_onevar_dmrpp_agg
 mk_csv
 
 results_summary
+
+# MMMMMMMMMMMMMMMMMMMMAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNN ##
+# MMMMMMMMMMMMMMMMMMMMAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNN ##
+# MMMMMMMMMMMMMMMMMMMMAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNN ##
+#####################################################################################
 
      
