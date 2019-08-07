@@ -110,7 +110,7 @@ function hyrax_airs_onevar_dmrpp_agg(){
     URL="${HYRAX}/${DATASET}.dods?${DAP2_CE_AIRS_ONE_VAR_AGG}"
 
     echo "###--------------------------------------------------------" >> ${timing_file}
-    echo "hyrax_airs_onevar_dmrpp_agg() URL: ${URL}"
+    echo "hyrax_airs_onevar_dmrpp_agg() URL: ${URL}" >> ${timing_file} >> ${timing_file}
 
     rm -f ${timing_file} ${log_file}
     for rep in `seq ${reps1000}`
@@ -175,7 +175,7 @@ function curl_range_get_airs_onevar_chunks(){
         echo "### curl_range_get_airs_onevar_chunks() - Starting REP ${rep}" >> ${timing_file}
         while read chunk_row; do
             
-            echo "Processing chunk: ${chunk_row}"
+            echo "Processing chunk: ${chunk_row}" >> ${timing_file}
             URL=`echo ${chunk_row} | awk '{print $1;}' -`
             echo -n "Chunk URL: ${URL} " >> ${timing_file}
 
