@@ -3,7 +3,7 @@ The bash script `aws_bes_test` can be run to utilize hyrax, besstandalone, and
 curl to time the retrieval of data from S3.
 
 
-## Datasets
+## Test Datasets
 The test datasets are a set of level 3 AIRS datasets which are available in the
  S3 bucket `cloudydap`. These datasets have been examined and their internal
  structural information stored in dmr++ format. 
