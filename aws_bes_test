@@ -17,21 +17,32 @@ reps10=10; reps100=100; reps1000=1000;
 
 # reps10=1; reps100=1; reps1000=1;
 
-function set_reps_by_time_balance(){
+function show_test_reps(){
+    echo "bess_airs_dmrpp_datasets_REPS:          ${bess_airs_dmrpp_datasets_REPS}";
+    echo "bess_airs_onevar_dmrpp_agg_REPS:        ${bess_airs_onevar_dmrpp_agg_REPS}";
+    echo "curl_range_get_airs_onevar_chunks_REPS: ${curl_range_get_airs_onevar_chunks_REPS}";
+    echo "hyrax_airs_dmrpp_dataset_files_REPS:    ${hyrax_airs_dmrpp_dataset_files_REPS}";
+    echo "hyrax_airs_onevar_dmrpp_agg_REPS:       ${hyrax_airs_onevar_dmrpp_agg_REPS}";
+}
+
+
+function set_test_reps_by_time_balance(){
     bess_airs_dmrpp_datasets_REPS=${reps10}
     bess_airs_onevar_dmrpp_agg_REPS=${reps1000}
     curl_range_get_airs_onevar_chunks_REPS=${reps100}
     hyrax_airs_dmrpp_dataset_files_REPS=${reps10}
     hyrax_airs_onevar_dmrpp_agg_REPS=${reps1000}
+    show_test_reps
 }
 
-function set_reps(){
+function set_test_reps(){
     set_reps_REPS=${1};
     bess_airs_dmrpp_datasets_REPS=${set_reps_REPS}
     bess_airs_onevar_dmrpp_agg_REPS=${set_reps_REPS}
     curl_range_get_airs_onevar_chunks_REPS=${set_reps_REPS}
     hyrax_airs_dmrpp_dataset_files_REPS=${set_reps_REPS}
     hyrax_airs_onevar_dmrpp_agg_REPS=${set_reps_REPS}
+    show_test_reps
 }
 
 
@@ -373,6 +384,10 @@ function mk_csv(){
 
 rm -rf ${RESULTS_DIR}
 mkdir -p ${RESULTS_DIR}
+
+# set_reps_by_time_balance
+
+set_test_reps 1
 
 bess_airs_dmrpp_datasets
 
