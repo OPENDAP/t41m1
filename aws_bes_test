@@ -325,6 +325,8 @@ function results_summary(){
     echo "SUMMARY:"
     for timing_file in ${RESULTS_DIR}/*.time
     do 
+        test_name=`basename -s ".time" ${timing_file}`
+        echo -n "test: ${test_name} "
         echo -n "timing_file: ${timing_file} "
         grep "real" ${timing_file} | awk '\
             {
