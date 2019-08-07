@@ -20,7 +20,9 @@ reps10=10; reps100=100; reps1000=1000;
 
 #####################################################################################
 #
-# make_bes_cmd
+# make_bes_cmd()
+# Builds a BES command using the a HERE document and the values of DATASET and 
+# DAP2_CE
 #  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function make_bes_cmd() {
 BES_CMD=`cat <<EOF 
@@ -45,7 +47,9 @@ EOF
 
 #####################################################################################
 #
-# 
+# make_and_time_bess_request()
+# Updates the BES command using make_bes_cmd() and then times the execution of the 
+# command using besstandalone
 #  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function make_and_time_bess_request {
     
@@ -66,7 +70,9 @@ function make_and_time_bess_request {
 
 #####################################################################################
 #
-# 
+# make_and_time_curl_range_get_request()
+# Times the execution of a cURL range GET request based on the values of URL,
+# CURL_START, and CURL_END
 #  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function make_and_time_curl_range_get_request {
     
@@ -80,7 +86,8 @@ function make_and_time_curl_range_get_request {
 
 #####################################################################################
 #
-# 
+# make_and_time_curl_get_request
+# Times the execution of a cURL GET request based on the value of URL.
 #  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function make_and_time_curl_get_request {
     
@@ -252,7 +259,8 @@ function curl_range_get_airs_onevar_chunks(){
 
 #####################################################################################
 #
-# 
+# hr_mark()
+# Echos a cheesy ascii "hr" mark to stdout.
 #  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function hr_mark(){
     half_mark="----------------------------------------------------------------------"
@@ -261,7 +269,8 @@ function hr_mark(){
 
 #####################################################################################
 #
-# 
+# results_summary()
+# Echos a simple statistical summary of each of the .time files in the RESULTS_DIR
 #  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function results_summary(){
     hr_mark
@@ -287,7 +296,8 @@ function results_summary(){
 
 #####################################################################################
 #
-# 
+# mk_csv()
+# Makes a "timing_file.csv" file for each .time file in the RESULTS_DIR
 #  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function mk_csv(){
 
