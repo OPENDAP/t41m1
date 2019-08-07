@@ -1,12 +1,15 @@
 # aws_bes_test
+The bash script `aws_bes_test` can be run to utilize hyrax, besstandalone, and 
+curl to time the retrieval of data from S3.
+
 
 ## Datasets
 The test datasets are a set of level 3 AIRS datasets which are available in the
  S3 bucket `cloudydap`. These datasets have been examined and their internal
  structural information stored in dmr++ format. 
  
- The dmr++ _dataset_ files each represent
- a single hdf5 file in S3 and contain a map of each variables chunk locations. 
+ The dmr++ _dataset_ files each represent a single hdf5 file in S3 and contain 
+ a map of each variables chunk locations. 
  
  
  The dmr++ _aggregation_ files contain aggregated variables which are defined by 
