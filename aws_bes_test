@@ -410,8 +410,12 @@ function results_summary(){
     for timing_file in ${RESULTS_DIR}/*.time
     do 
         test_name=`basename -s ".time" ${timing_file}`
-        echo -n "test: ${test_name} "
-        echo -n "timing_file: ${timing_file} "
+        reps_completed=`grep " END " ${timing_file} | awk '{print $6;}' - `
+        total_time=`grep " END " ${timing_file} | awk '{print $8;}' - `
+
+        echo -n "${test_name} "
+        echo -n "TotalTime: ${total_time} seconds "
+        echo -n "TestReps: ${reps_completed} "
         grep "real" ${timing_file} | awk '\
             {
                 sum+=$2+0.0; 
@@ -421,7 +425,7 @@ function results_summary(){
                 avg=sum/NR;
                 stdv=sqrt(sumsq/NR - (avg)**2);
                 stdvprcnt=100*stdv/avg;
-                printf("count: %d average: %f stdev: %f stdev%: %f\n", 
+                printf("request_count: %d average_time: %f stdev: %f stdev%: %f\n", 
                 NR, avg, stdv, stdvprcnt);
             }' - ;
     done; 
@@ -485,14 +489,14 @@ echo ${HALF_MARK}
 set_test_reps 1
 echo ${HALF_MARK}
 
-echo "${0} - Running Probe Tests, results will discarded."
+echo "${0} - Checking Tests for execution times, results will discarded."
 run_test_suite
 echo ${HALF_MARK}
 echo_elapsed_setters
 echo ${HALF_MARK}
 
 set_test_reps_by_time_balance 1
-echo "${0} - Running Main Tests, results will be saved."
+echo "${0} - Running AWS/BES Tests, results will be saved."
 run_test_suite
 echo ${HALF_MARK}
 
