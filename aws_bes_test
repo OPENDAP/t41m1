@@ -518,18 +518,31 @@ rm -rf ${RESULTS_DIR}
 mkdir -p ${RESULTS_DIR}
 echo ${HALF_MARK}
 
-set_test_reps 1
-echo ${HALF_MARK}
+user_reps=20;
 
-echo "${0} - Checking Tests for execution times, results will discarded."
-run_test_suite
-# echo ${HALF_MARK}
-# echo_elapsed_setters
-# echo ${HALF_MARK}
+if [ -z "${user_reps}" ]
+then 
+    
+    set_test_reps 1
+    echo ${HALF_MARK}
+    
+    echo "${0} - Checking Tests for execution times, results will discarded."
+    run_test_suite
+    # echo ${HALF_MARK}
+    # echo_elapsed_setters
+    # echo ${HALF_MARK}
+    
+    set_test_reps_by_time_balance 20
+    echo "${0} - Running AWS/BES Tests, results will be saved."
+    run_test_suite
+else
+    set_test_reps ${user_reps}
+    echo "${0} - Running AWS/BES Tests, results will be saved."
+    run_test_suite
+fi
 
-set_test_reps_by_time_balance 20
-echo "${0} - Running AWS/BES Tests, results will be saved."
-run_test_suite
+
+
 echo ${HALF_MARK}
 
 mk_csv
