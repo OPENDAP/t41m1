@@ -3,7 +3,7 @@
 
 HYRAX="http://t41m1.opendap.org:8080/opendap"
 RESULTS_DIR="./aws_bes_test.results"
-echo "RESULTS_DIR: ${RESULTS_DIR}"
+
 
 DAP2_CE_AIRS_ONE_VAR="ClrOLR_A[0:1:179][0:1:359]"
 DAP2_CE_AIRS_ONE_VAR_AGG="ClrOLR_A[0:1:364][0:1:179][0:1:359]"
@@ -456,21 +456,26 @@ function run_test_suite(){
 # MMMMMMMMMMMMMMMMMMMMAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNN ##
 # 
 #  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
-
+hr_mark
+echo ${0} - BEGIN 
+echo "Clearing RESULTS_DIR: ${RESULTS_DIR}"
 rm -rf ${RESULTS_DIR}
 mkdir -p ${RESULTS_DIR}
-
+echo ${HALF_MARK}
 
 set_test_reps 2
 run_test_suite
+echo ${HALF_MARK}
 
 set_test_reps_by_time_balance 10
 run_test_suite
+echo ${HALF_MARK}
 
 mk_csv
-
 results_summary
 
+echo ${0} - END 
+hr_mark
 # MMMMMMMMMMMMMMMMMMMMAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNN ##
 # MMMMMMMMMMMMMMMMMMMMAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNN ##
 # MMMMMMMMMMMMMMMMMMMMAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNN ##
