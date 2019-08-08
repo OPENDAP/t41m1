@@ -24,11 +24,20 @@ function show_test_reps(){
 }
 
 function show_elapsed() {
-    echo "badd_ELAPSED:   ${badd_ELAPSED} seconds" 
-    echo "baoda_ELAPSED:  ${baoda_ELAPSED} seconds" 
-    echo "crgaoc_ELAPSED: ${crgaoc_ELAPSED} seconds" 
-    echo "haddf_ELAPSED:  ${haddf_ELAPSED} seconds"
-    echo "haoda_ELAPSED:  ${haoda_ELAPSED} seconds" 
+    echo "bess_airs_dmrpp_datasets           elapsed: ${badd_ELAPSED} seconds" 
+    echo "bess_airs_onevar_dmrpp_agg         elapsed: ${baoda_ELAPSED} seconds" 
+    echo "curl_range_get_airs_onevar_chunks  elapsed: ${crgaoc_ELAPSED} seconds" 
+    echo "hyrax_airs_dmrpp_dataset_file      elpased: ${haddf_ELAPSED} seconds"
+    echo "hyrax_airs_onevar_dmrpp_agg        elpased: ${haoda_ELAPSED} seconds" 
+}
+
+
+function echo_elapsed_setters() {
+    echo "badd_ELAPSED=${badd_ELAPSED}" 
+    echo "baoda_ELAPSED=${baoda_ELAPSED}" 
+    echo "crgaoc_ELAPSED=${crgaoc_ELAPSED}" 
+    echo "haddf_ELAPSED=${haddf_ELAPSED}" 
+    echo "haoda_ELAPSED=${haoda_ELAPSED}" 
 }
 
 
@@ -36,8 +45,7 @@ function set_test_reps_by_time_balance(){
     scale_factor="${1}";
     
     echo "${HALF_MARK}"
-    echo "set_test_reps_by_time_balance() - BEGIN "
-    
+    echo "set_test_reps_by_time_balance() - BEGIN (scale_factor: ${scale_factor})"
     
     echo "Elapsed times:"
     show_elapsed
@@ -463,11 +471,15 @@ rm -rf ${RESULTS_DIR}
 mkdir -p ${RESULTS_DIR}
 echo ${HALF_MARK}
 
-set_test_reps 2
+set_test_reps 1
+
+echo "${0} - Running Probe Tests (will discarded)."
 run_test_suite
 echo ${HALF_MARK}
+echo_elapsed_setters
 
 set_test_reps_by_time_balance 10
+echo "${0} - Running MAIN Tests."
 run_test_suite
 echo ${HALF_MARK}
 
