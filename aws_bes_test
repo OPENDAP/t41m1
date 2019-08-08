@@ -15,6 +15,11 @@ REQUEST_FINISHED_BOUNDARY="### - - - - - - - - - - - - - - - - - - - - - - - -";
 HALF_MARK="----------------------------------------------------------------------"
 
 
+#####################################################################################
+#
+# show_test_reps()
+#
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function show_test_reps(){
     echo "bess_airs_dmrpp_datasets           TotalReps: ${bess_airs_dmrpp_datasets_REPS}";
     echo "bess_airs_onevar_dmrpp_agg         TotalReps: ${bess_airs_onevar_dmrpp_agg_REPS}";
@@ -23,6 +28,11 @@ function show_test_reps(){
     echo "hyrax_airs_onevar_dmrpp_agg        TotalReps: ${hyrax_airs_onevar_dmrpp_agg_REPS}";
 }
 
+#####################################################################################
+#
+# show_elapsed()
+#
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function show_elapsed() {
     echo "bess_airs_dmrpp_datasets           elapsed: ${badd_ELAPSED} seconds" 
     echo "bess_airs_onevar_dmrpp_agg         elapsed: ${baoda_ELAPSED} seconds" 
@@ -32,6 +42,11 @@ function show_elapsed() {
 }
 
 
+#####################################################################################
+#
+# echo_elapsed_setters()
+#
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function echo_elapsed_setters() {
     echo "badd_ELAPSED=${badd_ELAPSED}" 
     echo "baoda_ELAPSED=${baoda_ELAPSED}" 
@@ -41,6 +56,11 @@ function echo_elapsed_setters() {
 }
 
 
+#####################################################################################
+#
+# set_test_reps()
+#
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function set_test_reps_by_time_balance(){
     echo "${HALF_MARK}"
     scale_factor="${1}";
@@ -88,6 +108,11 @@ function set_test_reps_by_time_balance(){
 
 
     
+#####################################################################################
+#
+# set_test_reps()
+#
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function set_test_reps(){
     set_reps_REPS=${1};
     bess_airs_dmrpp_datasets_REPS=${set_reps_REPS}
@@ -345,7 +370,7 @@ function bess_airs_onevar_dmrpp_agg() {
 function curl_range_get_airs_onevar_chunks(){
     
     log_file="${RESULTS_DIR}/curl_range_get_airs_onevar_chunks.log"
-    response_file="${RESULTS_DIR}/curl_range_get_airs_onevar_chunks.dods"
+    response_file="${RESULTS_DIR}/curl_range_get_airs_onevar_chunks.bin"
     timing_file="${RESULTS_DIR}/curl_range_get_airs_onevar_chunks.time"
 
     rm -f ${timing_file} ${log_file}
@@ -442,20 +467,22 @@ function mk_csv(){
     for timing_file in ${RESULTS_DIR}/*.time
     do 
         result_file="${timing_file}.csv"
-        echo "${timing_file}" > ${result_file};
-        echo "StartTime ElapsedTime" >> ${result_file};
+        basename "${timing_file}" > ${result_file};
+        echo "StartTime, ElapsedTime" >> ${result_file};
+        #echo "\"StartTime<String>\", \"ElapsedTime<Float32>\"" >> ${result_file};
         awk -v boundaryKey="${REQUEST_FINISHED_BOUNDARY}" \
         'BEGIN{
-            startTimeKey="Start"; 
+            startTimeKey="StartTime"; 
             elapsedTimeKey="real"; 
         }
         {
             if(index($0, boundaryKey)==1){
-                printf("%s %s\n", startTime, elapsedTime);
+                printf("\"%s\", %s\n", startTime, elapsedTime);
             }
             else {
                 if(index($0,startTimeKey)==1){
                     startTime = $2;
+                    //gsub(",",".",startTime);
                 }              
                 if(index($0,elapsedTimeKey)==1){
                     elapsedTime = $2;
@@ -465,6 +492,11 @@ function mk_csv(){
     done; 
 }
 
+
+#####################################################################################
+#
+# 
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function run_test_suite(){
     bess_airs_dmrpp_datasets
     bess_airs_onevar_dmrpp_agg
@@ -491,11 +523,11 @@ echo ${HALF_MARK}
 
 echo "${0} - Checking Tests for execution times, results will discarded."
 run_test_suite
-echo ${HALF_MARK}
-echo_elapsed_setters
-echo ${HALF_MARK}
+# echo ${HALF_MARK}
+# echo_elapsed_setters
+# echo ${HALF_MARK}
 
-set_test_reps_by_time_balance 10
+set_test_reps_by_time_balance 20
 echo "${0} - Running AWS/BES Tests, results will be saved."
 run_test_suite
 echo ${HALF_MARK}
