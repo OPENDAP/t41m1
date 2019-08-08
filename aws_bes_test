@@ -42,32 +42,42 @@ function echo_elapsed_setters() {
 
 
 function set_test_reps_by_time_balance(){
-    scale_factor="${1}";
-    
     echo "${HALF_MARK}"
+    scale_factor="${1}";
+    if [ -z ${scale_factor} ]
+    then 
+        echo "scale_factor was not set! Using a value of 1." 
+        scale_factor=1;
+    # else 
+        # echo "scale_factor is set to '${scale_factor}'"; 
+    fi
+    
+
     echo "set_test_reps_by_time_balance() - BEGIN (scale_factor: ${scale_factor})"
     
     echo "Elapsed times:"
     show_elapsed
     echo "#   +    +    +    +    +    +    +    +    +    +    +    +    +"
     
-    let max_time="${haddf_ELAPSED}"
+    let max_time="${haoda_ELAPSED}"
     for elapsed_time_val in ${haddf_ELAPSED} ${haoda_ELAPSED} ${badd_ELAPSED} ${baoda_ELAPSED} ${crgaoc_ELAPSED};
     do
         let time="${elapsed_time_val}"
-        if [ ${max} -lt ${time} ]
+        #echo "This time is ${time} seconds"
+        if [ ${max_time} -lt ${time} ]
         then
-            max=${time};
+            let max_time=${time};
         fi
+        #echo "Max time is ${max_time} seconds"
     done
     
-    echo "Max rep time was ${max} seconds"
-
-    bess_airs_dmrpp_datasets_REPS=`echo "${scale_factor}*${max}/${badd_ELAPSED}"|bc`
-    bess_airs_onevar_dmrpp_agg_REPS=`echo "${scale_factor}*${max}/${baoda_ELAPSED}"|bc`
-    curl_range_get_airs_onevar_chunks_REPS=`echo "${scale_factor}*${max}/${crgaoc_ELAPSED}"|bc`
-    hyrax_airs_dmrpp_dataset_files_REPS=`echo "${scale_factor}*${max}/${haddf_ELAPSED}"|bc`
-    hyrax_airs_onevar_dmrpp_agg_REPS=`echo "${scale_factor}*${max}/${haoda_ELAPSED}"|bc`
+    echo "Max rep time was ${max_time} seconds"
+    
+    bess_airs_dmrpp_datasets_REPS=`echo "${scale_factor}*${max_time}/${badd_ELAPSED}" | bc`
+    bess_airs_onevar_dmrpp_agg_REPS=`echo "${scale_factor}*${max_time}/${baoda_ELAPSED}" | bc`
+    curl_range_get_airs_onevar_chunks_REPS=`echo "${scale_factor}*${max_time}/${crgaoc_ELAPSED}" | bc`
+    hyrax_airs_dmrpp_dataset_files_REPS=`echo "${scale_factor}*${max_time}/${haddf_ELAPSED}" | bc`
+    hyrax_airs_onevar_dmrpp_agg_REPS=`echo "${scale_factor}*${max_time}/${haoda_ELAPSED}" | bc`
     
     echo "#   +    +    +    +    +    +    +    +    +    +    +    +    +"
     echo "Time balanced Test Reps"
