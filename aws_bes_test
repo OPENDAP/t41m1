@@ -442,6 +442,14 @@ function mk_csv(){
     done; 
 }
 
+function run_test_suite(){
+    bess_airs_dmrpp_datasets
+    bess_airs_onevar_dmrpp_agg
+    curl_range_get_airs_onevar_chunks
+    hyrax_airs_dmrpp_dataset_files
+    hyrax_airs_onevar_dmrpp_agg
+}
+
 #####################################################################################
 # MMMMMMMMMMMMMMMMMMMMAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNN ##
 # MMMMMMMMMMMMMMMMMMMMAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNN ##
@@ -454,18 +462,10 @@ mkdir -p ${RESULTS_DIR}
 
 
 set_test_reps 2
+run_test_suite
 
 set_test_reps_by_time_balance 10
-
-bess_airs_dmrpp_datasets
-
-bess_airs_onevar_dmrpp_agg
-
-curl_range_get_airs_onevar_chunks
-
-hyrax_airs_dmrpp_dataset_files
-
-hyrax_airs_onevar_dmrpp_agg
+run_test_suite
 
 mk_csv
 
