@@ -18,11 +18,11 @@ reps10=10; reps100=100; reps1000=1000;
 # reps10=1; reps100=1; reps1000=1;
 
 function show_test_reps(){
-    echo "bess_airs_dmrpp_datasets_REPS:          ${bess_airs_dmrpp_datasets_REPS}";
-    echo "bess_airs_onevar_dmrpp_agg_REPS:        ${bess_airs_onevar_dmrpp_agg_REPS}";
-    echo "curl_range_get_airs_onevar_chunks_REPS: ${curl_range_get_airs_onevar_chunks_REPS}";
-    echo "hyrax_airs_dmrpp_dataset_files_REPS:    ${hyrax_airs_dmrpp_dataset_files_REPS}";
-    echo "hyrax_airs_onevar_dmrpp_agg_REPS:       ${hyrax_airs_onevar_dmrpp_agg_REPS}";
+    echo "bess_airs_dmrpp_datasets           TotalReps: ${bess_airs_dmrpp_datasets_REPS}";
+    echo "bess_airs_onevar_dmrpp_agg         TotalReps: ${bess_airs_onevar_dmrpp_agg_REPS}";
+    echo "curl_range_get_airs_onevar_chunks  TotalReps: ${curl_range_get_airs_onevar_chunks_REPS}";
+    echo "hyrax_airs_dmrpp_dataset_file      TotalReps: ${hyrax_airs_dmrpp_dataset_files_REPS}";
+    echo "hyrax_airs_onevar_dmrpp_agg        TotalReps: ${hyrax_airs_onevar_dmrpp_agg_REPS}";
 }
 
 
@@ -413,15 +413,15 @@ mkdir -p ${RESULTS_DIR}
 
 set_test_reps 1
 
-#bess_airs_dmrpp_datasets
+bess_airs_dmrpp_datasets
 
-#bess_airs_onevar_dmrpp_agg
+bess_airs_onevar_dmrpp_agg
 
 curl_range_get_airs_onevar_chunks
 
-#hyrax_airs_dmrpp_dataset_files
+hyrax_airs_dmrpp_dataset_files
 
-#hyrax_airs_onevar_dmrpp_agg
+hyrax_airs_onevar_dmrpp_agg
 
 mk_csv
 
