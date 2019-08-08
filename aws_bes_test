@@ -301,22 +301,22 @@ function curl_range_get_airs_onevar_chunks(){
             
             echo "Processing chunk: ${chunk_row}" >> ${timing_file}
             URL=`echo ${chunk_row} | awk '{print $1;}' -`
-            echo -n "Chunk URL: ${URL} " >> ${timing_file}
+            echo -n "  Chunk URL: ${URL} " >> ${timing_file}
 
             OFFSET=`echo ${chunk_row} | awk '{print $2;}' -`
-            echo -n "OFFSET: ${OFFSET} " >> ${timing_file}
+            echo -n "  OFFSET: ${OFFSET} " >> ${timing_file}
 
             NUM_BYTES=`echo ${chunk_row} | awk '{print $3;}' -`
-            echo -n "NUM_BYTES: ${NUM_BYTES} " >> ${timing_file}
+            echo -n "  NUM_BYTES: ${NUM_BYTES} " >> ${timing_file}
             
             CHUNK_POSITION=`echo ${chunk_row} | awk '{print $4;}' -`
-            echo -n "CHUNK_POSITION: ${CHUNK_POSITION} " >> ${timing_file}
+            echo -n "  CHUNK_POSITION: ${CHUNK_POSITION} " >> ${timing_file}
 
             CURL_START=${OFFSET}
-            echo -n "CURL_START: ${CURL_START} " >> ${timing_file}
+            echo -n "  CURL_START: ${CURL_START} " >> ${timing_file}
 
             CURL_END=`echo "${OFFSET} + ${NUM_BYTES} - 1" | bc`
-            echo -n "CURL_END: ${CURL_END }" >> ${timing_file}
+            echo -n "  CURL_END: ${CURL_END }" >> ${timing_file}
             echo ""
             
             make_and_time_curl_range_get_request
@@ -414,15 +414,15 @@ mkdir -p ${RESULTS_DIR}
 
 set_test_reps 1
 
-bess_airs_dmrpp_datasets
+#bess_airs_dmrpp_datasets
 
-bess_airs_onevar_dmrpp_agg
+#bess_airs_onevar_dmrpp_agg
 
 curl_range_get_airs_onevar_chunks
 
-hyrax_airs_dmrpp_dataset_files
+#hyrax_airs_dmrpp_dataset_files
 
-hyrax_airs_onevar_dmrpp_agg
+#hyrax_airs_onevar_dmrpp_agg
 
 mk_csv
 
