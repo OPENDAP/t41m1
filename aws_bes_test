@@ -142,10 +142,13 @@ function hyrax_airs_dmrpp_dataset_files(){
     timing_file="${RESULTS_DIR}/hyrax_airs_dmrpp_dataset_files.time"
 
     DAP2_CE="${DAP2_CE_AIRS_ONE_VAR}"
-    
-
     rm -f ${timing_file} ${log_file}
     haddf_START=`date +%s`;
+
+    echo "###----------------------------------------------------------" >> ${timing_file}
+    echo -n "### hyrax_airs_dmrpp_dataset_files() - BEGIN " >> ${timing_file}
+    echo "reps: ${hyrax_airs_dmrpp_dataset_files_REPS} start: ${haddf_START}" >> ${timing_file}
+    
     for rep in `seq ${hyrax_airs_dmrpp_dataset_files_REPS}`
     do
         echo "###--------------------------------------------------------" >> ${timing_file}
@@ -157,8 +160,8 @@ function hyrax_airs_dmrpp_dataset_files(){
         done
     done
     haddf_END=`date +%s`;
-    haddf_ELPASED=`echo ${haddf_END} - ${haddf_START} | bc`
-    echo "### hyrax_airs_dataset_dmrpp_files() - Total Time: ${haddf_ELPASED} seconds" >> ${timing_file}
+    haddf_ELAPSED=`echo ${haddf_END} - ${haddf_START} | bc`
+    echo "### hyrax_airs_dataset_dmrpp_files() - END  end: ${haddf_END} TotalTime: ${haddf_ELAPSED} seconds" >> ${timing_file}
 
 }
 
@@ -178,19 +181,21 @@ function hyrax_airs_onevar_dmrpp_agg(){
     DATASET="t41m1/dmrpp_agg_test_06.dmrpp"
     URL="${HYRAX}/${DATASET}.dods?${DAP2_CE_AIRS_ONE_VAR_AGG}"
 
-    echo "###--------------------------------------------------------" >> ${timing_file}
-    echo "hyrax_airs_onevar_dmrpp_agg() URL: ${URL}" >> ${timing_file} >> ${timing_file}
-
     rm -f ${timing_file} ${log_file}
     haoda_START=`date +%s`;
+
+    echo "###----------------------------------------------------------" >> ${timing_file}
+    echo -n "### hyrax_airs_onevar_dmrpp_agg() - BEGIN " >> ${timing_file}
+    echo "reps: ${bess_airs_dmrpp_datasets_REPS} start: ${haoda_START}  URL: ${URL}" >> ${timing_file}
+    
     for rep in `seq ${hyrax_airs_onevar_dmrpp_agg_REPS}`
     do
         echo "### hyrax_airs_onevar_dmrpp_agg() - Starting REP ${rep}" >> ${timing_file}
         make_and_time_curl_get_request
     done
     haoda_END=`date +%s`;
-    haoda_ELPASED=`echo ${haoda_END} - ${haoda_START} | bc`
-    echo "### hyrax_airs_onevar_dmrpp_agg() - Total Time: ${haoda_ELPASED} seconds" >> ${timing_file}
+    haoda_ELAPSED=`echo ${haoda_END} - ${haoda_START} | bc`
+    echo "### hyrax_airs_onevar_dmrpp_agg() - END  end: ${haoda_END} TotalTime: ${haoda_ELAPSED} seconds" >> ${timing_file}
 }
 
 #####################################################################################
@@ -208,9 +213,13 @@ function bess_airs_dmrpp_datasets(){
     timing_file="${RESULTS_DIR}/bess_airs_dmrpp_datasets.time"
 
     DAP2_CE="${DAP2_CE_AIRS_ONE_VAR}"
-
     rm -f ${timing_file} ${log_file}
     badd_START=`date +%s`;
+    
+    echo "###----------------------------------------------------------" >> ${timing_file}
+    echo -n "### bess_airs_dmrpp_datasets() - BEGIN " >> ${timing_file}
+    echo "reps: ${bess_airs_dmrpp_datasets_REPS} start: ${badd_START}" >> ${timing_file}
+    
     for rep in `seq ${bess_airs_dmrpp_datasets_REPS}`
     do
         echo "###--------------------------------------------------------" >> ${timing_file}
@@ -221,8 +230,8 @@ function bess_airs_dmrpp_datasets(){
         done
     done
     badd_END=`date +%s`;
-    badd_ELPASED=`echo ${badd_END} - ${badd_START} | bc`
-    echo "### bess_airs_dmrpp_datasets() - Total Time: ${badd_ELPASED} seconds" >> ${timing_file}
+    badd_ELAPSED=`echo ${badd_END} - ${badd_START} | bc`
+    echo "### bess_airs_dmrpp_datasets() - END  end: ${badd_END} TotalTime: ${badd_ELAPSED} seconds" >> ${timing_file}
 }
 
 
@@ -250,7 +259,8 @@ function bess_airs_onevar_dmrpp_agg() {
 
     echo "###----------------------------------------------------------" >> ${timing_file}
     echo -n "### curl_range_get_airs_onevar_chunks() - BEGIN " >> ${timing_file}
-    echo "reps: ${curl_range_get_airs_onevar_chunks_REPS} start: ${crgaoc_START}" >> ${timing_file}
+    echo -n "reps: ${curl_range_get_airs_onevar_chunks_REPS} start: ${baoda_START} " >> ${timing_file}
+    echo "Dataset: ${DATASET} DAP2_CE: ${DAP2_CE}" >> ${timing_file}
     for rep in `seq ${bess_airs_onevar_dmrpp_agg_REPS}`
     do
         echo "###--------------------------------------------------------" >> ${timing_file}
@@ -258,8 +268,8 @@ function bess_airs_onevar_dmrpp_agg() {
         make_and_time_bess_request
     done
     baoda_END=`date +%s`;
-    baoda_ELPASED=`echo ${baoda_END} - ${baoda_START} | bc`
-    echo "### bess_airs_onevar_dmrpp_agg() - Total Time: ${baoda_ELPASED} seconds" >> ${timing_file}
+    baoda_ELAPSED=`echo ${baoda_END} - ${baoda_START} | bc`
+    echo "### bess_airs_onevar_dmrpp_agg() - END  end: ${baoda_END} TotalTime: ${baoda_ELAPSED} seconds" >> ${timing_file}
 }
 
 
@@ -300,17 +310,22 @@ function curl_range_get_airs_onevar_chunks(){
             echo -n "NUM_BYTES: ${NUM_BYTES} " >> ${timing_file}
             
             CHUNK_POSITION=`echo ${chunk_row} | awk '{print $4;}' -`
-            echo "CHUNK_POSITION: ${CHUNK_POSITION}" >> ${timing_file}
+            echo -n "CHUNK_POSITION: ${CHUNK_POSITION} " >> ${timing_file}
 
             CURL_START=${OFFSET}
+            echo -n "CURL_START: ${CURL_START} " >> ${timing_file}
+
             CURL_END=`echo "${OFFSET} + ${NUM_BYTES} - 1" | bc`
+            echo -n "CURL_END: ${CURL_END }" >> ${timing_file}
+            echo ""
+            
             make_and_time_curl_range_get_request
     
         done <${AIRS_DMRPP_AGG_CHUNKS_TXT}
     done
     crgaoc_END=`date +%s`;
-    crgaoc_ELPASED=`echo ${crgaoc_END} - ${crgaoc_START} | bc`
-    echo "### curl_range_get_airs_onevar_chunks() - END  end: ${crgaoc_END} TotalTime: ${crgaoc_ELPASED} seconds" >> ${timing_file}
+    crgaoc_ELAPSED=`echo ${crgaoc_END} - ${crgaoc_START} | bc`
+    echo "### curl_range_get_airs_onevar_chunks() - END  end: ${crgaoc_END} TotalTime: ${crgaoc_ELAPSED} seconds" >> ${timing_file}
 }
 
 #####################################################################################
