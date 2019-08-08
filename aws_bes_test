@@ -247,6 +247,10 @@ function bess_airs_onevar_dmrpp_agg() {
     
     rm -f ${timing_file} ${log_file}
     baoda_START=`date +%s`;
+
+    echo "###----------------------------------------------------------" >> ${timing_file}
+    echo -n "### curl_range_get_airs_onevar_chunks() - BEGIN " >> ${timing_file}
+    echo "reps: ${curl_range_get_airs_onevar_chunks_REPS} start: ${crgaoc_START}" >> ${timing_file}
     for rep in `seq ${bess_airs_onevar_dmrpp_agg_REPS}`
     do
         echo "###--------------------------------------------------------" >> ${timing_file}
@@ -275,6 +279,10 @@ function curl_range_get_airs_onevar_chunks(){
 
     rm -f ${timing_file} ${log_file}
     crgaoc_START=`date +%s`;
+
+    echo "###----------------------------------------------------------" >> ${timing_file}
+    echo -n "### curl_range_get_airs_onevar_chunks() - BEGIN " >> ${timing_file}
+    echo "reps: ${curl_range_get_airs_onevar_chunks_REPS} start: ${crgaoc_START}" >> ${timing_file}
     for rep in `seq ${curl_range_get_airs_onevar_chunks_REPS}`
     do        
         echo "###----------------------------------------------------------" >> ${timing_file}
@@ -302,7 +310,7 @@ function curl_range_get_airs_onevar_chunks(){
     done
     crgaoc_END=`date +%s`;
     crgaoc_ELPASED=`echo ${crgaoc_END} - ${crgaoc_START} | bc`
-    echo "### curl_range_get_airs_onevar_chunks() - Total Time: ${crgaoc_ELPASED} seconds" >> ${timing_file}
+    echo "### curl_range_get_airs_onevar_chunks() - END  end: ${crgaoc_END} TotalTime: ${crgaoc_ELPASED} seconds" >> ${timing_file}
 }
 
 #####################################################################################
