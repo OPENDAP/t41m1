@@ -316,7 +316,7 @@ function curl_range_get_airs_onevar_chunks(){
             echo "  CURL_START: ${CURL_START} " >> ${timing_file}
 
             CURL_END=`echo "${OFFSET} + ${NUM_BYTES} - 1" | bc`
-            echo "  CURL_END: ${CURL_END }" >> ${timing_file}
+            echo "  CURL_END: ${CURL_END}" >> ${timing_file}
             
             make_and_time_curl_range_get_request
     
