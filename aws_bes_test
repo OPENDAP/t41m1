@@ -258,8 +258,8 @@ function bess_airs_onevar_dmrpp_agg() {
     baoda_START=`date +%s`;
 
     echo "###----------------------------------------------------------" >> ${timing_file}
-    echo -n "### curl_range_get_airs_onevar_chunks() - BEGIN " >> ${timing_file}
-    echo -n "reps: ${curl_range_get_airs_onevar_chunks_REPS} start: ${baoda_START} " >> ${timing_file}
+    echo -n "### bess_airs_onevar_dmrpp_agg() - BEGIN " >> ${timing_file}
+    echo -n "reps: ${bess_airs_onevar_dmrpp_agg} start: ${baoda_START} " >> ${timing_file}
     echo "Dataset: ${DATASET} DAP2_CE: ${DAP2_CE}" >> ${timing_file}
     for rep in `seq ${bess_airs_onevar_dmrpp_agg_REPS}`
     do
