@@ -161,7 +161,9 @@ function hyrax_airs_dmrpp_dataset_files(){
     done
     haddf_END=`date +%s`;
     haddf_ELAPSED=`echo ${haddf_END} - ${haddf_START} | bc`
-    echo "### hyrax_airs_dataset_dmrpp_files() - END  end: ${haddf_END} TotalTime: ${haddf_ELAPSED} seconds" >> ${timing_file}
+    echo -n "### hyrax_airs_dataset_dmrpp_files() - END  " >> ${timing_file}
+    echo -n "reps: ${hyrax_airs_dmrpp_dataset_files_REPS} " >> ${timing_file}
+    echo "TotalTime: ${haddf_ELAPSED} seconds" >> ${timing_file}
 
 }
 
@@ -195,7 +197,9 @@ function hyrax_airs_onevar_dmrpp_agg(){
     done
     haoda_END=`date +%s`;
     haoda_ELAPSED=`echo ${haoda_END} - ${haoda_START} | bc`
-    echo "### hyrax_airs_onevar_dmrpp_agg() - END  end: ${haoda_END} TotalTime: ${haoda_ELAPSED} seconds" >> ${timing_file}
+    echo -n "### hyrax_airs_onevar_dmrpp_agg() - END  " >> ${timing_file}
+    echo -n "reps: ${hyrax_airs_onevar_dmrpp_agg_REPS} " >> ${timing_file}
+    echo "TotalTime: ${haoda_ELAPSED} seconds" >> ${timing_file}
 }
 
 #####################################################################################
@@ -231,7 +235,9 @@ function bess_airs_dmrpp_datasets(){
     done
     badd_END=`date +%s`;
     badd_ELAPSED=`echo ${badd_END} - ${badd_START} | bc`
-    echo "### bess_airs_dmrpp_datasets() - END  end: ${badd_END} TotalTime: ${badd_ELAPSED} seconds" >> ${timing_file}
+    echo -n "### bess_airs_dmrpp_datasets() - END  " >> ${timing_file}
+    echo -n "reps: ${bess_airs_dmrpp_datasets_REPS} " >> ${timing_file}
+    echo "TotalTime: ${badd_ELAPSED} seconds" >> ${timing_file}
 }
 
 
@@ -269,7 +275,9 @@ function bess_airs_onevar_dmrpp_agg() {
     done
     baoda_END=`date +%s`;
     baoda_ELAPSED=`echo ${baoda_END} - ${baoda_START} | bc`
-    echo "### bess_airs_onevar_dmrpp_agg() - END  end: ${baoda_END} TotalTime: ${baoda_ELAPSED} seconds" >> ${timing_file}
+    echo -n "### bess_airs_onevar_dmrpp_agg() - END  " >> ${timing_file}
+    echo -n "reps: ${bess_airs_onevar_dmrpp_agg_REPS} " >> ${timing_file}
+    echo "TotalTime: ${baoda_ELAPSED} seconds" >> ${timing_file}
 }
 
 
@@ -324,7 +332,9 @@ function curl_range_get_airs_onevar_chunks(){
     done
     crgaoc_END=`date +%s`;
     crgaoc_ELAPSED=`echo ${crgaoc_END} - ${crgaoc_START} | bc`
-    echo "### curl_range_get_airs_onevar_chunks() - END  end: ${crgaoc_END} TotalTime: ${crgaoc_ELAPSED} seconds" >> ${timing_file}
+    echo -n "### curl_range_get_airs_onevar_chunks() - END  " >> ${timing_file}
+    echo -n "reps: ${curl_range_get_airs_onevar_chunks_REPS} " >> ${timing_file}
+    echo "TotalTime: ${crgaoc_ELAPSED} seconds" >> ${timing_file}
 }
 
 #####################################################################################
@@ -411,7 +421,7 @@ mkdir -p ${RESULTS_DIR}
 
 # set_reps_by_time_balance
 
-set_test_reps 1
+set_test_reps 2
 
 bess_airs_dmrpp_datasets
 
