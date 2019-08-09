@@ -522,7 +522,7 @@ mkdir -p ${RESULTS_DIR}
 
 echo ${HALF_MARK}
 
-user_reps=50;
+USER_REPS=20;
 
 if [ -z "${user_reps}" ]
 then 
@@ -537,7 +537,7 @@ then
     echo "${0} - Running AWS/BES Tests, results will be saved."
     run_test_suite
 else
-    set_test_reps ${user_reps}
+    set_test_reps ${USER_REPS}
     echo "${0} - Running AWS/BES Tests, results will be saved."
     run_test_suite
 fi
