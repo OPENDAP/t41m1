@@ -220,7 +220,7 @@ function hyrax_airs_dmrpp_dataset_files(){
     timing_file="${RESULTS_DIR}/hyrax_airs_dmrpp_dataset_files.time"
 
     DAP2_CE="${DAP2_CE_AIRS_ONE_VAR}"
-    rm -f ${timing_file} ${log_file}
+    rm -vfr ${timing_file} ${log_file}
     haddf_START=`date +%s`;
 
     echo "###----------------------------------------------------------" >> ${timing_file}
@@ -261,7 +261,7 @@ function hyrax_airs_onevar_dmrpp_agg(){
     DATASET="t41m1/dmrpp_agg_test_06.dmrpp"
     URL="${HYRAX}/${DATASET}.dods?${DAP2_CE_AIRS_ONE_VAR_AGG}"
 
-    rm -f ${timing_file} ${log_file}
+    rm -vfr ${timing_file} ${log_file}
     haoda_START=`date +%s`;
 
     echo "###----------------------------------------------------------" >> ${timing_file}
@@ -295,7 +295,7 @@ function bess_airs_dmrpp_datasets(){
     timing_file="${RESULTS_DIR}/bess_airs_dmrpp_datasets.time"
 
     DAP2_CE="${DAP2_CE_AIRS_ONE_VAR}"
-    rm -f ${timing_file} ${log_file}
+    rm -vfr ${timing_file} ${log_file}
     badd_START=`date +%s`;
     
     echo "###----------------------------------------------------------" >> ${timing_file}
@@ -338,7 +338,7 @@ function bess_airs_onevar_dmrpp_agg() {
     DATASET="t41m1/dmrpp_agg_test_06.dmrpp"
     DAP2_CE="${DAP2_CE_AIRS_ONE_VAR_AGG}"
     
-    rm -f ${timing_file} ${log_file}
+    rm -vfr ${timing_file} ${log_file}
     baoda_START=`date +%s`;
 
     echo "###----------------------------------------------------------" >> ${timing_file}
@@ -373,7 +373,7 @@ function curl_range_get_airs_onevar_chunks(){
     response_file="${RESULTS_DIR}/curl_range_get_airs_onevar_chunks.bin"
     timing_file="${RESULTS_DIR}/curl_range_get_airs_onevar_chunks.time"
 
-    rm -f ${timing_file} ${log_file}
+    rm -vfr ${timing_file} ${log_file}
     crgaoc_START=`date +%s`;
 
     echo "###----------------------------------------------------------" >> ${timing_file}
@@ -513,12 +513,16 @@ function run_test_suite(){
 #  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 hr_mark
 echo ${0} - BEGIN 
+
+# Clean results dir
 echo "Clearing RESULTS_DIR: ${RESULTS_DIR}"
-rm -rf ${RESULTS_DIR}
+rm -vfr ${RESULTS_DIR}
+# make a new results dir.
 mkdir -p ${RESULTS_DIR}
+
 echo ${HALF_MARK}
 
-user_reps=20;
+user_reps=50;
 
 if [ -z "${user_reps}" ]
 then 
@@ -528,10 +532,7 @@ then
     
     echo "${0} - Checking Tests for execution times, results will discarded."
     run_test_suite
-    # echo ${HALF_MARK}
-    # echo_elapsed_setters
-    # echo ${HALF_MARK}
-    
+
     set_test_reps_by_time_balance 20
     echo "${0} - Running AWS/BES Tests, results will be saved."
     run_test_suite
@@ -545,7 +546,10 @@ fi
 
 echo ${HALF_MARK}
 
+# Make the associated CSV files for export.
 mk_csv
+
+# Summarize the results
 results_summary
 
 echo ${0} - END 

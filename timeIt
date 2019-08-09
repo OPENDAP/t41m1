@@ -2,6 +2,8 @@
 
 max_reps=100
 
+RESULTS_DIR="timeIt.results"
+
 # All the data from the ClrOLR_A variable (all locations, all days)
 DAP2_CE_ONE_VAR="ClrOLR_A%5B0:1:364%5D%5B0:1:179%5D%5B0:1:359%5D"
 
@@ -99,9 +101,9 @@ function time_service_response() {
     #echo "test_name: ${test_name}"
     #echo "test_url: ${test_url}"
     
-    timing_file=results/${test_name}.txt
-    response_file=results/${test_name}_${tag}.dods
-    error_file=results/${test_name}_${tag}_error.dods
+    timing_file=${RESULTS_DIR}/${test_name}.txt
+    response_file=${RESULTS_DIR}/${test_name}_${tag}.dods
+    error_file=${RESULTS_DIR}/${test_name}_${tag}_error.dods
     { time -p curl -s -i "${test_url}" > ${response_file};} 2>>${timing_file} 
     head -1 ${response_file} | grep 200 
     status=$?
@@ -118,6 +120,27 @@ function time_service_response() {
 
 
 
+########################################################################
+#
+# mkTestResultsCsv() 
+#
+# Build the csv files for each individual test and build
+# the allTests.csv file
+#
+function mkTestResultsCsv() {
+    rm -vf ${RESULTS_DIR}/*.csv
+    
+    for i in ${RESULTS_DIR}/*.txt
+    do
+        name=`basename -s ".txt" ${i}`
+        echo "${name}" | tee ${RESULTS_DIR}/${name}.csv
+        grep real $i | awk '{print $2;}' - >> ${RESULTS_DIR}/${name}.csv 
+    done
+    
+    paste ${RESULTS_DIR}/*.csv > ${RESULTS_DIR}/all_tests.csv
+}
+########################################################################
+
 
 
 ########################################################################
@@ -126,9 +149,9 @@ function time_service_response() {
 #
 
 # Clean results dir
-rm -vfr results 
+rm -vfr ${RESULTS_DIR} 
 # make a new results dir.
-mkdir -p results 
+mkdir -p ${RESULTS_DIR} 
 
 
 let rep=0
@@ -166,6 +189,8 @@ do
     
 done
 echo ""
+
+mkTestResultsCsv
 
 ########################################################################
 
