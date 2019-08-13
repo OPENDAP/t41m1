@@ -8,6 +8,10 @@ RESULTS_DIR="./aws_bes_test_201908011309.results"
 DAP2_CE_AIRS_ONE_VAR="ClrOLR_A[0:1:179][0:1:359]"
 DAP2_CE_AIRS_ONE_VAR_AGG="ClrOLR_A[0:1:364][0:1:179][0:1:359]"
 
+DAP2_VAR_SIZE_ONE_DAY=259343
+DAP2_VAR_SIZE_ONE_YEAR=94608110
+
+
 AIRS_DMRPP_AGG_CHUNKS_TXT="airs_agg_clr_olr_chunks.txt"
 AIRS_DMRPP_AGG_FILES="airs_dmrpp_agg_files"
 
@@ -293,7 +297,7 @@ function hyrax_airs_dmrpp_dataset_files(){
         for DATASET in `cat ${AIRS_DMRPP_AGG_FILES}`
         do
             URL="${HYRAX}/${DATASET}.dods?${DAP2_CE}"
-            make_and_time_curl_get_request "${rep}_${d_num}" 259343
+            make_and_time_curl_get_request "${rep}_${d_num}" ${DAP2_VAR_SIZE_ONE_DAY}
             let d_num++
         done
     done
@@ -331,7 +335,7 @@ function hyrax_airs_onevar_dmrpp_agg(){
     for rep in `seq ${hyrax_airs_onevar_dmrpp_agg_REPS}`
     do
         echo "### hyrax_airs_onevar_dmrpp_agg() - Starting REP ${rep}" >> ${timing_file}
-        make_and_time_curl_get_request ${rep} 94608110
+        make_and_time_curl_get_request ${rep} ${DAP2_VAR_SIZE_ONE_YEAR}
     done
     haoda_END=`date +%s`;
     haoda_ELAPSED=`echo ${haoda_END} - ${haoda_START} | bc`
@@ -369,7 +373,7 @@ function bess_airs_dmrpp_datasets(){
         let d_num=0
         for DATASET in `cat ${AIRS_DMRPP_AGG_FILES}`
         do
-            make_and_time_bess_request "${rep}_${d_num}" 259343
+            make_and_time_bess_request "${rep}_${d_num}" ${DAP2_VAR_SIZE_ONE_DAY}
             let d_num++
         done
     done
