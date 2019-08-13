@@ -172,6 +172,8 @@ function make_and_time_bess_request {
     # echo "${BES_CMD}"
     echo "Dataset: ${DATASET}" >> ${timing_file}
     echo "${BES_CMD}" > bes.cmd
+    echo "tag: ${tag}"  >> ${timing_file}
+    echo "expected_size: ${expected_size}"  >> ${timing_file}
     echo "StartTime: "`${date_cmd}` >> ${timing_file}
     
     { time -p besstandalone -c ${prefix}/etc/bes/bes.conf -i bes.cmd > ${response_file}; } 2>>${timing_file}
@@ -208,8 +210,9 @@ function make_and_time_curl_range_get_request {
     tag=${1};
 
     expected_size=`echo ${CURL_END} - ${CURL_START} + 1| bc`
-    echo "RangeGET cURL: ${URL} CURL_START: ${CURL_START} CURL_END: ${CURL_END} expected_size: ${expected_size} " >> ${timing_file}
+    echo "RangeGET cURL: ${URL} CURL_START: ${CURL_START} CURL_END: ${CURL_END}" >> ${timing_file}
     echo "tag: ${tag}" >> ${timing_file}
+    echo "expected_size: ${expected_size}"  >> ${timing_file}
     echo "StartTime: "`${date_cmd}` >> ${timing_file}
     
     { time -p curl -s -r ${CURL_START}-${CURL_END} -g ${URL} > ${response_file}; } 2>>${timing_file}
@@ -243,9 +246,9 @@ function make_and_time_curl_get_request {
     expected_size=${2};
     
     echo "GET cURL: ${URL}" >> ${timing_file}
-    echo "StartTime: "`${date_cmd}` >> ${timing_file}
     echo "tag: ${tag}"  >> ${timing_file}
     echo "expected_size: ${expected_size}"  >> ${timing_file}
+    echo "StartTime: "`${date_cmd}` >> ${timing_file}
 
     { time -p curl -s -g ${URL} > ${response_file}; } 2>>${timing_file}
     
@@ -415,7 +418,7 @@ function bess_airs_onevar_dmrpp_agg() {
     do
         echo "###--------------------------------------------------------" >> ${timing_file}
         echo "### bess_airs_onevar_dmrpp_agg() - Starting REP ${rep}" >> ${timing_file}
-        make_and_time_bess_request
+        make_and_time_bess_request ${rep} ${DAP2_VAR_SIZE_ONE_YEAR}
     done
     baoda_END=`date +%s`;
     baoda_ELAPSED=`echo ${baoda_END} - ${baoda_START} | bc`
@@ -568,10 +571,10 @@ function mk_csv(){
 #  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function run_test_suite(){
     bess_airs_dmrpp_datasets
-    #bess_airs_onevar_dmrpp_agg
-    #curl_range_get_airs_onevar_chunks
-    # hyrax_airs_dmrpp_dataset_files
-    # hyrax_airs_onevar_dmrpp_agg
+    bess_airs_onevar_dmrpp_agg
+    curl_range_get_airs_onevar_chunks
+    hyrax_airs_dmrpp_dataset_files
+    hyrax_airs_onevar_dmrpp_agg
 }
 
 #####################################################################################
@@ -591,7 +594,7 @@ mkdir -p ${RESULTS_DIR}
 
 echo ${HALF_MARK}
 
-USER_REPS=20;
+USER_REPS=30;
 
 if [ -z "${USER_REPS}" ]
 then 
