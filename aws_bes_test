@@ -191,7 +191,7 @@ function make_and_time_bess_request {
         #echo "e_file: ${e_file}"
         e_name="${e_dir}/ERROR_${tag}_${e_file}"
         #echo "e_name: ${e_name}"
-        echo "ERROR! Did recieve expected number of bytes. expected: ${expected_size} recieved: ${response_size}" | tee -a ${timing_file}
+        echo "ERROR! Did not recieve expected number of bytes. expected: ${expected_size} recieved: ${response_size}" | tee -a ${timing_file}
         echo "Copying response file to ${e_name}" | tee -a ${timing_file}
         cp -v "${response_file}" "${e_name}" >> ${timing_file}
     fi
@@ -230,7 +230,7 @@ function make_and_time_curl_range_get_request {
         #echo "e_file: ${e_file}"
         e_name="${e_dir}/ERROR_${tag}_${e_file}"
         #echo "e_name: ${e_name}"
-        echo "ERROR! Did recieve expected number of bytes. expected: ${expected_size} recieved: ${response_size}" | tee -a ${timing_file}
+        echo "ERROR! Did not recieve expected number of bytes. expected: ${expected_size} recieved: ${response_size}" | tee -a ${timing_file}
         echo "Copying response file to ${e_name}" | tee -a ${timing_file}
         cp -v "${response_file}" "${e_name}" >> ${timing_file}
     fi
@@ -265,7 +265,7 @@ function make_and_time_curl_get_request {
         #echo "e_file: ${e_file}"
         e_name="${e_dir}/ERROR_${tag}_${e_file}"
         #echo "e_name: ${e_name}"
-        echo "ERROR! Did recieve expected number of bytes. expected: ${expected_size} recieved: ${response_size}" | tee -a ${timing_file}
+        echo "ERROR! Did not recieve expected number of bytes. expected: ${expected_size} recieved: ${response_size}" | tee -a ${timing_file}
         echo "Copying response file to ${e_name}" | tee -a ${timing_file}
         cp -v "${response_file}" "${e_name}" >> ${timing_file}
     fi
