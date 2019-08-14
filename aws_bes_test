@@ -29,6 +29,7 @@ date_cmd="date -Ins"
 #
 #  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function show_test_reps(){
+    echo "bess_version_inner_airs_loop       TotalReps: ${bess_version_inner_airs_loop_REPS}";
     echo "bess_airs_dmrpp_datasets           TotalReps: ${bess_airs_dmrpp_datasets_REPS}";
     echo "bess_airs_onevar_dmrpp_agg         TotalReps: ${bess_airs_onevar_dmrpp_agg_REPS}";
     echo "curl_range_get_airs_onevar_chunks  TotalReps: ${curl_range_get_airs_onevar_chunks_REPS}";
@@ -42,6 +43,7 @@ function show_test_reps(){
 #
 #  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function show_elapsed() {
+    echo "bess_version_inner_airs_loop       elapsed: ${bvial_ELAPSED} seconds" 
     echo "bess_airs_dmrpp_datasets           elapsed: ${badd_ELAPSED} seconds" 
     echo "bess_airs_onevar_dmrpp_agg         elapsed: ${baoda_ELAPSED} seconds" 
     echo "curl_range_get_airs_onevar_chunks  elapsed: ${crgaoc_ELAPSED} seconds" 
@@ -56,6 +58,7 @@ function show_elapsed() {
 #
 #  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function echo_elapsed_setters() {
+    echo "bvial_ELAPSED=${bvial_ELAPSED}" 
     echo "badd_ELAPSED=${badd_ELAPSED}" 
     echo "baoda_ELAPSED=${baoda_ELAPSED}" 
     echo "crgaoc_ELAPSED=${crgaoc_ELAPSED}" 
@@ -88,7 +91,7 @@ function set_test_reps_by_time_balance(){
     echo "#   +    +    +    +    +    +    +    +    +    +    +    +    +"
     
     let max_time="${haoda_ELAPSED}"
-    for elapsed_time_val in ${haddf_ELAPSED} ${haoda_ELAPSED} ${badd_ELAPSED} ${baoda_ELAPSED} ${crgaoc_ELAPSED};
+    for elapsed_time_val in ${haddf_ELAPSED} ${haoda_ELAPSED} ${badd_ELAPSED} ${baoda_ELAPSED} ${crgaoc_ELAPSED} ${bvial_ELAPSED};
     do
         let time="${elapsed_time_val}"
         #echo "This time is ${time} seconds"
@@ -101,6 +104,7 @@ function set_test_reps_by_time_balance(){
     
     echo "Max rep time was ${max_time} seconds"
     
+    bess_version_inner_airs_loop_REPS=`echo "${scale_factor}*${max_time}/${bvial_ELAPSED}" | bc`
     bess_airs_dmrpp_datasets_REPS=`echo "${scale_factor}*${max_time}/${badd_ELAPSED}" | bc`
     bess_airs_onevar_dmrpp_agg_REPS=`echo "${scale_factor}*${max_time}/${baoda_ELAPSED}" | bc`
     curl_range_get_airs_onevar_chunks_REPS=`echo "${scale_factor}*${max_time}/${crgaoc_ELAPSED}" | bc`
@@ -128,6 +132,7 @@ function set_test_reps(){
     curl_range_get_airs_onevar_chunks_REPS=${set_reps_REPS}
     hyrax_airs_dmrpp_dataset_files_REPS=${set_reps_REPS}
     hyrax_airs_onevar_dmrpp_agg_REPS=${set_reps_REPS}
+    bess_version_inner_airs_loop_REPS=${set_reps_REPS}
     show_test_reps
 }
 
@@ -141,7 +146,7 @@ function set_test_reps(){
 function make_bes_cmd() {
 BES_CMD=`cat <<EOF 
 <?xml version="1.0" encoding="UTF-8"?>
-<bes:request xmlns:bes="http://xml.opendap.org/ns/bes/1.0#" reqID="[thread:http-nio-8080-exec-9-27]">
+<bes:request xmlns:bes="http://xml.opendap.org/ns/bes/1.0#" reqID="[aws_bes_test]">
   <bes:setContext name="xdap_accept">3.2</bes:setContext>
   <bes:setContext name="dap_explicit_containers">no</bes:setContext>
   <bes:setContext name="errors">xml</bes:setContext>
@@ -158,6 +163,22 @@ EOF
 `
 }
 
+#####################################################################################
+#
+# make_bes_cmd()
+# Builds a BES command using the a HERE document and the values of DATASET and 
+# DAP2_CE
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+function make_bes_show_version() {
+BES_CMD=`cat <<EOF 
+<?xml version="1.0" encoding="UTF-8"?>
+<bes:request xmlns:bes="http://xml.opendap.org/ns/bes/1.0#" reqID="[aws_bes_test]">
+  <bes:showVersion />
+</bes:request>
+EOF
+`
+}
+
 
 #####################################################################################
 #
@@ -168,8 +189,9 @@ EOF
 function make_and_time_bess_request {
     tag=${1}
     expected_size=${2}
+    cmd_builder=${3}
     
-    make_bes_cmd
+    ${cmd_builder}
     # echo "BES_CMD: "
     # echo "${BES_CMD}"
     echo "Dataset: ${DATASET}" >> ${timing_file}
@@ -265,7 +287,7 @@ function make_and_time_curl_get_request {
         #echo "e_file: ${e_file}"
         e_name="${e_dir}/ERROR_${tag}_${e_file}"
         #echo "e_name: ${e_name}"
-        echo "ERROR! Did not recieve expected number of bytes. expected: ${expected_size} recieved: ${response_size}" | tee -a ${timing_file}
+        echo "ERROR! Did notrecieve expected number of bytes. expected: ${expected_size} recieved: ${response_size}" | tee -a ${timing_file}
         echo "Copying response file to ${e_name}" | tee -a ${timing_file}
         cp -v "${response_file}" "${e_name}" >> ${timing_file}
     fi
@@ -378,7 +400,7 @@ function bess_airs_dmrpp_datasets(){
         let d_num=0
         for DATASET in `cat ${AIRS_DMRPP_AGG_FILES}`
         do
-            make_and_time_bess_request "${rep}_${d_num}" ${DAP2_VAR_SIZE_ONE_DAY}
+            make_and_time_bess_request "${rep}_${d_num}" ${DAP2_VAR_SIZE_ONE_DAY} "make_bes_cmd"
             let d_num++
         done
     done
@@ -387,6 +409,46 @@ function bess_airs_dmrpp_datasets(){
     echo -n "### bess_airs_dmrpp_datasets() - END  " >> ${timing_file}
     echo -n "reps: ${bess_airs_dmrpp_datasets_REPS} " >> ${timing_file}
     echo "TotalTime: ${badd_ELAPSED} seconds" >> ${timing_file}
+}
+
+#####################################################################################
+#
+# `bess_airs_dmrpp_datasets` - This test utilizes `besstandalone` requests to 
+# retrieve the ClrOLR_A variable from each of the 365 dmr++ datasets for the 
+# aggregated AIRS virtual dataset. Each pass represents the same number of S3 
+# accesses as requesting the aggregated ClrOLR_A from an NcML aggregation or from 
+# a dmr++ aggregation.
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+function bess_version_inner_airs_loop(){
+    
+    log_file="${RESULTS_DIR}/bess_version_inner_airs_loop.log"
+    response_file="${RESULTS_DIR}/bess_version_inner_airs_loop.xml"
+    timing_file="${RESULTS_DIR}/bess_version_inner_airs_loop.time"
+
+    DAP2_CE="${DAP2_CE_AIRS_ONE_VAR}"
+    rm -vfr ${timing_file} ${log_file}
+    bvial_START=`date +%s`;
+    
+    echo "###----------------------------------------------------------" >> ${timing_file}
+    echo -n "### bess_version_inner_airs_loop() - BEGIN " >> ${timing_file}
+    echo "reps: ${bess_version_inner_airs_loop_REPS} start: ${bvial_START}" >> ${timing_file}
+    
+    for rep in `seq ${bess_version_inner_airs_loop_REPS}`
+    do
+        echo "###--------------------------------------------------------" >> ${timing_file}
+        echo "### bess_version_inner_airs_loop() - Starting REP ${rep}" >> ${timing_file}
+        let d_num=0
+        for DATASET in `cat ${AIRS_DMRPP_AGG_FILES}`
+        do
+            make_and_time_bess_request "${rep}_${d_num}" 1614 "make_bes_show_version"
+            let d_num++
+        done
+    done
+    bvial_END=`date +%s`;
+    bvial_ELAPSED=`echo ${bvial_END} - ${bvial_START} | bc`
+    echo -n "### bess_version_inner_airs_loop() - END  " >> ${timing_file}
+    echo -n "reps: ${bess_version_inner_airs_loop_REPS} " >> ${timing_file}
+    echo "TotalTime: ${bvial_ELAPSED} seconds" >> ${timing_file}
 }
 
 
@@ -420,7 +482,7 @@ function bess_airs_onevar_dmrpp_agg() {
     do
         echo "###--------------------------------------------------------" >> ${timing_file}
         echo "### bess_airs_onevar_dmrpp_agg() - Starting REP ${rep}" >> ${timing_file}
-        make_and_time_bess_request ${rep} ${DAP2_VAR_SIZE_ONE_YEAR}
+        make_and_time_bess_request ${rep} ${DAP2_VAR_SIZE_ONE_YEAR} "make_bes_cmd"
     done
     baoda_END=`date +%s`;
     baoda_ELAPSED=`echo ${baoda_END} - ${baoda_START} | bc`
@@ -572,11 +634,12 @@ function mk_csv(){
 # 
 #  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function run_test_suite(){
-    bess_airs_dmrpp_datasets
-    bess_airs_onevar_dmrpp_agg
-    curl_range_get_airs_onevar_chunks
-    hyrax_airs_dmrpp_dataset_files
-    hyrax_airs_onevar_dmrpp_agg
+    bess_version_inner_airs_loop
+    #bess_airs_dmrpp_datasets
+    #bess_airs_onevar_dmrpp_agg
+    #curl_range_get_airs_onevar_chunks
+    #hyrax_airs_dmrpp_dataset_files
+    #hyrax_airs_onevar_dmrpp_agg
 }
 
 #####################################################################################
