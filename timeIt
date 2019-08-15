@@ -2,7 +2,8 @@
 
 max_reps=1000
 
-RESULTS_DIR="timeIt.results"
+run_tag=`date +%Y%m%d%H%M`
+RESULTS_DIR="./timeIt_${run_tag}.results"
 
 # All the data from the ClrOLR_A variable (all locations, all days)
 DAP2_CE_ONE_VAR="ClrOLR_A%5B0:1:364%5D%5B0:1:179%5D%5B0:1:359%5D"
