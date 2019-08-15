@@ -635,11 +635,11 @@ function mk_csv(){
 #  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function run_test_suite(){
     bess_version_inner_airs_loop
-    #bess_airs_dmrpp_datasets
-    #bess_airs_onevar_dmrpp_agg
-    #curl_range_get_airs_onevar_chunks
-    #hyrax_airs_dmrpp_dataset_files
-    #hyrax_airs_onevar_dmrpp_agg
+    bess_airs_dmrpp_datasets
+    bess_airs_onevar_dmrpp_agg
+    curl_range_get_airs_onevar_chunks
+    hyrax_airs_dmrpp_dataset_files
+    hyrax_airs_onevar_dmrpp_agg
 }
 
 #####################################################################################
@@ -659,7 +659,7 @@ mkdir -p ${RESULTS_DIR}
 
 echo ${HALF_MARK}
 
-USER_REPS=100;
+USER_REPS=1000;
 
 if [ -z "${USER_REPS}" ]
 then 
