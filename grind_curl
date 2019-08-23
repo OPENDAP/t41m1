@@ -4,6 +4,7 @@
 HYRAX="http://t41m1.opendap.org:8080/opendap"
 
 OBJECT_STORE="https://s3.amazonaws.com/cloudydap"
+OBJECT_PREFIX="airs"
 
 run_tag=`date +%Y%m%d%H%M`
 RESULTS_DIR="./grind_curl_${run_tag}.results"
@@ -21,12 +22,22 @@ BES_VERSION_INNER=100
 
 AIRS_DMRPP_AGG_CHUNKS_TXT="airs_agg_clr_olr_chunks.txt"
 AIRS_DMRPP_AGG_FILES="airs_dmrpp_agg_files"
-
+AIRS_AGG_FILES="airs_AggFiles"
 REQUEST_FINISHED_BOUNDARY="### - - - - - - - - - - - - - - - - - - - - - - - -";
 HALF_MARK="----------------------------------------------------------------------"
 
-# date_cmd="date -Ins"
-date_cmd="date"
+ls /etc/redhat-release > /dev/null 2>&1
+let status=$?
+if [ ${status} -ne 0 ]
+then
+    # Assume it's OS-X
+    date_cmd="date"
+    echo "Using OS-X date command syntax: '${date_cmd}'"
+else 
+    # It's some kind of Linux
+    date_cmd="date -Ins"
+    echo "Using Linux command syntax: '${date_cmd}'"
+fi
 
 #####################################################################################
 #
@@ -144,12 +155,13 @@ function make_and_time_curl_get_request {
 #  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function curl_same_chunk_many_files(){
     
-    set -x 
+    # set -x 
     
     
     log_file="${RESULTS_DIR}/curl_same_chunk_many_files.log"
     response_file="${RESULTS_DIR}/curl_same_chunk_many_files.bin"
     timing_file="${RESULTS_DIR}/curl_same_chunk_many_files.time"
+    # timing_file=/dev/stdout
 
     rm -vfr ${timing_file} ${log_file}
     cscmf_START=`date +%s`;
@@ -171,20 +183,20 @@ function curl_same_chunk_many_files(){
             
             echo "Requesting range from object: ${DATASET}" >> ${timing_file}
             
-            URL="${OBJECT_STORE}/${DATASET}"
+            URL="${OBJECT_STORE}/${OBJECT_PREFIX}/${DATASET}"
             echo "  Object URL: ${URL} " >> ${timing_file}
             
             CURL_START=${RANGE_BEGIN}
             echo "  CURL_START: ${CURL_START} " >> ${timing_file}
 
-            CURL_END=${RANGE_BEGIN}
-            echo "  RANGE_END: ${CURL_END}" >> ${timing_file}
+            CURL_END=${RANGE_END}
+            echo "  CURL_END: ${CURL_END}" >> ${timing_file}
             
             make_and_time_curl_range_get_request "${rep}_${chunk_num}" 
             
             let chunk_num++
     
-        done <${AIRS_DMRPP_AGG_FILES}
+        done <${AIRS_AGG_FILES}
     done
     cscmf_END=`date +%s`
     cscmf_ELAPSED=`echo ${cscmf_END} - ${cscmf_START} | bc`
