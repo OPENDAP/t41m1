@@ -172,8 +172,8 @@ function curl_same_chunk_many_files(){
 
     echo "###----------------------------------------------------------" >> ${timing_file}
     echo -n "### curl_same_chunk_many_files() - BEGIN " >> ${timing_file}
-    echo -n "reps: ${curl_same_chunk_many_files_REPS} start: ${cscmf_START}" >> ${timing_file}
-    echo "RANGE_BEGIN: ${RANGE_BEGIN} RANGE_END: ${RANGE_END}"
+    echo -n "reps: ${curl_same_chunk_many_files_REPS} start: ${cscmf_START}  " >> ${timing_file}
+    echo -n "RANGE_BEGIN: ${RANGE_BEGIN} RANGE_END: ${RANGE_END}" >> ${timing_file}
     for rep in `seq ${curl_same_chunk_many_files_REPS}`
     do        
         echo "###----------------------------------------------------------" >> ${timing_file}
@@ -309,7 +309,7 @@ mkdir -p ${RESULTS_DIR}
 
 echo ${HALF_MARK}
 
-USER_REPS=1;
+USER_REPS=300;
 
 set_test_reps ${USER_REPS}
 echo ${HALF_MARK}
