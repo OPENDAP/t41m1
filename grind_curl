@@ -1,0 +1,323 @@
+#!/bin/sh
+# set -x 
+
+HYRAX="http://t41m1.opendap.org:8080/opendap"
+
+OBJECT_STORE="https://s3.amazonaws.com/cloudydap"
+
+run_tag=`date +%Y%m%d%H%M`
+RESULTS_DIR="./grind_curl_${run_tag}.results"
+
+
+
+
+DAP2_CE_AIRS_ONE_VAR="ClrOLR_A[0:1:179][0:1:359]"
+DAP2_CE_AIRS_ONE_VAR_AGG="ClrOLR_A[0:1:364][0:1:179][0:1:359]"
+
+DAP2_VAR_SIZE_ONE_DAY=259343
+DAP2_VAR_SIZE_ONE_YEAR=94608110
+
+BES_VERSION_INNER=100
+
+AIRS_DMRPP_AGG_CHUNKS_TXT="airs_agg_clr_olr_chunks.txt"
+AIRS_DMRPP_AGG_FILES="airs_dmrpp_agg_files"
+
+REQUEST_FINISHED_BOUNDARY="### - - - - - - - - - - - - - - - - - - - - - - - -";
+HALF_MARK="----------------------------------------------------------------------"
+
+# date_cmd="date -Ins"
+date_cmd="date"
+
+#####################################################################################
+#
+# show_test_reps()
+#
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+function show_test_reps(){
+    echo "curl_same_chunk_many_files  TotalReps: ${curl_same_chunk_many_files_REPS}";
+}
+
+#####################################################################################
+#
+# show_elapsed()
+#
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+function show_elapsed() {
+    echo "curl_same_chunk_many_files  elapsed: ${cscmf_ELAPSED} seconds" 
+}
+
+
+#####################################################################################
+#
+# echo_elapsed_setters()
+#
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+function echo_elapsed_setters() {
+    echo "cscmf_ELAPSED=${cscmf_ELAPSED}" 
+}
+    
+#####################################################################################
+#
+# set_test_reps()
+#
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+function set_test_reps(){
+    set_reps_REPS=${1};
+    curl_same_chunk_many_files_REPS=${set_reps_REPS}
+    show_test_reps
+}
+
+#####################################################################################
+#
+# make_and_time_curl_range_get_request()
+# Times the execution of a cURL range GET request based on the values of URL,
+# CURL_START, and CURL_END
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+function make_and_time_curl_range_get_request {
+    tag=${1};
+
+    expected_size=`echo ${CURL_END} - ${CURL_START} + 1| bc`
+    echo "RangeGET cURL: ${URL} CURL_START: ${CURL_START} CURL_END: ${CURL_END}" >> ${timing_file}
+    echo "tag: ${tag}" >> ${timing_file}
+    echo "expected_size: ${expected_size}"  >> ${timing_file}
+    echo "StartTime: "`${date_cmd}` >> ${timing_file}
+    
+    { time -p curl -s -r ${CURL_START}-${CURL_END} -g ${URL} > ${response_file}; } 2>>${timing_file}
+    
+    response_size=`cat ${response_file} | wc -c`
+    echo `basename ${response_file}`" size: ${response_size} bytes"  >> ${timing_file}
+   
+    if [ ${response_size} -ne ${expected_size} ]
+    then
+        e_dir=`dirname ${response_file}`
+        #echo "e_dir: ${e_dir}"
+        e_file=`basename ${response_file}`
+        #echo "e_file: ${e_file}"
+        e_name="${e_dir}/ERROR_${tag}_${e_file}"
+        #echo "e_name: ${e_name}"
+        echo "ERROR! Did not recieve expected number of bytes. expected: ${expected_size} recieved: ${response_size}" | tee -a ${timing_file}
+        echo "Copying response file to ${e_name}" | tee -a ${timing_file}
+        cp -v "${response_file}" "${e_name}" >> ${timing_file}
+    fi
+  
+    echo "${REQUEST_FINISHED_BOUNDARY}" >> ${timing_file}
+}
+
+#####################################################################################
+#
+# make_and_time_curl_get_request
+# Times the execution of a cURL GET request based on the value of URL.
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+function make_and_time_curl_get_request {
+    tag=${1};
+    expected_size=${2};
+    
+    echo "GET cURL: ${URL}" >> ${timing_file}
+    echo "tag: ${tag}"  >> ${timing_file}
+    echo "expected_size: ${expected_size}"  >> ${timing_file}
+    echo "StartTime: "`${date_cmd}` >> ${timing_file}
+
+    { time -p curl -s -g ${URL} > ${response_file}; } 2>>${timing_file}
+    
+    # ls -l ${response_file} >> ${timing_file}
+    response_size=`cat ${response_file} | wc -c`
+    echo `basename ${response_file}`" size: ${response_size} bytes"  >> ${timing_file}
+    if [ -n "${expected_size}" ] && [ ${response_size} -ne ${expected_size} ]
+    then
+        e_dir=`dirname ${response_file}`
+        #echo "e_dir: ${e_dir}"
+        e_file=`basename ${response_file}`
+        #echo "e_file: ${e_file}"
+        e_name="${e_dir}/ERROR_${tag}_${e_file}"
+        #echo "e_name: ${e_name}"
+        echo "ERROR! Did notrecieve expected number of bytes. expected: ${expected_size} recieved: ${response_size}" | tee -a ${timing_file}
+        echo "Copying response file to ${e_name}" | tee -a ${timing_file}
+        cp -v "${response_file}" "${e_name}" >> ${timing_file}
+    fi
+    echo "${REQUEST_FINISHED_BOUNDARY}" >> ${timing_file}
+}
+
+
+#####################################################################################
+#
+# `curl_same_chunk_many_files` -
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+function curl_same_chunk_many_files(){
+    
+    set -x 
+    
+    
+    log_file="${RESULTS_DIR}/curl_same_chunk_many_files.log"
+    response_file="${RESULTS_DIR}/curl_same_chunk_many_files.bin"
+    timing_file="${RESULTS_DIR}/curl_same_chunk_many_files.time"
+
+    rm -vfr ${timing_file} ${log_file}
+    cscmf_START=`date +%s`;
+
+    CHUNK_SIZE=259343
+    RANGE_BEGIN=13028
+    RANGE_END=`echo "${RANGE_BEGIN} + ${CHUNK_SIZE} - 1" | bc`
+
+    echo "###----------------------------------------------------------" >> ${timing_file}
+    echo -n "### curl_same_chunk_many_files() - BEGIN " >> ${timing_file}
+    echo -n "reps: ${curl_same_chunk_many_files_REPS} start: ${cscmf_START}" >> ${timing_file}
+    echo "RANGE_BEGIN: ${RANGE_BEGIN} RANGE_END: ${RANGE_END}"
+    for rep in `seq ${curl_same_chunk_many_files_REPS}`
+    do        
+        echo "###----------------------------------------------------------" >> ${timing_file}
+        echo "### curl_same_chunk_many_files() - Starting REP ${rep}" >> ${timing_file}
+        let chunk_num=0
+        while read DATASET; do
+            
+            echo "Requesting range from object: ${DATASET}" >> ${timing_file}
+            
+            URL="${OBJECT_STORE}/${DATASET}"
+            echo "  Object URL: ${URL} " >> ${timing_file}
+            
+            CURL_START=${RANGE_BEGIN}
+            echo "  CURL_START: ${CURL_START} " >> ${timing_file}
+
+            CURL_END=${RANGE_BEGIN}
+            echo "  RANGE_END: ${CURL_END}" >> ${timing_file}
+            
+            make_and_time_curl_range_get_request "${rep}_${chunk_num}" 
+            
+            let chunk_num++
+    
+        done <${AIRS_DMRPP_AGG_FILES}
+    done
+    cscmf_END=`date +%s`
+    cscmf_ELAPSED=`echo ${cscmf_END} - ${cscmf_START} | bc`
+    
+    echo -n "### curl_same_chunk_many_files - END  " >> ${timing_file}
+    echo -n "reps: ${curl_same_chunk_many_files_REPS} " >> ${timing_file}
+    echo "TotalTime: ${cscmf_ELAPSED} seconds" >> ${timing_file}
+}
+
+#####################################################################################
+#
+# hr_mark()
+# Echos a cheesy ascii "hr" mark to stdout.
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+function hr_mark(){
+    echo "${HALF_MARK} + ${HALF_MARK}";
+}
+
+#####################################################################################
+#
+# results_summary()
+# Echos a simple statistical summary of each of the .time files in the RESULTS_DIR
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+function results_summary(){
+    hr_mark
+    echo "SUMMARY:"
+    for timing_file in ${RESULTS_DIR}/*.time
+    do 
+        test_name=`basename -s ".time" ${timing_file}`
+        reps_completed=`grep " END " ${timing_file} | awk '{print $6;}' - `
+        total_time=`grep " END " ${timing_file} | awk '{print $8;}' - `
+
+        echo -n "${test_name} "
+        echo -n "TotalTime: ${total_time} seconds "
+        echo -n "TestReps: ${reps_completed} "
+        grep "real" ${timing_file} | awk '\
+            {
+                sum+=$2+0.0; 
+                sumsq+=$2*$2+0.0;
+            }
+            END{
+                avg=sum/NR;
+                stdv=sqrt(sumsq/NR - (avg)**2);
+                stdvprcnt=100*stdv/avg;
+                printf("request_count: %d average_time: %f stdev: %f stdev%: %f\n", 
+                NR, avg, stdv, stdvprcnt);
+            }' - ;
+    done; 
+    hr_mark; 
+}
+
+#####################################################################################
+#
+# mk_csv()
+# Makes a "timing_file.csv" file for each .time file in the RESULTS_DIR
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+function mk_csv(){
+
+    for timing_file in ${RESULTS_DIR}/*.time
+    do 
+        result_file="${timing_file}.csv"
+        basename "${timing_file}" > ${result_file};
+        echo "StartTime, ElapsedTime" >> ${result_file};
+        #echo "\"StartTime<String>\", \"ElapsedTime<Float32>\"" >> ${result_file};
+        awk -v boundaryKey="${REQUEST_FINISHED_BOUNDARY}" \
+        'BEGIN{
+            startTimeKey="StartTime"; 
+            elapsedTimeKey="real"; 
+        }
+        {
+            if(index($0, boundaryKey)==1){
+                printf("\"%s\", %s\n", startTime, elapsedTime);
+            }
+            else {
+                if(index($0,startTimeKey)==1){
+                    startTime = $2;
+                    //gsub(",",".",startTime);
+                }              
+                if(index($0,elapsedTimeKey)==1){
+                    elapsedTime = $2;
+                }              
+            }
+        }' ${timing_file} >> ${result_file}
+    done; 
+}
+
+
+#####################################################################################
+#
+# 
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+function run_test_suite(){
+    curl_same_chunk_many_files
+}
+
+#####################################################################################
+# MMMMMMMMMMMMMMMMMMMMAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNN ##
+# MMMMMMMMMMMMMMMMMMMMAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNN ##
+# MMMMMMMMMMMMMMMMMMMMAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNN ##
+# 
+#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+hr_mark
+echo ${0} - BEGIN 
+
+# Clean results dir
+echo "Clearing RESULTS_DIR: ${RESULTS_DIR}"
+rm -vfr ${RESULTS_DIR}
+# make a new results dir.
+mkdir -p ${RESULTS_DIR}
+
+echo ${HALF_MARK}
+
+USER_REPS=1;
+
+set_test_reps ${USER_REPS}
+echo ${HALF_MARK}
+echo "${0} - Running grind_curl Tests, results will be saved."
+run_test_suite
+
+
+echo ${HALF_MARK}
+
+# Make the associated CSV files for export.
+mk_csv
+
+# Summarize the results
+results_summary
+
+echo ${0} - END 
+hr_mark
+# MMMMMMMMMMMMMMMMMMMMAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNN ##
+# MMMMMMMMMMMMMMMMMMMMAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNN ##
+# MMMMMMMMMMMMMMMMMMMMAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNN ##
+#####################################################################################
+
+     
