@@ -43,7 +43,7 @@ fi
 #
 # show_test_reps()
 #
-#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+# -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function show_test_reps(){
     echo "Scheduled Test Reps: "
     echo "    curl_same_chunk_many_files  TotalReps: ${curl_same_chunk_many_files_REPS}";
@@ -54,7 +54,7 @@ function show_test_reps(){
 #
 # show_elapsed()
 #
-#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+# -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function show_elapsed() {
     echo "curl_same_chunk_many_files  elapsed: ${cscmf_ELAPSED} seconds" 
     echo "curl_increasing_chunks_many_files  elapsed: ${v} seconds" 
@@ -65,7 +65,7 @@ function show_elapsed() {
 #
 # echo_elapsed_setters()
 #
-#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+# -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function echo_elapsed_setters() {
     echo "cscmf_ELAPSED=${cscmf_ELAPSED}" 
     echo "cicmf_ELAPSED=${cicmf_ELAPSED}" 
@@ -75,7 +75,7 @@ function echo_elapsed_setters() {
 #
 # set_test_reps()
 #
-#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+# -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function set_test_reps(){
     set_reps_REPS=${1};
     curl_same_chunk_many_files_REPS=${set_reps_REPS}
@@ -88,7 +88,7 @@ function set_test_reps(){
 # make_and_time_curl_range_get_request()
 # Times the execution of a cURL range GET request based on the values of URL,
 # CURL_START, and CURL_END
-#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+# -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function make_and_time_curl_range_get_request {
     tag=${1};
 
@@ -123,7 +123,7 @@ function make_and_time_curl_range_get_request {
 #
 # make_and_time_curl_get_request()
 # Times the execution of a cURL GET request based on the value of URL.
-#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+# -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function make_and_time_curl_get_request {
     tag=${1};
     expected_size=${2};
@@ -157,7 +157,7 @@ function make_and_time_curl_get_request {
 #####################################################################################
 #
 # curl_same_chunk_many_files()
-#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+# -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function curl_same_chunk_many_files(){
     
     # set -x 
@@ -214,15 +214,18 @@ function curl_same_chunk_many_files(){
 #####################################################################################
 #
 # curl_increasing_chunks_many_files()
-#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+# -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function curl_increasing_chunks_many_files(){
     
     # set -x 
     
+    test_name="curl_increasing_chunks_many_files"
     
-    log_file="${RESULTS_DIR}/curl_increasing_chunks_many_files.log"
-    response_file="${RESULTS_DIR}/curl_increasing_chunks_many_files.bin"
-    timing_file="${RESULTS_DIR}/curl_increasing_chunks_many_files.time"
+    
+    
+    log_file="${RESULTS_DIR}/${test_name}.log"
+    response_file="${RESULTS_DIR}/${test_name}.bin"
+    timing_file="${RESULTS_DIR}/${test_name}.multi_size"
     # timing_file=/dev/stdout
 
     rm -vfr ${timing_file} ${log_file}
@@ -235,7 +238,8 @@ function curl_increasing_chunks_many_files(){
     echo -n "reps: ${curl_increasing_chunks_many_files_REPS} start: ${cicmf_START}  " >> ${timing_file}
     echo -n "RANGE_BEGIN: ${RANGE_BEGIN} " >> ${timing_file}
     for rep in `seq ${curl_increasing_chunks_many_files_REPS}`
-    do        
+    do      
+        #   Chunk sizes    1K    75M       150M     ~300M  
         for CHUNK_SIZE in 1024 78643200 157286400 297670000
         do
             RANGE_END=`echo "${RANGE_BEGIN} + ${CHUNK_SIZE} - 1" | bc`
@@ -276,7 +280,7 @@ function curl_increasing_chunks_many_files(){
 #
 # hr_mark()
 # Echos a cheesy ascii "hr" mark to stdout.
-#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+# -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function hr_mark(){
     echo "${HALF_MARK} + ${HALF_MARK}";
 }
@@ -285,7 +289,7 @@ function hr_mark(){
 #
 # results_summary()
 # Echos a simple statistical summary of each of the .time files in the RESULTS_DIR
-#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+# -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function results_summary(){
     hr_mark
     echo "SUMMARY:"
@@ -314,19 +318,22 @@ function results_summary(){
     hr_mark; 
 }
 
+
+
+
 #####################################################################################
 #
 # mk_csv()
 # Makes a "timing_file.csv" file for each .time file in the RESULTS_DIR
-#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+# -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function mk_csv(){
 
     for timing_file in ${RESULTS_DIR}/*.time
     do 
         result_file="${timing_file}.csv"
         basename "${timing_file}" > ${result_file};
-        echo "StartTime, ElapsedTime" >> ${result_file};
-        #echo "\"StartTime<String>\", \"ElapsedTime<Float32>\"" >> ${result_file};
+        echo "\"start time\", \"size (bytes)\", \"elapsed time (seconds)\"" >> ${result_file};
+        #echo "\"StartTime<String>\", \"Size<Int32>\", \"ElaspedTime"<Float32>\"" >> ${result_file};
         awk -v boundaryKey="${REQUEST_FINISHED_BOUNDARY}" \
         'BEGIN{
             startTimeKey="StartTime"; 
@@ -357,10 +364,9 @@ function mk_csv(){
 #####################################################################################
 #
 # 
-#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+# -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function run_test_suite(){
-    #curl_same_chunk_many_files
-    
+    curl_same_chunk_many_files
     curl_increasing_chunks_many_files
 }
 
@@ -369,7 +375,7 @@ function run_test_suite(){
 # MMMMMMMMMMMMMMMMMMMMAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNN ##
 # MMMMMMMMMMMMMMMMMMMMAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNN ##
 # 
-#  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+# -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 hr_mark
 echo ${0} - BEGIN 
 
@@ -381,7 +387,7 @@ mkdir -p ${RESULTS_DIR}
 
 echo ${HALF_MARK}
 
-USER_REPS=1;
+USER_REPS=100;
 
 set_test_reps ${USER_REPS}
 echo ${HALF_MARK}
@@ -404,4 +410,75 @@ hr_mark
 # MMMMMMMMMMMMMMMMMMMMAAAAAAAAAAAAAAAAAAAAIIIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNN ##
 #####################################################################################
 
-     
+
+
+
+#####################################################################################
+#
+# mk_multi_time_csv()
+#
+# -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
+function mk_multi_size_csv() {
+    
+    
+    
+    startTimeKey="StartTime"; 
+    size_key="expected_size"; 
+    elapsedTimeKey="real"; 
+    
+    
+    
+    #for timing_file in ${RESULTS_DIR}/*.multi_size
+    for timing_file in ${RESULTS_DIR}/*.time
+    do 
+        result_file="${timing_file}.csv"
+        basename "${timing_file}" > ${result_file};
+        echo "\"start time\", \"size (bytes)\", \"elapsed time (seconds)\"" >> ${result_file};
+        #echo "\"StartTime<String>\", \"Size<Int32>\", \"ElaspedTime"<Float32>\"" >> ${result_file};
+        
+        
+        sizes=`cat ${timing_file} | grep "${size_key}" | awk '{print $2;}' - | sort -n | uniq`
+        
+        echo "Located "`echo "${sizes}"  | wc -w`" sizes in timing file."
+        echo " sizes: ${sizes}"
+        
+        for size in ${sizes}
+        do {
+        
+        
+            
+        
+        
+        
+        awk -v boundaryKey="${REQUEST_FINISHED_BOUNDARY}" \
+            -v startTimeKey="${startTimeKey}" \
+            -v size_key="${size_key}" \
+            -v elapsedTimeKey="${elapsedTimeKey}" \
+            '{
+                if(index($0, boundaryKey)==1){
+                    printf("\"%s\", %s, %s\n", startTime, size, elapsedTime);
+                }
+                else {
+                    if(index($0,startTimeKey)==1){
+                        startTime = $2;
+                        //gsub(",",".",startTime);
+                    }              
+                    if(index($0,elapsedTimeKey)==1){
+                        elapsedTime = $2;
+                    }              
+                    if(index($0,size_key)==1){
+                        size = $2;
+                    }              
+                }
+            }' ${timing_file} >> ${result_file}
+        done
+        
+        
+    done; 
+   
+    
+}
+
+
+
+
