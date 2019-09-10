@@ -10,6 +10,10 @@ run_tag=`date +%Y%m%d%H%M`
 RESULTS_DIR="./grind_curl_${run_tag}.results"
 
 
+CURL_RETRY_DELAY=0.3
+CURL_RETRIES=4
+CURL_CONNECTION_TIMEOUT=0.3
+CURL_CONN_CONDITIONS="--connect-timeout ${CURL_CONNECTION_TIMEOUT} --retry-delay ${CURL_RETRY_DELAY} --retry ${CURL_RETRIES}"
 
 
 DAP2_CE_AIRS_ONE_VAR="ClrOLR_A[0:1:179][0:1:359]"
@@ -98,7 +102,7 @@ function make_and_time_curl_range_get_request {
     echo "expected_size: ${expected_size}"  >> ${timing_file}
     echo "StartTime: "`${date_cmd}` >> ${timing_file}
     
-    { time -p curl -s -r ${CURL_START}-${CURL_END} -g ${URL} > ${response_file}; } 2>>${timing_file}
+    { time -p curl -s ${CURL_CONN_CONDITIONS} -r ${CURL_START}-${CURL_END} -g ${URL} > ${response_file}; } 2>>${timing_file}
     
     response_size=`cat ${response_file} | wc -c`
     echo `basename ${response_file}`" size: ${response_size} bytes"  >> ${timing_file}
@@ -119,6 +123,7 @@ function make_and_time_curl_range_get_request {
     echo "${REQUEST_FINISHED_BOUNDARY}" >> ${timing_file}
 }
 
+
 #####################################################################################
 #
 # make_and_time_curl_get_request()
@@ -133,7 +138,7 @@ function make_and_time_curl_get_request {
     echo "expected_size: ${expected_size}"  >> ${timing_file}
     echo "StartTime: "`${date_cmd}` >> ${timing_file}
 
-    { time -p curl -s -g ${URL} > ${response_file}; } 2>>${timing_file}
+    { time -p curl -s ${CURL_CONN_CONDITIONS} -g ${URL} > ${response_file}; } 2>>${timing_file}
     
     # ls -l ${response_file} >> ${timing_file}
     response_size=`cat ${response_file} | wc -c`
@@ -221,8 +226,6 @@ function curl_increasing_chunks_many_files(){
     
     test_name="curl_increasing_chunks_many_files"
     
-    
-    
     log_file="${RESULTS_DIR}/${test_name}.log"
     response_file="${RESULTS_DIR}/${test_name}.bin"
     timing_file="${RESULTS_DIR}/${test_name}.multi_size"
@@ -236,7 +239,7 @@ function curl_increasing_chunks_many_files(){
     echo "###----------------------------------------------------------" >> ${timing_file}
     echo -n "### curl_increasing_chunks_many_files() - BEGIN " >> ${timing_file}
     echo -n "reps: ${curl_increasing_chunks_many_files_REPS} start: ${cicmf_START}  " >> ${timing_file}
-    echo -n "RANGE_BEGIN: ${RANGE_BEGIN} " >> ${timing_file}
+    echo    "RANGE_BEGIN: ${RANGE_BEGIN} " >> ${timing_file}
     for rep in `seq ${curl_increasing_chunks_many_files_REPS}`
     do      
         #   Chunk sizes    1K    75M       150M     ~300M  
@@ -244,7 +247,7 @@ function curl_increasing_chunks_many_files(){
         do
             RANGE_END=`echo "${RANGE_BEGIN} + ${CHUNK_SIZE} - 1" | bc`
             echo "###----------------------------------------------------------" >> ${timing_file}
-            echo "### curl_increasing_chunks_many_files() - Starting REP ${rep}" >> ${timing_file}
+            echo "### curl_increasing_chunks_many_files() - Starting REP ${rep} CHUNK_SIZE: ${CHUNK_SIZE}" >> ${timing_file}
             let chunk_num=0
             while read DATASET; do
                 
@@ -387,7 +390,7 @@ mkdir -p ${RESULTS_DIR}
 
 echo ${HALF_MARK}
 
-USER_REPS=100;
+USER_REPS=10;
 
 set_test_reps ${USER_REPS}
 echo ${HALF_MARK}
@@ -428,8 +431,8 @@ function mk_multi_size_csv() {
     
     
     
-    #for timing_file in ${RESULTS_DIR}/*.multi_size
-    for timing_file in ${RESULTS_DIR}/*.time
+    for timing_file in ${RESULTS_DIR}/*.multi_size
+    #for timing_file in ${RESULTS_DIR}/*.time
     do 
         result_file="${timing_file}.csv"
         basename "${timing_file}" > ${result_file};
@@ -443,34 +446,29 @@ function mk_multi_size_csv() {
         echo " sizes: ${sizes}"
         
         for size in ${sizes}
-        do {
-        
-        
-            
-        
-        
-        
-        awk -v boundaryKey="${REQUEST_FINISHED_BOUNDARY}" \
-            -v startTimeKey="${startTimeKey}" \
-            -v size_key="${size_key}" \
-            -v elapsedTimeKey="${elapsedTimeKey}" \
-            '{
-                if(index($0, boundaryKey)==1){
-                    printf("\"%s\", %s, %s\n", startTime, size, elapsedTime);
-                }
-                else {
-                    if(index($0,startTimeKey)==1){
-                        startTime = $2;
-                        //gsub(",",".",startTime);
-                    }              
-                    if(index($0,elapsedTimeKey)==1){
-                        elapsedTime = $2;
-                    }              
-                    if(index($0,size_key)==1){
-                        size = $2;
-                    }              
-                }
-            }' ${timing_file} >> ${result_file}
+        do 
+             awk -v boundaryKey="${REQUEST_FINISHED_BOUNDARY}" \
+                -v startTimeKey="${startTimeKey}" \
+                -v size_key="${size_key}" \
+                -v elapsedTimeKey="${elapsedTimeKey}" \
+                '{
+                    if(index($0, boundaryKey)==1){
+                        printf("\"%s\", %s, %s\n", startTime, size, elapsedTime);
+                    }
+                    else {
+                        if(index($0,startTimeKey)==1){
+                            startTime = $2;
+                            //gsub(",",".",startTime);
+                        }              
+                        if(index($0,elapsedTimeKey)==1){
+                            elapsedTime = $2;
+                        }              
+                        if(index($0,size_key)==1){
+                            size = $2;
+                        }              
+                    }
+                }' ${timing_file} >> ${result_file}
+
         done
         
         
