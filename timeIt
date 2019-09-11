@@ -15,7 +15,7 @@ DAP2_CE_ONE_DAY="ClrOLR_A%5B5%5D%5B0:1:179%5D%5B0:1:359%5D"
 DAP2_CE_ONE_LON="ClrOLR_A%5B0:1:359%5D%5B0:1:179%5D%5B5%5D"
 
 # Current operational CE.
-DAP2_CE="${DAP2_CE_ONE_VAR}"
+DAP2_CE="${DAP2_CE_ONE_DAY}"
 
 # For this CE, we're using a different DMR++ that does not have the ClrORL_A
 # and we slide this so that we get the same number of bytes as with the previous
@@ -166,16 +166,16 @@ do
         
         # time_service_response "airs_local_join_new" "${airs_local_join_new}.dods?${DAP2_CE}"
         #time_service_response "airs_riofs_join_new" "${airs_riofs_join_new}.dods?${DAP2_CE}"
-        time_service_response "airs_dmrpp_local_join_new" "${airs_dmrpp_local_join_new}.dods?${DAP2_CE}" ${rep}
+        #time_service_response "airs_dmrpp_local_join_new" "${airs_dmrpp_local_join_new}.dods?${DAP2_CE}" ${rep}
                 
-        #time_service_response "airs_dmrpp_remote_join_new" "${airs_dmrpp_remote_join_new}.dods?${DAP2_CE}" ${rep}
+        time_service_response "airs_dmrpp_remote_join_new" "${airs_dmrpp_remote_join_new}.dods?${DAP2_CE}" ${rep}
         
     fi
 
     #time_service_response "dmrpp_agg_test_06" "${dmrpp_agg_test_06}.dods?${DAP2_CE}" ${rep}
     #time_service_response "dmrpp_agg_test_07" "${dmrpp_agg_test_07}.dods?${DAP2_CE}" ${rep}
-    #time_service_response "dmrpp_agg_test_08" "${dmrpp_agg_test_08}.dods?${DAP2_CE}" ${rep}
-    time_service_response "dmrpp_agg_test_09" "${dmrpp_agg_test_09}.dods?${DAP2_CE}" ${rep}
+    time_service_response "dmrpp_agg_test_08" "${dmrpp_agg_test_08}.dods?${DAP2_CE}" ${rep}
+    #time_service_response "dmrpp_agg_test_09" "${dmrpp_agg_test_09}.dods?${DAP2_CE}" ${rep}
     #time_service_response "dmrpp_agg_test_10" "${dmrpp_agg_test_10}.dods?${DAP2_CE}" ${rep}
     #time_service_response "dmrpp_agg_test_11" "${dmrpp_agg_test_11}.dods?${DAP2_CE_11}" ${rep}
     #time_service_response "airs_local_join_new_tds" "${airs_local_join_new_tds}.dods?${DAP2_CE}"  ${rep}
