@@ -10,9 +10,9 @@ run_tag=`date +%Y%m%d%H%M`
 RESULTS_DIR="./grind_curl_${run_tag}.results"
 
 
-CURL_RETRY_DELAY=1
+CURL_RETRY_DELAY=0.1
 CURL_RETRIES=4
-CURL_CONNECTION_TIMEOUT=1
+CURL_CONNECTION_TIMEOUT=0.3
 CURL_CONN_CONDITIONS="--connect-timeout ${CURL_CONNECTION_TIMEOUT} --retry-delay ${CURL_RETRY_DELAY} --retry ${CURL_RETRIES}"
 
 
@@ -36,12 +36,16 @@ if [ ${status} -ne 0 ]
 then
     # Assume it's OS-X
     date_cmd="date"
-    echo "Using OS-X date command syntax: '${date_cmd}'"
+    echo "Using OS-X date date command syntax: '${date_cmd}'"
+    CURL_APP="/usr/bin/curl"
 else 
     # It's some kind of Linux
     date_cmd="date -Ins"
-    echo "Using Linux command syntax: '${date_cmd}'"
+    echo "Using Linux date command syntax: '${date_cmd}'"
+    CURL_APP="/usr/local/bin/curl"
 fi
+
+echo "Using this curl application: '${CURL_APP}'"
 
 #####################################################################################
 #
@@ -102,7 +106,7 @@ function make_and_time_curl_range_get_request {
     echo "expected_size: ${expected_size}"  >> ${timing_file}
     echo "StartTime: "`${date_cmd}` >> ${timing_file}
     
-    { time -p curl -s ${CURL_CONN_CONDITIONS} -r ${CURL_START}-${CURL_END} -g ${URL} > ${response_file}; } 2>>${timing_file}
+    { time -p ${CURL_APP} -s ${CURL_CONN_CONDITIONS} -r ${CURL_START}-${CURL_END} -g ${URL} > ${response_file}; } 2>>${timing_file}
     
     response_size=`cat ${response_file} | wc -c`
     echo `basename ${response_file}`" size: ${response_size} bytes"  >> ${timing_file}
@@ -138,7 +142,7 @@ function make_and_time_curl_get_request {
     echo "expected_size: ${expected_size}"  >> ${timing_file}
     echo "StartTime: "`${date_cmd}` >> ${timing_file}
 
-    { time -p curl -s ${CURL_CONN_CONDITIONS} -g ${URL} > ${response_file}; } 2>>${timing_file}
+    { time -p ${CURL_APP} -s ${CURL_CONN_CONDITIONS} -g ${URL} > ${response_file}; } 2>>${timing_file}
     
     # ls -l ${response_file} >> ${timing_file}
     response_size=`cat ${response_file} | wc -c`
@@ -390,7 +394,7 @@ mkdir -p ${RESULTS_DIR}
 
 echo ${HALF_MARK}
 
-USER_REPS=10;
+USER_REPS=1;
 
 set_test_reps ${USER_REPS}
 echo ${HALF_MARK}
