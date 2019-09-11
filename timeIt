@@ -15,7 +15,7 @@ DAP2_CE_ONE_DAY="ClrOLR_A%5B5%5D%5B0:1:179%5D%5B0:1:359%5D"
 DAP2_CE_ONE_LON="ClrOLR_A%5B0:1:359%5D%5B0:1:179%5D%5B5%5D"
 
 # Current operational CE.
-DAP2_CE="${DAP2_CE_ONE_DAY}"
+DAP2_CE="${DAP2_CE_ONE_LON}"
 
 # For this CE, we're using a different DMR++ that does not have the ClrORL_A
 # and we slide this so that we get the same number of bytes as with the previous
@@ -67,7 +67,7 @@ dmrpp_agg_test_11="http://t41m1.opendap.org:8080/opendap/t41m1/dmrpp_agg_test_11
 # Data in the local FS, served by the TDS, aggregate all variables
 airs_local_join_new_tds="http://54.164.114.242:8080/thredds/dodsC/local_fs/airs_local_join_new_tds.ncml"
 
-# Set to "yes" to run the aggregations that take along time.
+# Set to "yes" to run the aggregations that take a long time.
 hyrax_trad_aggregations="yes"
 
 
