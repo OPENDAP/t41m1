@@ -6,65 +6,107 @@ run_tag=`date +%Y%m%d%H%M`
 RESULTS_DIR="./timeIt_${run_tag}.results"
 
 # All the data from the ClrOLR_A variable (all locations, all days)
+# ClrOLR_A[0:1:364][0:1:179][0:1:359]
 DAP2_CE_ONE_VAR="ClrOLR_A%5B0:1:364%5D%5B0:1:179%5D%5B0:1:359%5D"
 
 # All the data from the ClrOLR_A variable for a single day
+# ClrOLR_A[5][0:1:179][0:1:359]
 DAP2_CE_ONE_DAY="ClrOLR_A%5B5%5D%5B0:1:179%5D%5B0:1:359%5D"
 
 # A single longitude location with all of the latitudes over 360 days
+# ClrOLR_A[0:1:359][0:1:179][5]
 DAP2_CE_ONE_LON="ClrOLR_A%5B0:1:359%5D%5B0:1:179%5D%5B5%5D"
 
 # Current operational CE.
 DAP2_CE="${DAP2_CE_ONE_VAR}"
 
-# For this CE, we're using a different DMR++ that does not have the ClrORL_A
+# For this CE, we're using a different DMR++ that does not have the ClrORL_A variable
 # and we slide this so that we get the same number of bytes as with the previous
-# CE. The DMR++ is smaller than the whole DMR++ (case 8 adn 9) but bigger than
+# CE. The DMR++ is smaller than the whole DMR++ (case 8 and 9) but bigger than
 # the DMR++ in cases 6 and 7.
+# CH4_VMR_A[0:1:364][5][0:1:179][0:1:359]
 DAP2_CE_11="CH4_VMR_A%5B0:1:364%5D%5B5%5D%5B0:1:179%5D%5B0:1:359%5D"
 
 # Aggregates hdf5 files using the ncml module and the hdf5 module. The hdf5 files reside
 # on the local disk.
+
+## Aggregation, ncml mod and hdf5 mod with hdf5 files on disk.
 airs_local_join_new="http://t41m1.opendap.org:8080/opendap/t41m1/airs_local_join_new.ncml"
 
 # Aggregates hdf5 files using the ncml module and the hdf5 module. The hdf5 files reside
 # in S3 and are accessed by mounting the bucket onto the local filesystem using a FUSE
-# filesystem called riofs..
+# filesystem called riofs.
+
+## Aggregation, ncml mod and hdf5 mod with hdf5 files on S3 accesses using riofs.
 # airs_riofs_join_new="http://t41m1.opendap.org:8080/opendap/t41m1/airs_riofs_join_new.ncml"
 
 # Aggregates dmr++ files whose data objects reside on the local disk.
+
+## Aggregation, ncml mod and dmr++ mod with hdf5 files on disk.
 airs_dmrpp_local_join_new="http://t41m1.opendap.org:8080/opendap/t41m1/airs_dmrpp_local_join_new.ncml"
 
 # Aggregates dmr++ files whose data objects reside in S3.
+
+## Aggregation, ncml mod and dmr++ mod with hdf5 files on S3 
 airs_dmrpp_remote_join_new="http://t41m1.opendap.org:8080/opendap/t41m1/airs_dmrpp_remote_join_new.ncml"
 
-# Aggregates one data variable from the AIRS aggregtion inside the
+## For all of the DMR++ defined aggregations that follow, The Latitude
+## and Longitude variables are also included, both as one D maps and
+## as aggregated 2D arrays. jhrg 9/11/19
+
+# Aggregates one data variable from the AIRS aggregation inside the
 # dmr++ by defining chunks in the variable from multiple binary
 # objects. The latitude and longitude are included, both as one
 # dimensional and as a time aggregated array. In this case the binary
 # objects are in S3.
+
+## Aggregation, dmr++ mod for both aggregation and access with hdf5 files on S3.
+## Only one dependent variable (ClrOLR_A) is included in the single dmr++ file.
+## XML size 218 KB
 dmrpp_agg_test_06="http://t41m1.opendap.org:8080/opendap/t41m1/dmrpp_agg_test_06.dmrpp"
 
-# Aggregates one data variable from the AIRS aggregtion inside the
+# Aggregates one data variable from the AIRS aggregation inside the
 # dmr++ by defining chunks in the variable from multiple binary
 # objects. The latitude and longitude are included, both as one
 # dimensional and as a time aggregated array. In this case the objects
 # are on the local filesystem.
+
+## Aggregation, dmr++ mod for both aggregation and access with hdf5 files on disk.
+## Only one variable (ClrOLR_A) is included in the single dmr++ file.
+## XML size 237 KB
 dmrpp_agg_test_07="http://t41m1.opendap.org:8080/opendap/t41m1/dmrpp_agg_test_07.dmrpp"
 
 # Data in S3. Aggregate all variables
+
+## Aggregation, dmr++ mod for both aggregation and access with hdf5 files on S3.
+## All variables are included in the single dmr++ file.
+## XML size 110 MB, 778 variables
 dmrpp_agg_test_08="http://t41m1.opendap.org:8080/opendap/t41m1/dmrpp_agg_test_08.dmrpp.gz"
 
 # Data in the local FS. Aggregate all variables
+
+## Aggregation, dmr++ mod for both aggregation and access with hdf5 files on disk.
+## All variables are included in the single dmr++ file.
+## XML size 119 MB
 dmrpp_agg_test_09="http://t41m1.opendap.org:8080/opendap/t41m1/dmrpp_agg_test_09.dmrpp.gz"
 
 # The ClrORL suite. All variables whose names begin with ClrORL are aggregated here.
+
+## Aggregation, dmr++ mod for both aggregation and access with hdf5 files on S3.
+## Only Variables in the ClrORL_A suite are included in the single dmr++ file.
+## XML Size 2 MB, 34 variables
 dmrpp_agg_test_10="http://t41m1.opendap.org:8080/opendap/t41m1/dmrpp_agg_test_10.dmrpp.gz"
 
 # The "methane suite". All variables whose names begin with CH4_VMR are aggregated here.
+
+## Aggregation, dmr++ mod for both aggregation and access with hdf5 files on S3.
+## Only Variables in the CH4_VMR suite are included in the single dmr++ file.
+## XML size 12 MB, 34 variables
 dmrpp_agg_test_11="http://t41m1.opendap.org:8080/opendap/t41m1/dmrpp_agg_test_11.dmrpp.gz"
 
 # Data in the local FS, served by the TDS, aggregate all variables
+
+## Aggregation, uses the TDS server and its ncml and hdf5 software with hdf5 files on disk.
 airs_local_join_new_tds="http://54.164.114.242:8080/thredds/dodsC/local_fs/airs_local_join_new_tds.ncml"
 
 # Set to "yes" to run the aggregations that take along time.
