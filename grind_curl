@@ -22,7 +22,7 @@ DAP2_CE_AIRS_ONE_VAR_AGG="ClrOLR_A[0:1:364][0:1:179][0:1:359]"
 DAP2_VAR_SIZE_ONE_DAY=259343
 DAP2_VAR_SIZE_ONE_YEAR=94608110
 
-4MB=4194304
+FOUR_MBYTES=4194304
 
 BES_VERSION_INNER=100
 
@@ -186,7 +186,7 @@ function curl_same_chunk_many_files(){
     rm -vfr ${timing_file} ${log_file}
     cscmf_START=`date +%s`;
 
-    CHUNK_SIZE="${4MB}"
+    CHUNK_SIZE=${FOUR_MBYTES}
     RANGE_BEGIN=13028
     RANGE_END=`echo "${RANGE_BEGIN} + ${CHUNK_SIZE} - 1" | bc`
 
