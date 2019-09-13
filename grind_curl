@@ -109,7 +109,7 @@ function make_and_time_curl_range_get_request {
     echo "StartTime: "`${date_cmd}` >> ${timing_file}
     
     CURL_CONN_CONDITIONS="--connect-timeout ${CURL_CONNECTION_TIMEOUT} --retry-delay ${CURL_RETRY_DELAY} --retry ${CURL_RETRIES}"
-    echo "CURL_CONN_CONDITIONS: ${CURL_CONN_CONDITIONS}"
+#    echo "CURL_CONN_CONDITIONS: ${CURL_CONN_CONDITIONS}"
 
 
     { time -p ${CURL_APP} -s ${CURL_CONN_CONDITIONS} -r ${CURL_START}-${CURL_END} -g ${URL} > ${response_file}; } 2>>${timing_file}
@@ -149,7 +149,7 @@ function make_and_time_curl_get_request {
     echo "StartTime: "`${date_cmd}` >> ${timing_file}
     
     CURL_CONN_CONDITIONS="--connect-timeout ${CURL_CONNECTION_TIMEOUT} --retry-delay ${CURL_RETRY_DELAY} --retry ${CURL_RETRIES}"
-    echo "CURL_CONN_CONDITIONS: ${CURL_CONN_CONDITIONS}"
+#    echo "CURL_CONN_CONDITIONS: ${CURL_CONN_CONDITIONS}"
 
     { time -p ${CURL_APP} -s ${CURL_CONN_CONDITIONS} -g ${URL} > ${response_file}; } 2>>${timing_file}
     
