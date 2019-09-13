@@ -186,7 +186,7 @@ function curl_same_chunk_many_files(){
     rm -vfr ${timing_file} ${log_file}
     cscmf_START=`date +%s`;
 
-    CHUNK_SIZE=${4MB}
+    CHUNK_SIZE="${4MB}"
     RANGE_BEGIN=13028
     RANGE_END=`echo "${RANGE_BEGIN} + ${CHUNK_SIZE} - 1" | bc`
 
