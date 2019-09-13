@@ -109,6 +109,7 @@ function make_and_time_curl_range_get_request {
     echo "StartTime: "`${date_cmd}` >> ${timing_file}
     
     CURL_CONN_CONDITIONS="--connect-timeout ${CURL_CONNECTION_TIMEOUT} --retry-delay ${CURL_RETRY_DELAY} --retry ${CURL_RETRIES}"
+    echo "CURL_CONN_CONDITIONS: ${CURL_CONN_CONDITIONS}"
 
 
     { time -p ${CURL_APP} -s ${CURL_CONN_CONDITIONS} -r ${CURL_START}-${CURL_END} -g ${URL} > ${response_file}; } 2>>${timing_file}
@@ -146,7 +147,9 @@ function make_and_time_curl_get_request {
     echo "tag: ${tag}"  >> ${timing_file}
     echo "expected_size: ${expected_size}"  >> ${timing_file}
     echo "StartTime: "`${date_cmd}` >> ${timing_file}
+    
     CURL_CONN_CONDITIONS="--connect-timeout ${CURL_CONNECTION_TIMEOUT} --retry-delay ${CURL_RETRY_DELAY} --retry ${CURL_RETRIES}"
+    echo "CURL_CONN_CONDITIONS: ${CURL_CONN_CONDITIONS}"
 
     { time -p ${CURL_APP} -s ${CURL_CONN_CONDITIONS} -g ${URL} > ${response_file}; } 2>>${timing_file}
     
@@ -194,29 +197,34 @@ function curl_same_chunk_many_files(){
     echo -n "### curl_same_chunk_many_files() - BEGIN " >> ${timing_file}
     echo -n "reps: ${curl_same_chunk_many_files_REPS} start: ${cscmf_START}  " >> ${timing_file}
     echo -n "RANGE_BEGIN: ${RANGE_BEGIN} RANGE_END: ${RANGE_END}" >> ${timing_file}
-    for rep in `seq ${curl_same_chunk_many_files_REPS}`
-    do        
-        echo "###----------------------------------------------------------" >> ${timing_file}
-        echo "### curl_same_chunk_many_files() - Starting REP ${rep}" >> ${timing_file}
-        let chunk_num=0
-        while read DATASET; do
-            
-            echo "Requesting range from object: ${DATASET}" >> ${timing_file}
-            
-            URL="${OBJECT_STORE}/${OBJECT_PREFIX}/${DATASET}"
-            echo "  Object URL: ${URL} " >> ${timing_file}
-            
-            CURL_START=${RANGE_BEGIN}
-            echo "  CURL_START: ${CURL_START} " >> ${timing_file}
-
-            CURL_END=${RANGE_END}
-            echo "  CURL_END: ${CURL_END}" >> ${timing_file}
-            
-            make_and_time_curl_range_get_request "${rep}_${chunk_num}" 
-            
-            let chunk_num++
     
-        done <${AIRS_AGG_FILES}
+
+    for CURL_CONNECTION_TIMEOUT in 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
+    do
+        for rep in `seq ${curl_same_chunk_many_files_REPS}`
+        do        
+            echo "###----------------------------------------------------------" >> ${timing_file}
+            echo "### curl_same_chunk_many_files() - Starting REP ${rep} timeout: ${CURL_CONNECTION_TIMEOUT}" >> ${timing_file}
+            let chunk_num=0
+            while read DATASET; do
+                
+                echo "Requesting range from object: ${DATASET}" >> ${timing_file}
+                
+                URL="${OBJECT_STORE}/${OBJECT_PREFIX}/${DATASET}"
+                echo "  Object URL: ${URL} " >> ${timing_file}
+                
+                CURL_START=${RANGE_BEGIN}
+                echo "  CURL_START: ${CURL_START} " >> ${timing_file}
+    
+                CURL_END=${RANGE_END}
+                echo "  CURL_END: ${CURL_END}" >> ${timing_file}
+                
+                make_and_time_curl_range_get_request "${rep}_${chunk_num}" 
+                
+                let chunk_num++
+        
+            done <${AIRS_AGG_FILES}
+        done
     done
     cscmf_END=`date +%s`
     cscmf_ELAPSED=`echo ${cscmf_END} - ${cscmf_START} | bc`
@@ -379,12 +387,8 @@ function mk_csv(){
 # 
 # -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function run_test_suite(){
-
-    for CURL_CONNECTION_TIMEOUT in 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
-    do
-        curl_same_chunk_many_files
-        # curl_increasing_chunks_many_files
-    done
+    curl_same_chunk_many_files
+    # curl_increasing_chunks_many_files
     
 }
 
