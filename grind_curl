@@ -26,6 +26,8 @@ FOUR_MBYTES=4194304
 
 BES_VERSION_INNER=100
 
+CONNECTION_TIMEOUT_VALUES="0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0"
+
 AIRS_DMRPP_AGG_CHUNKS_TXT="airs_agg_clr_olr_chunks.txt"
 AIRS_DMRPP_AGG_FILES="airs_dmrpp_agg_files"
 AIRS_AGG_FILES="airs_AggFiles"
@@ -148,6 +150,7 @@ function make_and_time_curl_get_request {
     echo "StartTime: "`${date_cmd}` >> ${timing_file}
     
     CURL_CONN_CONDITIONS="--connect-timeout ${CURL_CONNECTION_TIMEOUT} --retry-delay ${CURL_RETRY_DELAY} --retry ${CURL_RETRIES}"
+    echo "CURL_CONNECTION_TIMEOUT: ${CURL_CONNECTION_TIMEOUT}" >> ${timing_file}
 #    echo "CURL_CONN_CONDITIONS: ${CURL_CONN_CONDITIONS}"
 
     { time -p ${CURL_APP} -s ${CURL_CONN_CONDITIONS} -g ${URL} > ${response_file}; } 2>>${timing_file}
@@ -198,7 +201,7 @@ function curl_same_chunk_many_files(){
     echo -n "RANGE_BEGIN: ${RANGE_BEGIN} RANGE_END: ${RANGE_END}" >> ${timing_file}
     
 
-    for CURL_CONNECTION_TIMEOUT in 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
+    for CURL_CONNECTION_TIMEOUT in ${CONNECTION_TIMEOUT_VALUES}
     do
         for rep in `seq ${curl_same_chunk_many_files_REPS}`
         do        
@@ -358,11 +361,12 @@ function mk_csv(){
         'BEGIN{
             startTimeKey="StartTime"; 
             size_key="expected_size"; 
-            elapsedTimeKey="real"; 
+            elapsedTimeKey="real";
+            timeoutKey="CURL_CONNECTION_TIMEOUT"
         }
         {
             if(index($0, boundaryKey)==1){
-                printf("\"%s\", %s, %s\n", startTime, size, elapsedTime);
+                printf("\"%s\", %s, %s, %s\n", startTime, size, elapsedTime, timeOut);
             }
             else {
                 if(index($0,startTimeKey)==1){
@@ -374,6 +378,9 @@ function mk_csv(){
                 }              
                 if(index($0,size_key)==1){
                     size = $2;
+                }              
+                if(index($0,timeoutKey)==1){
+                    timeOut = $2;
                 }              
             }
         }' ${timing_file} >> ${result_file}
