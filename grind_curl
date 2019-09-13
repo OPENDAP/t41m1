@@ -22,6 +22,8 @@ DAP2_CE_AIRS_ONE_VAR_AGG="ClrOLR_A[0:1:364][0:1:179][0:1:359]"
 DAP2_VAR_SIZE_ONE_DAY=259343
 DAP2_VAR_SIZE_ONE_YEAR=94608110
 
+4MB=4194304
+
 BES_VERSION_INNER=100
 
 AIRS_DMRPP_AGG_CHUNKS_TXT="airs_agg_clr_olr_chunks.txt"
@@ -106,6 +108,9 @@ function make_and_time_curl_range_get_request {
     echo "expected_size: ${expected_size}"  >> ${timing_file}
     echo "StartTime: "`${date_cmd}` >> ${timing_file}
     
+    CURL_CONN_CONDITIONS="--connect-timeout ${CURL_CONNECTION_TIMEOUT} --retry-delay ${CURL_RETRY_DELAY} --retry ${CURL_RETRIES}"
+
+
     { time -p ${CURL_APP} -s ${CURL_CONN_CONDITIONS} -r ${CURL_START}-${CURL_END} -g ${URL} > ${response_file}; } 2>>${timing_file}
     
     response_size=`cat ${response_file} | wc -c`
@@ -141,6 +146,7 @@ function make_and_time_curl_get_request {
     echo "tag: ${tag}"  >> ${timing_file}
     echo "expected_size: ${expected_size}"  >> ${timing_file}
     echo "StartTime: "`${date_cmd}` >> ${timing_file}
+    CURL_CONN_CONDITIONS="--connect-timeout ${CURL_CONNECTION_TIMEOUT} --retry-delay ${CURL_RETRY_DELAY} --retry ${CURL_RETRIES}"
 
     { time -p ${CURL_APP} -s ${CURL_CONN_CONDITIONS} -g ${URL} > ${response_file}; } 2>>${timing_file}
     
@@ -180,7 +186,7 @@ function curl_same_chunk_many_files(){
     rm -vfr ${timing_file} ${log_file}
     cscmf_START=`date +%s`;
 
-    CHUNK_SIZE=259343
+    CHUNK_SIZE=${4MB}
     RANGE_BEGIN=13028
     RANGE_END=`echo "${RANGE_BEGIN} + ${CHUNK_SIZE} - 1" | bc`
 
@@ -373,8 +379,13 @@ function mk_csv(){
 # 
 # -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function run_test_suite(){
-    curl_same_chunk_many_files
-    curl_increasing_chunks_many_files
+
+    for CURL_CONNECTION_TIMEOUT in 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0
+    do
+        curl_same_chunk_many_files
+        # curl_increasing_chunks_many_files
+    done
+    
 }
 
 #####################################################################################
@@ -394,7 +405,7 @@ mkdir -p ${RESULTS_DIR}
 
 echo ${HALF_MARK}
 
-USER_REPS=10;
+USER_REPS=1;
 
 set_test_reps ${USER_REPS}
 echo ${HALF_MARK}
@@ -433,7 +444,7 @@ function mk_multi_size_csv() {
     size_key="expected_size"; 
     elapsedTimeKey="real"; 
     
-    
+
     
     for timing_file in ${RESULTS_DIR}/*.multi_size
     #for timing_file in ${RESULTS_DIR}/*.time
