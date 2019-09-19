@@ -18,10 +18,13 @@ start = time.time()
  
 # Try to download the byte range (150MB)
 # Bucket is 'cloudydap'
-# Key is 'AKIAIQP3EXFOCKTROGXQ' which is my (jimg) key. I have my private key in 
-# for that public set in the .aws/credentials file. jhrg 9/19/19
+# Key is 'airs/AIRS.2015.01.01.L3.RetStd_IR001.v6.0.11.0.G15013155825.nc.h5'
+# jhrg 9/19/19
+
+airs_granule='airs/AIRS.2015.01.01.L3.RetStd_IR001.v6.0.11.0.G15013155825.nc.h5'
+
 try:
-  s3.get_object(Bucket='cloudydap', Key='AKIAIQP3EXFOCKTROGXQ', Range='bytes=0-157286400')
+  s3.get_object(Bucket='cloudydap', Key=airs_granule, Range='bytes=0-157286400')
 # Catch my ReadTimeoutError
 except ReadTimeoutError as e:
   # Stop the timer and print to screen
