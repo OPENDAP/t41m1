@@ -18,10 +18,11 @@ start = time.time()
  
 # Try to download the byte range (150MB)
 # Bucket is 'cloudydap'
-# Key is 'airs/AIRS.2015.01.01.L3.RetStd_IR001.v6.0.11.0.G15013155825.nc.h5'
-# jhrg 9/19/19
 
+# S3 Object key is an AIRS Granule
 airs_granule='airs/AIRS.2015.01.01.L3.RetStd_IR001.v6.0.11.0.G15013155825.nc.h5'
+
+# jhrg 9/19/19
 
 try:
   s3.get_object(Bucket='cloudydap', Key=airs_granule, Range='bytes=0-157286400')
