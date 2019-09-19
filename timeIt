@@ -1,6 +1,6 @@
 #!/bin/bash
 
-max_reps=1000
+max_reps=100
 
 run_tag=`date +%Y%m%d%H%M`
 RESULTS_DIR="./timeIt_${run_tag}.results"
@@ -18,7 +18,7 @@ DAP2_CE_ONE_DAY="ClrOLR_A%5B5%5D%5B0:1:179%5D%5B0:1:359%5D"
 DAP2_CE_ONE_LON="ClrOLR_A%5B0:1:359%5D%5B0:1:179%5D%5B5%5D"
 
 # Current operational CE.
-DAP2_CE="${DAP2_CE_ONE_VAR}"
+DAP2_CE="${DAP2_CE_ONE_LON}"
 
 # For this CE, we're using a different DMR++ that does not have the ClrORL_A variable
 # and we slide this so that we get the same number of bytes as with the previous
@@ -109,7 +109,7 @@ dmrpp_agg_test_11="http://t41m1.opendap.org:8080/opendap/t41m1/dmrpp_agg_test_11
 ## Aggregation, uses the TDS server and its ncml and hdf5 software with hdf5 files on disk.
 airs_local_join_new_tds="http://54.164.114.242:8080/thredds/dodsC/local_fs/airs_local_join_new_tds.ncml"
 
-# Set to "yes" to run the aggregations that take along time.
+# Set to "yes" to run the aggregations that take a long time.
 hyrax_trad_aggregations="yes"
 
 
@@ -206,17 +206,17 @@ do
     if test -n "$hyrax_trad_aggregations" -a "$hyrax_trad_aggregations" = "yes"
     then
         
-        #time_service_response "airs_local_join_new" "${airs_local_join_new}.dods?${DAP2_CE}"
+        # time_service_response "airs_local_join_new" "${airs_local_join_new}.dods?${DAP2_CE}"
         #time_service_response "airs_riofs_join_new" "${airs_riofs_join_new}.dods?${DAP2_CE}"
-        time_service_response "airs_dmrpp_local_join_new" "${airs_dmrpp_local_join_new}.dods?${DAP2_CE}" ${rep}
+        #time_service_response "airs_dmrpp_local_join_new" "${airs_dmrpp_local_join_new}.dods?${DAP2_CE}" ${rep}
                 
-        #time_service_response "airs_dmrpp_remote_join_new" "${airs_dmrpp_remote_join_new}.dods?${DAP2_CE}" ${rep}
+        time_service_response "airs_dmrpp_remote_join_new" "${airs_dmrpp_remote_join_new}.dods?${DAP2_CE}" ${rep}
         
     fi
 
     #time_service_response "dmrpp_agg_test_06" "${dmrpp_agg_test_06}.dods?${DAP2_CE}" ${rep}
-    time_service_response "dmrpp_agg_test_07" "${dmrpp_agg_test_07}.dods?${DAP2_CE}" ${rep}
-    #time_service_response "dmrpp_agg_test_08" "${dmrpp_agg_test_08}.dods?${DAP2_CE}" ${rep}
+    #time_service_response "dmrpp_agg_test_07" "${dmrpp_agg_test_07}.dods?${DAP2_CE}" ${rep}
+    time_service_response "dmrpp_agg_test_08" "${dmrpp_agg_test_08}.dods?${DAP2_CE}" ${rep}
     #time_service_response "dmrpp_agg_test_09" "${dmrpp_agg_test_09}.dods?${DAP2_CE}" ${rep}
     #time_service_response "dmrpp_agg_test_10" "${dmrpp_agg_test_10}.dods?${DAP2_CE}" ${rep}
     #time_service_response "dmrpp_agg_test_11" "${dmrpp_agg_test_11}.dods?${DAP2_CE_11}" ${rep}

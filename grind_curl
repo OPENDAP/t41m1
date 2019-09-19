@@ -12,7 +12,7 @@ RESULTS_DIR="./grind_curl_${run_tag}.results"
 
 CURL_RETRY_DELAY=1
 CURL_RETRIES=4
-CURL_CONNECTION_TIMEOUT=1
+CURL_CONNECTION_TIMEOUT=0.3
 CURL_CONN_CONDITIONS="--connect-timeout ${CURL_CONNECTION_TIMEOUT} --retry-delay ${CURL_RETRY_DELAY} --retry ${CURL_RETRIES}"
 
 
@@ -22,7 +22,11 @@ DAP2_CE_AIRS_ONE_VAR_AGG="ClrOLR_A[0:1:364][0:1:179][0:1:359]"
 DAP2_VAR_SIZE_ONE_DAY=259343
 DAP2_VAR_SIZE_ONE_YEAR=94608110
 
+FOUR_MBYTES=4194304
+
 BES_VERSION_INNER=100
+
+CONNECTION_TIMEOUT_VALUES="0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0"
 
 AIRS_DMRPP_AGG_CHUNKS_TXT="airs_agg_clr_olr_chunks.txt"
 AIRS_DMRPP_AGG_FILES="airs_dmrpp_agg_files"
@@ -36,12 +40,16 @@ if [ ${status} -ne 0 ]
 then
     # Assume it's OS-X
     date_cmd="date"
-    echo "Using OS-X date command syntax: '${date_cmd}'"
+    echo "Using OS-X date date command syntax: '${date_cmd}'"
+    CURL_APP="/usr/bin/curl"
 else 
     # It's some kind of Linux
     date_cmd="date -Ins"
-    echo "Using Linux command syntax: '${date_cmd}'"
+    echo "Using Linux date command syntax: '${date_cmd}'"
+    CURL_APP="/usr/local/bin/curl"
 fi
+
+echo "Using this curl application: '${CURL_APP}'"
 
 #####################################################################################
 #
@@ -102,7 +110,10 @@ function make_and_time_curl_range_get_request {
     echo "expected_size: ${expected_size}"  >> ${timing_file}
     echo "StartTime: "`${date_cmd}` >> ${timing_file}
     
-    { time -p curl -s ${CURL_CONN_CONDITIONS} -r ${CURL_START}-${CURL_END} -g ${URL} > ${response_file}; } 2>>${timing_file}
+    CURL_CONN_CONDITIONS="--connect-timeout ${CURL_CONNECTION_TIMEOUT} --retry-delay ${CURL_RETRY_DELAY} --retry ${CURL_RETRIES}"
+    echo "CURL_CONNECTION_TIMEOUT: ${CURL_CONNECTION_TIMEOUT}" >> ${timing_file}
+
+    { time -p ${CURL_APP} -s ${CURL_CONN_CONDITIONS} -r ${CURL_START}-${CURL_END} -g ${URL} > ${response_file}; } 2>>${timing_file}
     
     response_size=`cat ${response_file} | wc -c`
     echo `basename ${response_file}`" size: ${response_size} bytes"  >> ${timing_file}
@@ -137,8 +148,12 @@ function make_and_time_curl_get_request {
     echo "tag: ${tag}"  >> ${timing_file}
     echo "expected_size: ${expected_size}"  >> ${timing_file}
     echo "StartTime: "`${date_cmd}` >> ${timing_file}
+    
+    CURL_CONN_CONDITIONS="--connect-timeout ${CURL_CONNECTION_TIMEOUT} --retry-delay ${CURL_RETRY_DELAY} --retry ${CURL_RETRIES}"
+    echo "CURL_CONNECTION_TIMEOUT: ${CURL_CONNECTION_TIMEOUT}" >> ${timing_file}
+#    echo "CURL_CONN_CONDITIONS: ${CURL_CONN_CONDITIONS}"
 
-    { time -p curl -s ${CURL_CONN_CONDITIONS} -g ${URL} > ${response_file}; } 2>>${timing_file}
+    { time -p ${CURL_APP} -s ${CURL_CONN_CONDITIONS} -g ${URL} > ${response_file}; } 2>>${timing_file}
     
     # ls -l ${response_file} >> ${timing_file}
     response_size=`cat ${response_file} | wc -c`
@@ -176,7 +191,7 @@ function curl_same_chunk_many_files(){
     rm -vfr ${timing_file} ${log_file}
     cscmf_START=`date +%s`;
 
-    CHUNK_SIZE=259343
+    CHUNK_SIZE=${FOUR_MBYTES}
     RANGE_BEGIN=13028
     RANGE_END=`echo "${RANGE_BEGIN} + ${CHUNK_SIZE} - 1" | bc`
 
@@ -184,29 +199,34 @@ function curl_same_chunk_many_files(){
     echo -n "### curl_same_chunk_many_files() - BEGIN " >> ${timing_file}
     echo -n "reps: ${curl_same_chunk_many_files_REPS} start: ${cscmf_START}  " >> ${timing_file}
     echo -n "RANGE_BEGIN: ${RANGE_BEGIN} RANGE_END: ${RANGE_END}" >> ${timing_file}
-    for rep in `seq ${curl_same_chunk_many_files_REPS}`
-    do        
-        echo "###----------------------------------------------------------" >> ${timing_file}
-        echo "### curl_same_chunk_many_files() - Starting REP ${rep}" >> ${timing_file}
-        let chunk_num=0
-        while read DATASET; do
-            
-            echo "Requesting range from object: ${DATASET}" >> ${timing_file}
-            
-            URL="${OBJECT_STORE}/${OBJECT_PREFIX}/${DATASET}"
-            echo "  Object URL: ${URL} " >> ${timing_file}
-            
-            CURL_START=${RANGE_BEGIN}
-            echo "  CURL_START: ${CURL_START} " >> ${timing_file}
-
-            CURL_END=${RANGE_END}
-            echo "  CURL_END: ${CURL_END}" >> ${timing_file}
-            
-            make_and_time_curl_range_get_request "${rep}_${chunk_num}" 
-            
-            let chunk_num++
     
-        done <${AIRS_AGG_FILES}
+
+    for CURL_CONNECTION_TIMEOUT in ${CONNECTION_TIMEOUT_VALUES}
+    do
+        for rep in `seq ${curl_same_chunk_many_files_REPS}`
+        do        
+            echo "###----------------------------------------------------------" >> ${timing_file}
+            echo "### curl_same_chunk_many_files() - Starting REP ${rep} timeout: ${CURL_CONNECTION_TIMEOUT}" >> ${timing_file}
+            let chunk_num=0
+            while read DATASET; do
+                
+                echo "Requesting range from object: ${DATASET}" >> ${timing_file}
+                
+                URL="${OBJECT_STORE}/${OBJECT_PREFIX}/${DATASET}"
+                echo "  Object URL: ${URL} " >> ${timing_file}
+                
+                CURL_START=${RANGE_BEGIN}
+                echo "  CURL_START: ${CURL_START} " >> ${timing_file}
+    
+                CURL_END=${RANGE_END}
+                echo "  CURL_END: ${CURL_END}" >> ${timing_file}
+                
+                make_and_time_curl_range_get_request "${rep}_${chunk_num}" 
+                
+                let chunk_num++
+        
+            done <${AIRS_AGG_FILES}
+        done
     done
     cscmf_END=`date +%s`
     cscmf_ELAPSED=`echo ${cscmf_END} - ${cscmf_START} | bc`
@@ -341,11 +361,12 @@ function mk_csv(){
         'BEGIN{
             startTimeKey="StartTime"; 
             size_key="expected_size"; 
-            elapsedTimeKey="real"; 
+            elapsedTimeKey="real";
+            timeoutKey="CURL_CONNECTION_TIMEOUT"
         }
         {
             if(index($0, boundaryKey)==1){
-                printf("\"%s\", %s, %s\n", startTime, size, elapsedTime);
+                printf("\"%s\", %s, %s, %s\n", startTime, size, elapsedTime, timeOut);
             }
             else {
                 if(index($0,startTimeKey)==1){
@@ -357,6 +378,9 @@ function mk_csv(){
                 }              
                 if(index($0,size_key)==1){
                     size = $2;
+                }              
+                if(index($0,timeoutKey)==1){
+                    timeOut = $2;
                 }              
             }
         }' ${timing_file} >> ${result_file}
@@ -370,7 +394,8 @@ function mk_csv(){
 # -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - 
 function run_test_suite(){
     curl_same_chunk_many_files
-    curl_increasing_chunks_many_files
+    # curl_increasing_chunks_many_files
+    
 }
 
 #####################################################################################
@@ -390,7 +415,7 @@ mkdir -p ${RESULTS_DIR}
 
 echo ${HALF_MARK}
 
-USER_REPS=10;
+USER_REPS=100;
 
 set_test_reps ${USER_REPS}
 echo ${HALF_MARK}
@@ -429,7 +454,7 @@ function mk_multi_size_csv() {
     size_key="expected_size"; 
     elapsedTimeKey="real"; 
     
-    
+
     
     for timing_file in ${RESULTS_DIR}/*.multi_size
     #for timing_file in ${RESULTS_DIR}/*.time
