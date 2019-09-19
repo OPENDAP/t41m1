@@ -8,9 +8,12 @@ import time
 from botocore.client import Config
 from botocore.exceptions import ReadTimeoutError
  
- 
+# timeout value; was initially 0.05 but that was always giving a timeout error.
+# jhrg 9/19/19
+timeout=0.5
+
 # Initialize S3 client config with read_timeout set to an arbitrarily low number
-config = Config(connect_timeout=5, read_timeout=.05, retries={'max_attempts': 0})
+config = Config(connect_timeout=5, read_timeout=timeout, retries={'max_attempts': 0})
 s3 = boto3.client('s3', config=config)
  
 # Try to download the byte range (150MB)
