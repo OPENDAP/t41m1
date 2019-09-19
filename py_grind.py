@@ -13,21 +13,23 @@ from botocore.exceptions import ReadTimeoutError
 config = Config(connect_timeout=5, read_timeout=.05, retries={'max_attempts': 0})
 s3 = boto3.client('s3', config=config)
  
-# Start the timer
-start = time.time()
- 
 # Try to download the byte range (150MB)
 # Bucket is 'cloudydap'
 
 # S3 Object key is an AIRS Granule
 airs_granule='airs/AIRS.2015.01.01.L3.RetStd_IR001.v6.0.11.0.G15013155825.nc.h5'
-
+bytes='0-157286400'
 # jhrg 9/19/19
 
+# Start the timer
+start = time.time()
+ 
 try:
-  s3.get_object(Bucket='cloudydap', Key=airs_granule, Range='bytes=0-157286400')
+  s3.get_object(Bucket='cloudydap', Key=airs_granule, Range=bytes)
 # Catch my ReadTimeoutError
 except ReadTimeoutError as e:
   # Stop the timer and print to screen
-  end = time.time()
-  print(end - start)
+  print('Error: ' + str(e))
+
+end = time.time()
+print(end - start)
