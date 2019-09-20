@@ -7,6 +7,7 @@ import boto3
 import time
 from botocore.client import Config
 from botocore.exceptions import ReadTimeoutError
+import binascii
  
 # timeout value; was initially 0.05 but that was always giving a timeout error.
 # jhrg 9/19/19
@@ -28,11 +29,23 @@ bytes='0-157286400'
 start = time.time()
  
 try:
-  s3.get_object(Bucket='cloudydap', Key=airs_granule, Range=bytes)
-# Catch my ReadTimeoutError
+  # Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/
+  # reference/services/s3.html#S3.Client.get_object
+  # 'response['Body'] is an open StreamingBody object
+  response = s3.get_object(Bucket='cloudydap', Key=airs_granule, Range=bytes)
+
 except ReadTimeoutError as e:
-  # Stop the timer and print to screen
   print('Error: ' + str(e))
+
+one_meg = 1024 * 1024
+
+with open("data.bin", "wb") as ouput:
+  while True:
+    chunk = response['Body'].read(amt=one_meg)
+    if not chunk:
+      break
+    ouput.write(binascii.hexlify(chunk))
+    # ouput.write(chunk)
 
 end = time.time()
 print(end - start)
