@@ -12,9 +12,12 @@ from botocore.exceptions import ReadTimeoutError
  
 def read_bytes(airs_granule):
   """Use the boto3 s3 API to build a response object for a range-get 
-     read from an object in a S3 bucket. Then read those data and dump
-     them in a temporary file. Compute and print the time to build the
-     response object and get the data for later analysis."""
+  read from an object in a S3 bucket. Then read those data and dump
+  them in a temporary file. Compute and print the time to build the
+  response object and get the data for later analysis.
+
+  If the read operation fails to complete, return False, otehrwise
+  return True."""
 
   # Bucket is 'cloudydap'
 
@@ -28,6 +31,7 @@ def read_bytes(airs_granule):
 
   # Start the timer
   start = time.time()
+  status = True
 
   try:
     # Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/
@@ -46,22 +50,34 @@ def read_bytes(airs_granule):
 
   except ReadTimeoutError as e:
     print('Error: ' + str(e))
+    status = False
 
   end = time.time()
   print("Total time, {}".format(end - start))
+
+  return status
 
 ##
 ## Main
 ##
 
-filepath = '../airs_AggFiles'
+arguments = len(sys.argv) - 1
+if arguments == 0:
+  print("Usage {}: timeout value [object names]".format(sys.argv[0]))
+  exit(1)
+
+# timeout value; was initially 0.05 but that was always giving a timeout error.
+# jhrg 9/19/19
+timeout = float(sys.argv[1])
+
+if (arguments == 2):
+  filepath = sys.argv[2]
+else:
+  filepath = '../airs_AggFiles'
+
 with open(filepath) as fp:
   line = fp.readline()
   cnt = 1
-
-  # timeout value; was initially 0.05 but that was always giving a timeout error.
-  # jhrg 9/19/19
-  timeout=0.2
 
   # Initialize S3 client config with read_timeout set to an arbitrarily low number
   config = Config(connect_timeout=5, read_timeout=timeout, retries={'max_attempts': 0})
@@ -71,8 +87,16 @@ with open(filepath) as fp:
 
   while line:
     print("{}, {}".format(cnt, line.strip()))
+    
+    trial = 1
+    print("Trial: {}".format(trial))
+    status = read_bytes(line.strip())
 
-    read_bytes(line.strip())
+    while not status:
+      trial += 1
+      print("Trial: {}".format(trial))
+      status = read_bytes(line.strip())
+
     sys.stdout.flush()
 
     line = fp.readline()
