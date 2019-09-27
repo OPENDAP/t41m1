@@ -6,51 +6,74 @@
 
 import boto3
 import time
+import sys
 from botocore.client import Config
 from botocore.exceptions import ReadTimeoutError
-import binascii
  
-# timeout value; was initially 0.05 but that was always giving a timeout error.
-# jhrg 9/19/19
-timeout=0.5
+def read_bytes(airs_granule):
+  """Use the boto3 s3 API to build a response object for a range-get 
+     read from an object in a S3 bucket. Then read those data and dump
+     them in a temporary file. Compute and print the time to build the
+     response object and get the data for later analysis."""
 
-# Initialize S3 client config with read_timeout set to an arbitrarily low number
-config = Config(connect_timeout=5, read_timeout=timeout, retries={'max_attempts': 0})
-s3 = boto3.client('s3', config=config)
- 
-# Try to download the byte range (150MB)
-# Bucket is 'cloudydap'
+  # Bucket is 'cloudydap'
 
-# S3 Object key is an AIRS Granule
-airs_granule='airs/AIRS.2015.01.01.L3.RetStd_IR001.v6.0.11.0.G15013155825.nc.h5'
-bytes='bytes=0-157286400'
-# bytes='bytes=0-1024'
-# jhrg 9/19/19
+  # S3 Object key is an AIRS Granule
+  object='airs/' + airs_granule
 
-# Start the timer
-start = time.time()
- 
-try:
-  # Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/
-  # reference/services/s3.html#S3.Client.get_object
-  # 'response['Body'] is an open StreamingBody object
-  response = s3.get_object(Bucket='cloudydap', Key=airs_granule, Range=bytes)
+  # Try to download the byte range (150MB)
+  bytes='bytes=0-157286400'
+  # bytes='bytes=0-1024'
+  # jhrg 9/19/19
 
-except ReadTimeoutError as e:
-  print('Error: ' + str(e))
+  # Start the timer
+  start = time.time()
 
-end = time.time()
-print("Get object: {}".format(end - start))
+  try:
+    # Documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/
+    # reference/services/s3.html#S3.Client.get_object
+    # 'response['Body'] is an open StreamingBody object
+    response = s3.get_object(Bucket='cloudydap', Key=object, Range=bytes)
+    end = time.time()
+    print("Get object, {}".format(end - start))
 
-one_meg = 1024 * 1024
+    with open("data.bin", "wb") as ouput:
+      while True:
+        chunk = response['Body'].read(amt=one_meg)
+        if not chunk:
+          break
+        ouput.write(chunk)
 
-with open("data.bin", "wb") as ouput:
-  while True:
-    chunk = response['Body'].read(amt=one_meg)
-    if not chunk:
-      break
-    # ouput.write(binascii.hexlify(chunk))
-    ouput.write(chunk)
+  except ReadTimeoutError as e:
+    print('Error: ' + str(e))
 
-end = time.time()
-print("Total time: {}".format(end - start))
+  end = time.time()
+  print("Total time, {}".format(end - start))
+
+##
+## Main
+##
+
+filepath = '../airs_AggFiles'
+with open(filepath) as fp:
+  line = fp.readline()
+  cnt = 1
+
+  # timeout value; was initially 0.05 but that was always giving a timeout error.
+  # jhrg 9/19/19
+  timeout=0.2
+
+  # Initialize S3 client config with read_timeout set to an arbitrarily low number
+  config = Config(connect_timeout=5, read_timeout=timeout, retries={'max_attempts': 0})
+  s3 = boto3.client('s3', config=config)
+
+  one_meg = 1024 * 1024
+
+  while line:
+    print("{}, {}".format(cnt, line.strip()))
+
+    read_bytes(line.strip())
+    sys.stdout.flush()
+
+    line = fp.readline()
+    cnt += 1
