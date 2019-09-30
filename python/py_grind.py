@@ -53,7 +53,7 @@ def read_bytes(airs_granule):
     status = False
 
   end = time.time()
-  print("Total time, {}".format(end - start))
+  print("Time, {}".format(end - start))
 
   return status
 
@@ -88,6 +88,7 @@ with open(filepath) as fp:
   while line:
     print("{}, {}".format(cnt, line.strip()))
     
+    start = time.time()
     trial = 1
     print("Trial: {}".format(trial))
     status = read_bytes(line.strip())
@@ -97,6 +98,7 @@ with open(filepath) as fp:
       print("Trial: {}".format(trial))
       status = read_bytes(line.strip())
 
+    print("Total Time, {}".format(time.time() - start))
     sys.stdout.flush()
 
     line = fp.readline()
